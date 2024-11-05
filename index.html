@@ -14,7 +14,20 @@
         overflow: hidden;
     }
 
-    .button{
+    #cont{
+      width: 100%;
+      height: 80%;
+      position: absolute;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      background: black;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    button{
         cursor: pointer;
         padding-top: 2vh;
         padding-bottom: 2vh;
@@ -28,14 +41,26 @@
         margin:2vh;
         text-decoration: none;
     }
-    .button:hover{
+    button:hover{
         opacity: 0.5;
     }
       </style>
 
     </head>
     <body>
-
+      <script>
+        document.getElementById("search").addEventListener("onchange",()=>{
+          for (var button in document.getElementsByTagName("button")){
+            if (!button.innerHTML.toLowerCase().includes(document.getElementById("search").toLowerCase().value)){
+              button.style.display="none";
+            } else {
+              button.style.display="block";
+            }
+          }
+        });
+      </script>
+      <input id="search" type="text" placeholder="Search">
+<div id="cont">
       <a href="1/index.html"><button> 1</button></a>
       
       <a href="1v1lol/index.html"><button>1v1.lol</button></a>
@@ -804,6 +829,6 @@
       <a href="zombocalypse/index.html"><button>zombocalypse</button></a>
       
       <a href="zombs-royale/index.html"><button>zombs-royale </button></a>
-      
+      </div>
     </body>
 </html>
