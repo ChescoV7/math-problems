@@ -59,6 +59,9 @@
     button:hover{
         opacity: 0.5;
     }
+    ::placeholder{
+      color:white;
+    }
     ::-webkit-scrollbar {
     display: none; /* Hide scrollbar for WebKit browsers */
     }
@@ -66,17 +69,7 @@
 
     </head>
     <body>
-      <script>
-        document.getElementById("search").addEventListener("input",()=>{
-          for (var button in document.getElementsByTagName("button")){
-            if (!button.innerHTML.toLowerCase().includes(document.getElementById("search").toLowerCase().value)){
-              button.style.display="none";
-            } else {
-              button.style.display="block";
-            }
-          }
-        });
-      </script>
+
       <input id="search" type="text" placeholder="Search">
 <div id="cont">
       <a href="1/index.html"><button> 1</button></a>
@@ -848,5 +841,17 @@
       
       <a href="zombs-royale/index.html"><button>zombs-royale </button></a>
       </div>
+      <script>
+        document.getElementById("search").addEventListener("input",()=>{
+          for (var button in document.getElementsByTagName("button")){
+              var buttonText=document.getElementsByTagName("button")[button].innerHTML;
+            if (!buttonText.toLowerCase().includes(document.getElementById("search").value.toLowerCase())){
+              document.getElementsByTagName("button")[button].style.display="none";
+            } else {
+              document.getElementsByTagName("button")[button].style.display="";
+            }
+          }
+        });
+      </script>
     </body>
 </html>
