@@ -67,7 +67,7 @@
     </head>
     <body>
       <script>
-        document.getElementById("search").addEventListener("onchange",()=>{
+        document.getElementById("search").addEventListener("input",()=>{
           for (var button in document.getElementsByTagName("button")){
             if (!button.innerHTML.toLowerCase().includes(document.getElementById("search").toLowerCase().value)){
               button.style.display="none";
