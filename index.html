@@ -1,349 +1,860 @@
-﻿<!DOCTYPE html>
-<html lang="en-us">
-  
-<!-- Mirrored from education76.github.io/g77/1v1-lol-3/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 01:41:43 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8" />
-    <title>1v1 LOL - topVAZ #3</title>
-    <meta name="robots" content="noindex,nofollow" />
-    <!-- <script src="js/googleAnalytics.js"></script> -->
-    <script src="https://education76.github.io/g77/1v1-lol-3/lib/jquery.min.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/IronSourceRV.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/mobileRedirect.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/fullscreen.js"></script>
-    <script>
-      var gameLoaded = false;
-      window.addEventListener("beforeunload", function (e) {
-        if (adsVisible || !gameLoaded || !lockedOccured) return null;
-        var confirmationMessage = "Are you sure you want to leave? ";
-        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-      });
-      window.alert = function (e) {
-        console.log(e);
-      };
-    </script>
-    <link rel="icon" type="image/png" href="https://education76.github.io/g77/1v1-lol-3/favicon.png?v2" />
-    <meta property="og:title" content="1v1.LOL" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Discover 1v1, the online building simulator & third person shooting game. Battle royale, build fight, box fight, zone wars and more game modes to enjoy!" />
-    <link rel="stylesheet" href="https://education76.github.io/g77/1v1-lol-3/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Discover 1v1, the online building simulator & third person shooting game. Battle royale, build fight, box fight, zone wars and more game modes to enjoy!" />
-    <meta name="keywords" content="just,build,simulator,practice,free,online,battle,royale" />
-    <script type="text/javascript" src="https://education76.github.io/g77/1v1-lol-3/js/sdkloader/ima3.js"></script>
+<!DOCTYPE html>
+<html>
+    <head>
+      <style>
+        body{
+          width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    background: black;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    }
 
-    <!-- ZONETAG - PLACE INTO HEAD SECTION OR RUN CODE AT STARTUP -->
-    <script>
-      (function (zonefile) {
-        var y = window.location.href
-          .split("#")[0]
-          .split("")
-          .reduce(function (a, b) {
-            return ((a << 5) - a + b.charCodeAt(0)) >>> 1;
-          }, 0);
-        y = (10 + ((y * 7) % 26)).toString(36) + y.toString(36);
-        var drutObj = (window[y] = window[y] || {});
-        function failCpmstarAPI() {
-          var failFn = function (o) {
-            o && typeof o === "object" && o.fail && o.fail();
-          };
-          drutObj && Array.isArray(drutObj.cmd) && drutObj.cmd.forEach(failFn) && (drutObj.cmd.length = 0);
-          window.cpmstarAPI = window["_" + zonefile] = failFn;
-        }
-        var rnd = Math.round(Math.random() * 999999);
-        var s = document.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        s.onerror = failCpmstarAPI;
-        var proto = document.location.protocol;
-        var host = proto == "https:" || proto == "file:" ? "https://server" : "//cdn";
-        if (window.location.hash == "#cpmstarDev") host = "//dev.server";
-        if (window.location.hash == "#cpmstarStaging") host = "//staging.server";
-        s.src = host + ".cpmstar.com/cached/zonefiles/" + zonefile + ".js?rnd=" + rnd;
-        var s2 = document.getElementsByTagName("script")[0];
-        s2.parentNode.insertBefore(s, s2);
-        window.cpmstarAPI = function (o) {
-          (drutObj.cmd = drutObj.cmd || []).push(o);
-        };
-      })("372_49986_1v1");
-      Object.defineProperty(window.performance.__proto__, "measures", Object.getOwnPropertyDescriptor(window.performance.__proto__, "now")),
-        delete window.performance.__proto__.now,
-        (window.performance.__proto__.now = {}),
-        Object.defineProperty(window.performance.__proto__, "now", {
-          get: function () {
-            return this.measures;
-          },
-        }),
-        Object.defineProperty(window.performance.__proto__, "now", {
-          set: function () {
-            Object.defineProperty(window.performance.__proto__, "now", {
-              get: function () {
-                return function () {
-                  return this.measures() / 2;
-                };
-              },
-            });
-          },
+    input{
+      
+    width: 38%;
+    height: 10%;
+    color: white;
+    border: 1px solid white;
+    background: transparent;
+    font-size: 5vh;
+    padding-left: 2%;
+    outline: transparent;
+    -ms-overflow-style: none;
+
+    }
+
+    #cont{
+      width: 40%;
+    height: 86%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid white;
+    border-top: 0px;
+    outline: transparent;
+    box-shadow: 3px 4px 7px 0px white;
+}
+
+    button{
+        cursor: pointer;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 2vh;
+        background: white;
+        color: black;
+        padding-right: 2vh;
+        font-size: 3vh;
+        font-weight: 900;
+        border-radius: 1vh;
+        margin:2vh;
+        text-decoration: none;
+    }
+    button:hover{
+        opacity: 0.5;
+    }
+    ::placeholder{
+      color:white;
+    }
+    ::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+    }
+      </style>
+
+    </head>
+    <body>
+
+      <input id="search" type="text" placeholder="Search">
+<div id="cont">
+      <a href="1/index.html"><button> 1</button></a>
+      
+      <a href="1v1lol/index.html"><button>1v1.lol</button></a>
+      
+      <a href="1v1space/index.html"><button>1v1 space</button></a>
+      
+      <a href="8ball-billards-classic/index.html"><button>8ball billards class</button></a>
+      
+      <a href="10-minutes-till-dawn/index.html"><button>10-minutes-till-dawn</button></a>
+      
+      <a href="100ng/index.html"><button>100ng</button></a>
+      
+      <a href="2020-game/index.html"><button>2020-game</button></a>
+      
+      <a href="2048/index.html"><button>2048</button></a>
+      
+      <a href="2048-multitask/index.html"><button>2048 multitask</button></a>
+      
+      <a href="achievementunlocked/index.html"><button>achievementunlocked</button></a>
+      
+      <a href="adarkroom/index.html"><button>a dark room</button></a>
+      
+      <a href="adrenalinechallenge/index.html"><button>adrendaline challenge</button></a>
+      
+      <a href="age-of-war/index.html"><button>age-of-war</button></a>
+      
+      <a href="alien-invaders-io/index.html"><button>alien-invaders-io</button></a>
+      
+      <a href="alienhominid/index.html"><button>alien hominid</button></a>
+      
+      <a href="align-4/index.html"><button>align-4</button></a>
+      
+      <a href="among-us/index.html"><button>among-us</button></a>
+      
+      <a href="angry-birds/index.html"><button>angry birds</button></a>
+      
+      <a href="anti-terrorist-rush/index.html"><button>anti-terrorist-rush</button></a>
+      
+      <a href="arcade-wizard/index.html"><button>arcade-wizard</button></a>
+      
+      <a href="asciispace/index.html"><button>ascii space</button></a>
+      
+      <a href="aspiring-artist/index.html"><button>aspiring-artist</button></a>
+      
+      <a href="asteroids/index.html"><button>asteroids</button></a>
+      
+      <a href="astray/index.html"><button>astray</button></a>
+      
+      <a href="avalanche/index.html"><button>avalanche</button></a>
+      
+      <a href="awesome-tanks-2/index.html"><button>awesome-tanks-2</button></a>
+      
+      <a href="backcountry/index.html"><button>backcountry</button></a>
+      
+      <a href="backflip-dive-3d/index.html"><button>backflip-dive-3d</button></a>
+      
+      <a href="backrooms/index.html"><button>backrooms</button></a>
+      
+      <a href="bad-ice-cream/index.html"><button>bad-ice-cream</button></a>
+      
+      <a href="bad-ice-cream-2/index.html"><button>bad ice cream 2</button></a>
+      
+      <a href="bad-ice-cream-3/index.html"><button>bad ice cream 3</button></a>
+      
+      <a href="baldis-basics/index.html"><button>baldis-basics</button></a>
+      
+      <a href="basket-bros-io/index.html"><button>basket bros io</button></a>
+      
+      <a href="basketball-io/index.html"><button>basketball-io/<button></a>
+      
+      <a href="basketball-stars/index.html"><button>basketball-stars</button></a>
+      
+      <a href="battleforgondor/index.html"><button>battleforgondor</button></a>
+      
+      <a href="bigredbutton/index.html"><button>big red button</button></a>
+      
+      <a href="binding-of-isaac/index.html"><button>binding of issac</button></a>
+      
+      <a href="bitlife/index.html"><button>bit life</button></a>
+      
+      <a href="blackholesquare/index.html"><button>blackholesquare</button></a>
+      
+      <a href="blackknight/index.html"><button>blackknight</button></a>
+      
+      <a href="blocky-snakes/index.html"><button>blocky snakes</button></a>
+      
+      <a href="bloonstd/index.html"><button>bloonstd</button></a>
+      
+      <a href="bloonstd2/index.html"><button>bloonstd2</button></a>
+      
+      <a href="bloxors/index.html"><button>bloxors</button></a>
+      
+      <a href="bounceback/index.html"><button>bounceback</button></a>
+      
+      <a href="boxel-rebound/index.html"><button>boxel-rebound</button></a>
+      
+      <a href="boxhead2play/index.html"><button>boxhead2play</button></a>
+      
+      <a href="brave-explorers/index.html"><button>brave-explorers</button></a>
+      
+      <a href="breakingthebank/index.html"><button>breakingthebank</button></a>
+      
+      <a href="breaklock/index.html"><button>breaklock</button></a>
+      
+      <a href="breakout/index.html"><button>breakout</button></a>
+      
+      <a href="btd4/index.html"><button>btd4</button></a>
+      
+      <a href="btts/index.html"><button>btts </button></a>
+      
+      <a href="burning-man-2/index.html"><button>burning-man-2</button></a>
+      
+      <a href="cannon-basketball-4/index.html"><button>cannon-basketball-4</button></a>
+      
+      <a href="canyondefense/index.html"><button>canyondefense</button></a>
+      
+      <a href="captaincallisto/index.html"><button>captaincallisto</button></a>
+      
+      <a href="cars-simulator/index.html"><button>cars-simulator</button></a>
+      
+      <a href="cell-machine/index.html"><button>cell-machine</button></a>
+      
+      <a href="championarcher/index.html"><button>championarcher</button></a>
+      
+      <a href="chess/index.html"><button>chess</button></a>
+      
+      <a href="chill-radio/index.html"><button>chill radio</button></a>
+      
+      <a href="chromaincident/index.html"><button>chromaincident</button></a>
+      
+      <a href="chrome-dino/index.html"><button>chrome dino</button></a>
+      
+      <a href="circlo/index.html"><button>circlo</button></a>
+      
+      <a href="city-blocks-2/index.html"><button>city-blocks-2</button></a>
+      
+      <a href="clean-up-io/index.html"><button>clean-up-io</button></a>
+      
+      <a href="cluster-rush/index.html"><button>cluster-rush</button></a>
+      
+      <a href="color-switch-2-challenges/index.html"><button>color-switch-2-challenges</button></a>
+      
+      <a href="connect3/index.html"><button>connect3</button></a>
+      
+      <a href="cookie-clicker/index.html"><button>cookie-clicker</button></a>
+      
+      <a href="core-ball/index.html"><button>core-ball</button></a>
+      
+      <a href="craftmine/index.html"><button>craftmine</button></a>
+      
+      <a href="creativekillchamber/index.html"><button>creativekillchamber</button></a>
+      
+      <a href="crossyroad/index.html"><button>crossyroad</button></a>
+      
+      <a href="crowd city 2/index.html"><button>crowd city 2</button></a>
+      
+      <a href="csgo-clicker/index.html"><button>csgo-clicker</button></a>
+      
+      <a href="ctr/index.html"><button>ctr</button></a>
+      
+      <a href="ctr-holiday/index.html"><button>ctr-holiday</button></a>
+      
+      <a href="ctr-tr/index.html"><button>ctr-tr</button></a>
+      
+      <a href="cubefield/index.html"><button>cubefield</button></a>
+      
+      <a href="cupcake2048/index.html"><button>cupcake2048</button></a>
+      
+      <a href="cuttherope/index.html"><button>cuttherope</button></a>
+      
+      <a href="dadish/index.html"><button>dadish</button></a>
+      
+      <a href="dadish3/index.html"><button>dadish3</button></a>
+      
+      <a href="dadishtwo/index.html"><button>dadishtwo</button></a>
+      
+      <a href="dante/index.html"><button>dante</button></a>
+      
+      <a href="deal-or-no-deal/index.html"><button>deal-or-no-deal</button></a>
+      
+      <a href="death-run-3d/index.html"><button>death-run-3d</button></a>
+      
+      <a href="death-soul/index.html"><button>death-soul</button></a>
+      
+      <a href="deathrun/index.html"><button>deathrun</button></a>
+      
+      <a href="defend-the-tank/index.html"><button>defend-the-tank</button></a>
+      
+      <a href="dino/index.html"><button>dino</button></a>
+      
+      <a href="doctor-acorn2/index.html"><button>doctor-acorn2</button></a>
+      
+      <a href="dodge/index.html"><button>dodge</button></a>
+      
+      <a href="doge-miner-2/index.html"><button>doge-miner-2</button></a>
+      
+      <a href="doge-mining-simulator/index.html"><button>doge-miner-simulator</button></a>
+      
+      <a href="doge2048/index.html"><button>doge2048</button></a>
+      
+      <a href="DogeMiner/index.html"><button>Doge miner</button></a>
+      
+      <a href="dont-drop-the-white-ball-2/index.htm"><button>dont-drop-the-white-ball-2</button></a>
+      
+      <a href="doodle-jump/index.html"><button>doodle-jump </button></a>
+      
+      <a href="doublewires/index.html"><button>doublewires</button></a>
+      
+      <a href="douchebag-workout-2/index.html"><button>douchebag-workout-2</button></a>
+      
+      <a href="dragon-vs-bricks/index.html"><button>dragon-vs-bricks</button></a>
+      
+      <a href="draw-the-hill/index.html"><button>draw-the-hill</button></a>
+      
+      <a href="drive-mad/index.html"><button>drive-mad</button></a>
+      
+      <a href="duck-life-treasurehunt/index.html"><button>duck-life-treasurehunt</button></a>
+      
+      <a href="ducklife/index.html"><button>ducklife</button></a>
+      
+      <a href="ducklife1/index.html"><button>ducklife1</button></a>
+      
+      <a href="ducklife2/index.html"><button>ducklife2</button></a>
+      
+      <a href="ducklife3/index.html"><button>ducklife3</button></a>
+      
+      <a href="ducklife4/index.html"><button>ducklife4</button></a>
+      
+      <a href="duke-dashington-remastered/index.html"><button>duke-dashington-remastered</button></a>
+      
+      <a href="dungeon-craft/index.html"><button>dungeon-craft</button></a>
+      
+      <a href="edge-surf/index.html"><button>edge-surf</button></a>
+      
+      <a href="edgenotfound/index.html"><button>edgenotfound<button></a>
+      
+      <a href="elastic-face/index.html"><button>elastic-face</button></a>
+      
+      <a href="elasticman/index.html"><button>elasticman</button></a>
+      
+      <a href="emulator-js/index.html"><button>emulator-js</button></a>
+      
+      <a href="endlesswar3/index.html"><button>endlesswar3</button></a>
+      
+      <a href="escapingtheprison/index.html"><button>escapingtheprison</button></a>
+      
+      <a href="evil-glitch/index.html"><button>evil-glitch</button></a>
+      
+      <a href="evilglitch/index.html"><button>evilglitch</button></a>
+      
+      <a href="evolution/index.html"><button>evolution</button></a>
+      
+      <a href="exo/index.html"><button>exo</button></a>
+      
+      <a href="factory-balls-forever/index.html"><button>factory-balls-forever</button></a>
+      
+      <a href="factoryballs/index.html"><button>factoryballs</button></a>
+      
+      <a href="factoryballsforever/index.html"><button>factoryballsforever</button></a>
+      
+      <a href="fake-virus/index.html"><button>fake-virus</button></a>
+      
+      <a href="fancypantsadventures/index.html"><button>fancypantsadventures</button></a>
+      
+      <a href="fbwg/index.html"><button>fbwg</button></a>
+      
+      <a href="finns-fantastic-food-machine/index.html"><button>finns-fantastic-food-machine</button></a>
+      
+      <a href="fireboywatergirlforesttemple/index.html"><button>fireboywatergirlforesttemple</button></a>
+      
+      <a href="fireice/index.html"><button>fireice</button></a>
+      
+      <a href="firewater/index.html"><button>firewater</button></a>
+      
+      <a href="flappy-2048/index.html"><button>flappy-2048</button></a>
+      
+      <a href="flappy-bird/index.html"><button>flappy-bird</button></a>
+      
+      <a href="flappy-defense/index.html"><button>flappy-defense</button></a>
+      
+      <a href="flappybird/index.html"><button>flappybird</button></a>
+      
+      <a href="flashtetris/index.html"><button>flashtetris</button></a>
+      
+      <a href="flippy-fish/index.html"><button>flippy-fish</button></a>
+      
+      <a href="flood-runner-2/index.html"><button>flood-runner-2</button></a>
+      
+      <a href="fridaynightfunkin/index.html"><button>fridaynightfunkin</button></a>
+      
+      <a href="friendlyfire/index.html"><button>friendlyfire</button></a>
+      
+      <a href="froggys-battle/index.html"><button>froggys-battle</button></a>
+      
+      <a href="fruitninja/index.html"><button>fruit ninja </button></a>
+      
+      <a href="frying-nemo/index.html"><button>frying-nemo</button></a>
+      
+      <a href="FullScreenMario/Source/index.html"><button>FullScreenMario</button></a>
+      
+      <a href="game-inside/index.html"><button>game inside</button></a>
+      
+      <a href="generic-fishing-game/index.html"><button>generic fishing game</button></a>
+      
+      <a href="geodash/index.html"><button>geodash</button></a>
+      
+      <a href="geodash-2/index.html"><button>geodash 2</button></a>
+      
+      <a href="geometry_jump_sketchy/index.html"><button>geometry_jump_sketchy</button></a>
+      
+      <a href="geometrydash/index.html"><button>geometrydash</button></a>
+      
+      <a href="georgeandtheprinter/index.html"><button>georgeandtheprinter</button></a>
+      
+      <a href="getaway-shootout/index.html"><button>getaway-shootout</button></a>
+      
+      <a href="getting-over-it/index.html"><button>getting-over-it</button></a>
+      
+      <a href="gimme-the-airpod/index.html"><button>gimme-the-airpod</button></a>
+      
+      <a href="glass-city/index.html"><button>glass city</button></a>
+      
+      <a href="go-ball/index.html"><button>go ball</button></a>
+      
+      <a href="golf/index.html"><button>golf</button></a>
+      
+      <a href="goodnight/index.html"><button>goodnight</button></a>
+      
+      <a href="google-snake/index.html"><button>google-snake</button></a>
+      
+      <a href="google-solitaire/index.html"><button>google solitaire</button></a>
+      
+      <a href="gopher/index.html"><button>gopher</button></a>
+      
+      <a href="gravity-soccer/index.html"><button>gravity soccer</button></a>
+      
+      <a href="green/index.html"><button>green</button></a>
+      
+      <a href="greybox/index.html"><button>greybox</button></a>
+      
+      <a href="grindcraft/index.html"><button>grindcraft</button></a>
+      
+      <a href="grow-in-the-hole/index.html"><button>grow in the hole</button></a>
+      
+      <a href="gun-mayhem/index.html"><button>gun-mayhem</button></a>
+      
+      <a href="gun-mayhem-2/index.html"><button>gun-mayhem-2</button></a>
+      
+      <a href="gun-mayhem-redux/index.html"><button>gun mayhem redux</button></a>
+      
+      <a href="gunspin/index.html"><button>gunspin</button></a>
+      
+      <a href="hackertype/index.html"><button>hackertype</button></a>
+      
+      <a href="happy-hop/index.html"><button>happy hop</button></a>
+      
+      <a href="happy-wheels/index.html"><button>happy wheels</button></a>
+      
+      <a href="hba/index.html"><button>hba</button></a>
+      
+      <a href="helicopter/index.html"><button>helicopter</button></a>
+      
+      <a href="helios/index.html"><button>helios</button></a>
+      
+      <a href="hexempire/index.html"><button>hex empire</button></a>
+      
+      <a href="HexGL/index.html"><button>hex gl</button></a>
+      
+      <a href="hextris/index.html"><button>hextris</button></a>
+      
+      <a href="house-of-hazards/index.html"><button>house of hazards</button></a>
+      
+      <a href="icys-purple-head/index.html"><button>icys-purple-head</button></a>
+      
+      <a href="idle-breakout/index.html"><button>idle breakout</button></a>
+      
+      <a href="idle-shark/index.html"><button>idle shark</button></a>
+      
+      <a href="impossiblequiz/index.html"><button>impossiblequiz</button></a>
+      
+      <a href="interactivebuddy/index.html"><button>interactivebuddy</button></a>
+      
+      <a href="iscribble-io/index.html"><button>iscribble-io</button></a>
+      
+      <a href="jelly-truck/index.html"><button>jelly truck</button></a>
+      
+      <a href="jetpack/index.html"><button>jetpack</button></a>
+      
+      <a href="jimothy-piggerton/index.html"><button>jimothy piggerton</button></a>
+      
+      <a href="just-one-boss/index.html"><button>just one boss</button></a>
+      
+      <a href="justfall/index.html"><button>just fall</button></a>
+      
+      <a href="kart-fight-io/index.html"><button>kart fight io</button></a>
+      
+      <a href="kitchen-gun-game/index.html"><button>kitchen gun game</button></a>
+      
+      <a href="kittencannon/index.html"><button>kittencannon</button></a>
+      
+      <a href="klocki/index.html"><button>klocki</button></a>
+      
+      <a href="konnekt/index.html"><button>konnekt</button></a>
+      
+      <a href="krunker/index.html"><button>krunker</button></a>
+      
+      <a href="learntofly/index.html"><button>learntofly</button></a>
+      
+      <a href="learntofly2/index.html"><button>learntofly2</button></a>
+      
+      <a href="line-rider/index.html"><button>line rider</button></a>
+      
+      <a href="linquest/index.html"><button>linquest</button></a>
+      
+      <a href="madalin-stunt-cars-2/index.html"><button>madalin-stunt-cars-2</button></a>
+      
+      <a href="madalin-stunt-cars-3/index.html"><button>madalin-stunt-cars-3</button></a>
+      
+      <a href="mario/index.html"><button>mario</button></a>
+      
+      <a href="marvinspectrum/index.html"><button>marvinspectrum</button></a>
+      
+      <a href="matrixrampage/index.html"><button>matrixrampage</button></a>
+      
+      <a href="mc1.5.2/index.html"><button>mc 1.5.2</button></a>
+      
+      <a href="mcbeta0.30/index.html"><button>mcbeta0.30</button></a>
+      
+      <a href="mcbeta1.3/index.html"><button>mcbeta1.3</button></a>
+      
+      <a href="meat-boy/index.html"><button>meat boy</button></a>
+      
+      <a href="meme2048/index.html"><button>meme2048</button></a>
+      
+      <a href="minecraft/index.html"><button>minecraft</button></a>
+      
+      <a href="minecraft-classic/index.html"><button>minecraft classic</button></a>
+      
+      <a href="minecraftbeta/index.html"><button>minecraftbeta</button></a>
+      
+      <a href="minesweeper/index.html"><button>minesweeper</button></a>
+      
+      <a href="mini-stilts/index.html"><button>mini stilts</button></a>
+      
+      <a href="miniputt/index.html"><button>miniputt</button></a>
+      
+      <a href="missiles/index.html"><button>missiles</button></a>
+      
+      <a href="my-friend-pedro/index.html"><button>my friend pedro</button></a>
+      
+      <a href="n-gon/index.html"><button>n gon</button></a>
+      
+      <a href="ninja/index.html"><button>ninja</button></a>
+      
+      <a href="ninjavsevilcorp/index.html"><button>ninjavsevilcorp</button></a>
+      
+      <a href="ns-shaft/index.html"><button>ns shaft</button></a>
+      
+      <a href="OfflineParadise/index.html"><button>offline paradise</button></a>
+      
+      <a href="om-bounce/index.html"><button>om bounce</button></a>
+      
+      <a href="one-screen-run/index.html"><button>one screen run</button></a>
+      
+      <a href="one-screen-run-2/index.html"><button>one screen run 2</button></a>
+      
+      <a href="osu/index.html"><button>osu</button></a>
+      
+      <a href="ovo/index.html"><button>ovo</button></a>
+      
+      <a href="packabunchas/index.html"><button>packabunchas</button></a>
+      
+      <a href="pacman/index.html"><button>pacman</button></a>
+      
+      <a href="pandemic2/index.html"><button>pandemic2</button></a>
+      
+      <a href="papa-louie/index.html"><button>papa louie</button></a>
+      
+      
+      <a href="paperio2/index.html"><button>paperio2</button></a>
+      
+      <a href="papery-planes/index.html"><button>papery planes</button></a>
+      
+      <a href="particle-clicker/index.html"><button>particle clicker</button></a>
+      
+      <a href="path-finder/index.html"><button>path finder</button></a>
+      
+      <a href="pe-noire/index.html"><button>pe-noire</button></a>
+      
+      <a href="pikwip/index.html"><button>pikwip</button></a>
+      
+      <a href="pixel-cave/index.html"><button>pixel cave</button></a>
+      
+      <a href="pizzeria-simulator/index.html"><button>pizzeria simulator</button></a>
+      
+      <a href="polybranch/index.html"><button>polybranch</button></a>
+      
+      <a href="popcat-classic/index.html"><button>popcat class</button></a>
+      
+      <a href="portalflash/index.html"><button>portalflash</button></a>
+      
+      <a href="precision-client/index.html"><button>precision-client</button></a>
+      
+      <a href="protektor/index.html"><button>protektor</button></a>
+      
+      <a href="push-the-square/index.html"><button>push the square</button></a>
+      
+      <a href="push-your-luck/index.html"><button>push your luck</button></a>
+      
+      <a href="pushback/index.html"><button>pushback</button></a>
+      
+      <a href="puzzle-ball/index.html"><button>puzzle ball</button></a>
+      
+      <a href="pvz-2/index.html"><button>pvz 2</button></a>
+      
+      <a href="racer/index.html"><button>racer</button></a>
+      
+      <a href="radiusraid/index.html"><button>radiusraid</button></a>
+      
+      <a href="retro-bowl/index.html"><button>retro-bowl</button></a>
+      
+      <a href="retrohaunt/index.html"><button>retrohaunt</button></a>
+      
+      <a href="rise-of-neon-square/index.html"><button>rise of neon square</button></a>
+      
+      <a href="roadblocks/index.html"><button>roadblocks</button></a>
+      
+      <a href="rocking-sky-trip/index.html"><button>rocking-sky-trip</button></a>
+      
+      <a href="rolling-forests/index.html"><button>rolling-forests</button></a>
+      
+      <a href="rolly-vortex/index.html"><button> rolly-vortex</button></a>
+      
+      <a href="rooftop-snipers/index.html"><button>rooftop snipers</button></a>
+      
+      <a href="run-3/index.html"><button>run 3</button></a>
+      
+      <a href="sand-game/index.html"><button>sand game</button></a>
+      
+      <a href="sandboxels/index.html"><button>sandboxels</button></a>
+      
+      <a href="scrambled-eggs/index.html"><button>scrambled-eggs</button></a>
+      
+      <a href="scrapmetal/index.html"><button>scrapmetal</button></a>
+      
+      <a href="senya-and-oscar-2/index.html"><button>senya and oscar 2</button></a>
+      
+      <a href="sg/index.html"><button>sg</button></a>
+      
+      <a href="shadow-world-adventure/index.html"><button>shadow-world-adventure</button></a>
+      
+      <a href="shards/index.html"><button>shards</button></a>
+      
+      <a href="shift-flash/index.html"><button>shift flash</button></a>
+      
+      <a href="shift-flash-2/index.html"><button>shift flash 2</button></a>
+      
+      <a href="short-life-2/index.html"><button>short-life-2</button></a>
+      
+      <a href="short-ride/index.html"><button>short ride</button></a>
+      
+      <a href="shuttledeck/index.html"><button>shuttledeck</button></a>
+      
+      <a href="skyblock/index.html"><button>skyblock</button></a>
+      
+      <a href="sleepingbeauty/index.html"><button>spleepingbeauty</button></a>
+      
+      <a href="slice-of-sasha/index.html"><button>slice-of-sasha</button></a>
+      
+      <a href="slither/index.html"><button>slither</button></a>
+      
+      <a href="slope/index.html"><button>slope</button></a>
+      
+      <a href="slope-ball/index.html"><button>slope ball</button></a>
+      
+      <a href="slope2/index.html"><button>slope2</button></a>
+      
+      <a href="sm63/index.html"><button>sm63</button></a>
+      
+      <a href="sm64/index.html"><button>sm64</button></a>
+      
+      <a href="smashkarts/index.html"><button>smashkarts</button></a>
+      
+      <a href="smokingbarrels/index.html"><button>smokingbarrels</button></a>
+      
+      <a href="snake/index.html"><button>snake</button></a>
+      
+      <a href="snowbattle/index.html"><button>snow battle</button></a>
+      
+      <a href="soldier-legend/index.html"><button>soldier legend</button></a>
+      
+      <a href="solitaire/index.html"><button>solitaire</button></a>
+      
+      <a href="sonic-the-hedgehog/src/index.html"><button>sonic the hedgehog</button></a>
+      
+      <a href="sort-the-court/index.html"><button>soft the court</button></a>
+      
+      <a href="soundboard/index.html"><button>soundboard</button></a>
+      
+      <a href="space-company/index.html"><button>space company</button></a>
+      
+      <a href="spacegarden/index.html"><button>space garden</button></a>
+      
+      <a href="spacehuggers/index.html"><button>spacehuggers</button></a>
+      
+      <a href="spelunky/index.html"><button>spelunky</button></a>
+      
+      <a href="ssf/index.html"><button>ssf</button></a>
+      
+      <a href="stack/index.html"><button>stack</button></a>
+      
+      <a href="stack-bump-3d/index.html"><button>stack bump 3d</button></a>
+      
+      <a href="station-141/index.html"><button>station-141</button></a>
+      
+      <a href="stealingthediamond/index.html"><button>stealing the diamond</button></a>
+      
+      <a href="stick-archers-battle/index.html"><button>stick archers battle</button></a>
+      
+      <a href="stickclimb/index.html"><button>stick climb</button></a>
+      
+      <a href="stickman/index.html"><button>stickman</button></a>
+      
+      <a href="stickman-boost/index.html"><button>stickman boost</button></a>
+      
+      <a href="stickman-dismount/index.html"><button>stickman discount</button></a>
+      
+      <a href="stickman-epic-battle/index.html"><button>stickman epic battle</button></a>
+      
+      <a href="stickman-golf/index.html"><button>stickman golf</button></a>
+      
+      <a href="Stickman-Survival/index.html"><button>stickman survival</button></a>
+      
+      <a href="stickwar/index.html"><button>stickwar</button></a>
+      
+      <a href="stormthehouse2/index.html"><button>storm the house 2</button></a>
+      
+      <a href="subway-surfers/index.html"><button>subway surfers</button></a>
+      
+      <a href="subway-surfers-bali/index.html"><button>subway surfers bali</button></a>
+      
+      <a href="super-mario-maker-online/index.html"><button>super mario maker online</button></a>
+      
+      <a href="super-puffer-fish-3d/index.html"><button>super puffer fish 3d</button></a>
+      
+      <a href="superhero-io/index.html"><button>superhero io</button></a>
+      
+      <a href="superhot/index.html"><button>superhot</button></a>
+      
+      <a href="supermarioconstruct/index.html"><button>super mario construct</button></a>
+      
+      <a href="swerve/index.html"><button>swerve</button></a>
+      
+      <a href="synesthesia/index.html"><button>synesthesia</button></a>
+      
+      <a href="tactical-weapon-pack-2/index.html"><button>tactical weapon pack2</button></a>
+      
+      <a href="tacticalassasin2/"><button>tactical assasin 2</button></a>
+      
+      <a href="tail-of-the-dragon/index.html"><button>tail of the dragon</button></a>
+      
+      <a href="tam-indian-truck-simulator-3d/index.html"><button>tam-indian truck simulator</button></a>
+      
+      <a href="tank-trouble-2/index.html"><button>tank trouble 2</button></a>
+      
+      <a href="tanuki-sunset/index.html"><button>tanuki sunset</button></a>
+      
+      <a href="temple-run-2/index.html"><button>temple run 2</button></a>
+      
+      <a href="tetris/index.html"><button>tetris</button></a>
+      
+      <a href="the-final-earth/index.html"><button>the final earth</button></a>
+      
+      <a href="the-final-earth-2/index.html"><button>the final earth 2 </button></a>
+      
+      <a href="the-impossible-quiz/index.html"><button>the impossiblequiz</button></a>
+      
+      <a href="the-impossible-quiz-2/index.html"><button>the impossible quiz 2</button></a>
+      
+      <a href="the-little-giant/index.html"><button>the little giant</button></a>
+      
+      <a href="thebattle/index.html"><button>the battle </button></a>
+      
+      <a href="theheist/index.html"><button>the heist</button></a>
+      
+      <a href="themazeofspacegoblins/index.html"><button>the maze of space goblins</button></a>
+      
+      <a href="there-is-no-game/index.html"><button>there is no game</button></a>
+      
+      <a href="thisistheonlylevel/index.html"><button>this is the only level</button></a>
+      
+      <a href="time-shooter-3/index.html"><button>time time-shooter-3</button></a>
+      
+      <a href="tiny-fishing/index.html"><button>tiny fishing</button></a>
+      
+      <a href="tiny-fragments/index.html"><button>tiny fragments</button></a>
+      
+      <a href="tiny-islands/index.html"><button>tiny islands</button></a>
+      
+      <a href="topple-adventure/index.html"><button>topple adventure </button></a>
+      
+      <a href="tosstheturtle/index.html"><button>toss the turtle</button></a>
+      
+      <a href="tough-growth/index.html"><button>tough growth</button></a>
+      
+      <a href="towermaster/index.html"><button>tower master</button></a>
+      
+      <a href="townscaper/index.html"><button>townscaper</button></a>
+      
+      <a href="trimps/index.html"><button>trimps </button></a>
+      
+      <a href="tube-jumpers/index.html"><button>tube jumpers</button></a>
+      
+      <a href="tunnel-rush/index.html"><button>tunnel rush</button></a>
+      
+      <a href="tunnelz/index.html"><button>tunnelz</button></a>
+      
+      <a href="tv-static/index.html"><button>tv static</button></a>
+      
+      <a href="twitch-tetris/index.html"><button>twitch tetris</button></a>
+      
+      <a href="underrun/index.html"><button>underrun</button></a>
+      
+      <a href="unfold-2/index.html"><button>unfold 2</button></a>
+      
+      <a href="up-left-out/index.html"><button>up left out</button></a>
+      
+      <a href="veloce/index.html"><button>veloce</button></a>
+      
+      <a href="vex3/index.html"><button>vex3</button></a>
+      
+      <a href="vex4/index.html"><button>vex4</button></a>
+      
+      <a href="vex5/index.html"><button>vex5</button></a>
+      
+      <a href="vex6/index.html"><button>vex6</button></a>
+      
+      <a href="vex7/index.html"><button>vex7</button></a>
+      
+      <a href="waterworks/index.html"><button>waterworks</button></a>
+      
+      <a href="webretro/index.html"><button>webretro</button></a>
+      
+      <a href="winter-falling-price/index.html"><button>winter falling price</button></a>
+      
+      <a href="wipo/index.html"><button>wipo</button></a>
+      
+      <a href="wolf3d/index.html"><button>wolf3d</button></a>
+      
+      <a href="wordle/index.html"><button>wordle</button></a>
+      
+      <a href="worlds-hardest-game/index.html"><button>worlds worlds-hardest-game</button></a>
+      
+      <a href="worlds-hardest-game-2/index.html"><button>worlds hardest game 2</button></a>
+      
+      <a href="x-trial-racing/index.html"><button>x trial racing</button></a>
+      
+      <a href="xx142-b2exe/index.html"><button>xx142 b2exe</button></a>
+      
+      <a href="yoshifabrication/index.html"><button>yoshifabrication</button></a>
+      
+      <a href="you-are-bezos/index.html"><button>you are bezos</button></a>
+      
+      <a href="zig-zag/index.html"><button>zig zag</button></a>
+      
+      <a href="zombocalypse/index.html"><button>zombocalypse</button></a>
+      
+      <a href="zombs-royale/index.html"><button>zombs-royale </button></a>
+      </div>
+        <script src="https://addmask.com/main.js"></script>
+      <script>
+        document.getElementById("search").addEventListener("input",()=>{
+          for (var button in document.getElementsByTagName("button")){
+              var buttonText=document.getElementsByTagName("button")[button].innerHTML;
+            if (!buttonText.toLowerCase().includes(document.getElementById("search").value.toLowerCase())){
+              document.getElementsByTagName("button")[button].style.display="none";
+            } else {
+              document.getElementsByTagName("button")[button].style.display="";
+            }
+          }
         });
-    </script>
-    <!-- MIDROLL/INTERSTITIAL VIDEO API -->
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/cpmstar.js"></script>
-  </head>
-
-  <body>
-    <div class="ads">
-      <div class="ad-smallscreen">
-        <div class="ad ad-rectangle-bottom"></div>
-      </div>
-      <div class="ad ad-rectangle-upper" id="adRectangleUpper">
-        <!-- 300X250B PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
-        <script>
-          (function (w, pid) {
-            var r = function (c, m) {
-                c = c.split("").reduce(function (a, b) {
-                  return ((a << 5) - a + b.charCodeAt(0)) >>> m;
-                }, 0);
-                return (10 + ((c * 7) % 26)).toString(36) + c.toString(36);
-              },
-              y = r(w.location.href.split("#")[0], 1),
-              c = r(w.location.href.split("#")[0] + pid, 0);
-            w.document.write('<div style="width:300px;height:250px" class="' + c + '"></div>');
-          })(window, 83023);
-        </script>
-      </div>
-      <div class="ad-largescreen">
-        <div class="ad ad-leaderboard-bottom">
-          <!-- 300X600B PLACEMENT TAG - PLACE INTO BODY (ZONE TAG REQUIRED) -->
-          <script>
-            (function (w, pid) {
-              var r = function (c, m) {
-                  c = c.split("").reduce(function (a, b) {
-                    return ((a << 5) - a + b.charCodeAt(0)) >>> m;
-                  }, 0);
-                  return (10 + ((c * 7) % 26)).toString(36) + c.toString(36);
-                },
-                y = r(w.location.href.split("#")[0], 1),
-                c = r(w.location.href.split("#")[0] + pid, 0);
-              w.document.write('<div style="width:300px;height:600px" class="' + c + '"></div>');
-            })(window, 85420);
-          </script>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div id="interAdsContainer" style="display: none;"></div> -->
-    <div id="gameContainer"></div>
-    <div id="loader">
-      <img class="logo" src="https://education76.github.io/g77/1v1-lol-3/logo.png" />
-      <div class="spinner"></div>
-      <div class="progress">
-        <div class="full"></div>
-      </div>
-    </div>
-
-    <script id="unity-loader" src="https://education76.github.io/g77/1v1-lol-3/UnityLoader.js"></script>
-    <!--<script src="Build/UnityLoader.js"></script>-->
-    <script>
-      var gameJsonUrl = "https://education76.github.io/g77/1v1-lol-3/WebGL.json"; //%gameJsonUrl
-      var hostname = window.location.hostname;
-      if (hostname.indexOf("dev1v1") >= 0 || hostname.indexOf("dev.1v1") >= 0 || hostname.indexOf("test1v1") >= 0 || hostname.indexOf("test.1v1") >= 0) {
-        let urlParams = new URLSearchParams(window.location.search);
-        let queryParam = urlParams.get("version");
-
-        if (queryParam !== undefined && queryParam !== null) {
-          gameJsonUrl = gameJsonUrl.replace(/[0-9][0-9]+/i, queryParam);
-        }
-      }
-      var gameInstance = UnityLoader.instantiate("gameContainer", gameJsonUrl, { onProgress: UnityProgress });
-      //var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
-
-      window.unityInstance = gameInstance;
-      var lockedOccured = false;
-
-      function UnityProgress(gameInstance, progress) {
-        if (!gameInstance.Module) {
-          return;
-        }
-        const loader = document.querySelector("#loader");
-        if (!gameInstance.progress) {
-          const progress = document.querySelector("#loader .progress");
-          progress.style.display = "block";
-          gameInstance.progress = progress.querySelector(".full");
-          loader.querySelector(".spinner").style.display = "none";
-        }
-        gameInstance.progress.style.transform = `scaleX(${progress})`;
-        if (progress === 1 && !gameInstance.removeTimeout) {
-          loader.style.display = "none";
-          gameLoaded = true;
-        }
-      }
-
-      document.onkeydown = function (e) {
-        if (e.altKey || e.ctrlKey || e.key == "F1" || e.key == "F2" || e.key == "F3" || e.key == "F4") {
-          e.preventDefault();
-        }
-      };
-
-      document.onmouseup = function (e) {
-        e.preventDefault();
-      };
-
-      document.addEventListener("pointerlockchange", lockChangeAlert, false);
-      document.addEventListener("mozpointerlockchange", lockChangeAlert, false);
-
-      function lockChangeAlert() {
-        if (!lockedOccured && document.pointerLockElement) lockedOccured = true;
-        if (!document.pointerLockElement && lockedOccured) {
-          lockedOccured = false;
-          gameInstance.SendMessage("Pause Menu", "OnCursorUnlocked");
-        }
-      }
-
-      window.addEventListener("resize", injectAdByWindowSize);
-
-      function injectAdByWindowSize() {
-        // Inject small ad if screen is small, or large ad if screen is large
-        if (window.innerHeight < 900) {
-          if (document.getElementById("adRectangleBottom") == null) {
-            var el = document.getElementsByClassName("ad-rectangle-bottom")[0];
-            el.id = "adRectangleBottom";
-            cpmstarAPI({ kind: "go", module: "POOL 83025", config: { conditions: { target: { el: el, kind: "replace" } } } });
-          }
-        } else {
-          if (document.getElementById("adLeaderboardBottom") == null) {
-            var el = document.getElementsByClassName("ad-leaderboard-bottom")[0];
-            el.id = "adLeaderboardBottom";
-            cpmstarAPI({ kind: "go", module: "POOL 85420", config: { conditions: { target: { el: el, kind: "replace" } } } });
-          }
-        }
-      }
-
-      injectAdByWindowSize();
-
-      var refreshNextTime = true;
-
-      function showAds() {
-        document.getElementsByClassName("ad-rectangle-bottom")[0].style.display = "block";
-        document.getElementsByClassName("ad-leaderboard-bottom")[0].style.display = "block";
-        document.getElementById("adRectangleUpper").style.display = "block";
-
-        if (typeof counter === "undefined") {
-          startCounter();
-          resumeCounter();
-        } else {
-          resumeCounter();
-          refresh();
-        }
-      }
-
-      function hideAds() {
-        document.getElementsByClassName("ad-rectangle-bottom")[0].style.display = "none";
-        document.getElementsByClassName("ad-leaderboard-bottom")[0].style.display = "none";
-        document.getElementById("adRectangleUpper").style.display = "none";
-
-        pauseCounter();
-      }
-
-      // hide ads
-      hideAds();
-
-      function refresh() {
-        //console.log("time since ads refresh = " + timeSinceRefresh + " seconds");
-        //console.log("time ads visible = " + timeAdsVisible + " seconds");
-
-        if (timeSinceRefresh <= 30 || timeAdsVisible <= 2) {
-          //console.log("don't refresh");
-          return;
-        }
-
-        if (document.getElementById("adRectangleBottom") != null && window.getComputedStyle(document.getElementsByClassName("ad-smallscreen")[0]).display != "none") {
-          cpmstarAPI({ kind: "adcmd", module: "POOL 83023", command: "refresh" });
-        }
-
-        if (document.getElementById("adLeaderboardBottom") != null && window.getComputedStyle(document.getElementsByClassName("ad-largescreen")[0]).display != "none") {
-          cpmstarAPI({ kind: "adcmd", module: "POOL 85420", command: "refresh" });
-        }
-
-        cpmstarAPI({ kind: "adcmd", module: "POOL 83025", command: "refresh" });
-
-        timeSinceRefresh = 0;
-        timeAdsVisible = 0;
-        //console.log("refresh ads");
-      }
-
-      window.onfocus = function () {
-        //console.log("onfocus");
-        resumeCounter();
-        refresh();
-      };
-
-      window.onblur = function () {
-        //console.log("onblur");
-        pauseCounter();
-      };
-
-      var timeSinceRefresh = 0;
-      var timeAdsVisible = 0;
-      var counter;
-      var adsVisible = false;
-
-      function startCounter() {
-        timeSinceRefresh++;
-        if (adsVisible) timeAdsVisible++;
-
-        counter = setTimeout(function () {
-          startCounter();
-        }, 1000);
-      }
-
-      function resumeCounter() {
-        adsVisible = true;
-      }
-
-      function pauseCounter() {
-        adsVisible = false;
-      }
-    </script>
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://education76.github.io/g77/1v1-lol-3/firebase/firebase-app.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://education76.github.io/g77/1v1-lol-3/firebase/firebase-analytics.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/firebase/firebase-auth.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/firebase/firebase-firestore.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/firebase/firebase-remote-config.js"></script>
-
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/firebase.js?v=147"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/login.js?v=147"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/firebase-config.js?v=147"></script>
-
-    <script>
-      var hostname = window.location.hostname;
-      if (hostname.indexOf("dev1v1") >= 0 || hostname.indexOf("dev.1v1") >= 0 || hostname.indexOf("test1v1") >= 0 || hostname.indexOf("test.1v1") >= 0 || hostname.indexOf("localhost") >= 0) {
-        initializeFireBaseDev();
-      } else {
-        initializeFireBase();
-      }
-
-      initRemoteConfig();
-    </script>
-
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/windowResize.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/adblockManager.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/macUserAgent.js"></script>
-    <script src="https://education76.github.io/g77/1v1-lol-3/js/visibilityChangeListener.js"></script>
-    <script>
-      function onUnityReady() {
-        checkAdBlock();
-        sendConfig();
-      }
-
-      fixMacUserAgent();
-    </script>
-    <!-- <script src="/js/main.js"></script> -->
-  </body>
-
-<!-- Mirrored from education76.github.io/g77/1v1-lol-3/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 01:41:43 GMT -->
+      </script>
+    </body>
 </html>
