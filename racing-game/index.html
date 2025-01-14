@@ -1,0 +1,155 @@
+<script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+<script src="https://cdn.babylonjs.com/recast.js"></script>
+<script src="https://cdn.babylonjs.com/ammo.js"></script>
+<script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+<script src="https://cdn.babylonjs.com/cannon.js"></script>
+<script src="https://cdn.babylonjs.com/Oimo.js"></script>
+<script src="https://cdn.babylonjs.com/earcut.min.js"></script>
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+<script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+<script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+<script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+<script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+<script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+<style>
+  html,
+  body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #renderCanvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  #menucont {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    background: transparent;
+    top: 0px;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 4vh;
+    font-family: cursive;
+  }
+
+  .button {
+    font-size: 5vh;
+    background: white;
+    color: black;
+    border-radius: 1vh;
+    border: 1vh solid black;
+    font-family: cursive;
+    padding: 1vh;
+    margin: 1vh;
+    animation: jumpin 0.3s linear;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+
+  #easy,
+  #medium,
+  #hard,
+  #lap1,
+  #lap2,
+  #lap3 {
+    display: none;
+  }
+
+  @keyframes jumpin {
+    0% {
+      transform: scale(0%);
+    }
+    75% {
+      transform: scale(120%);
+    }
+    100% {
+      transform: scale(100%);
+    }
+  }
+
+  .counter {
+    display: none;
+  }
+
+  #timer,
+  #high {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+  }
+  #high {
+    font-size: 3vh;
+    top: 15vh;
+  }
+</style>
+<canvas id="renderCanvas"></canvas>
+<script src="script.js"></script>
+<div
+  style="
+    position: absolute;
+    color: white;
+    font-size: 4vh;
+    font-family: cursive;
+    left: 1vw;
+    top: 1vw;
+  "
+>
+  Lap:
+  <div id="laps" style="display: inline">1</div>
+</div>
+<div id="menucont">
+  <button id="play" class="button" style="display: none" onclick="choosedif();">
+    Start
+  </button>
+
+  <button
+    id="easy"
+    style="background-color: green"
+    class="button"
+    onclick="setdif(1);chooselaps();"
+  >
+    Easy
+  </button>
+  <button
+    id="medium"
+    style="background-color: yellow"
+    class="button"
+    onclick="setdif(2);chooselaps();"
+  >
+    Medium
+  </button>
+  <button
+    id="hard"
+    style="background-color: red"
+    class="button"
+    onclick="setdif(3);chooselaps();"
+  >
+    Hard
+  </button>
+
+  <button id="lap1" class="button" onclick="start(1);">1 Lap</button>
+  <button id="lap2" class="button" onclick="start(2);">2 Laps</button>
+  <button id="lap3" class="button" onclick="start(3);">3 Laps</button>
+
+  <h1 id="1" class="counter">3</h1>
+  <h1 id="2" class="counter">2</h1>
+  <h1 id="3" class="counter">1</h1>
+  <h1 id="go" class="counter">Go!</h1>
+
+  <h1 id="timer">0</h1>
+  <h1 id="high">0</h1>
+</div>
