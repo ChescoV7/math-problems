@@ -1,3 +1,11 @@
+:root {
+    --inputbg: #a134dc;
+    --inputborder: #b153e3;
+    --uibg: #ab28cf;
+    --textcolor: #d3a4fa;
+    --bg: #8e14af;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +19,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #121212, #1e1e1e);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--bg), #240046);
+    color: var(--textcolor);
     padding: 20px;
 }
 
@@ -21,7 +29,7 @@ h1 {
     margin: 20px 0;
     text-align: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    color: #4CAF50;
+    color: var(--inputborder);
 }
 
 .search-container {
@@ -35,10 +43,10 @@ h1 {
     width: 100%;
     padding: 12px 20px;
     font-size: 1.1rem;
-    border: 2px solid #4CAF50;
+    border: 2px solid var(--inputborder);
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    background: var(--inputbg);
+    color: var(--textcolor);
     outline: none;
     transition: all 0.3s ease;
 }
@@ -48,16 +56,16 @@ h1 {
 }
 
 #search:focus {
-    border-color: #66BB6A;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+    border-color: #c77dff;
+    background: rgba(161, 52, 220, 0.2);
+    box-shadow: 0 0 8px rgba(177, 83, 227, 0.3);
 }
 
 #cont {
     width: 100%;
     max-width: 1200px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--uibg);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
@@ -75,8 +83,8 @@ button {
     padding: 12px;
     font-size: 1rem;
     font-weight: 600;
-    background: #4CAF50;
-    color: #ffffff;
+    background: var(--inputborder);
+    color: var(--textcolor);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -86,7 +94,7 @@ button {
 }
 
 button:hover {
-    background: #45A049;
+    background: #9d4edd;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -106,12 +114,12 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4CAF50;
+    background: var(--inputborder);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #45A049;
+    background: #9d4edd;
 }
 
 @media (max-width: 768px) {
