@@ -14,6 +14,13 @@
         <div class="header-content">
             <h1>Game Hub</h1>
             <p class="subtitle">Discover and play amazing games instantly</p>
+            <!-- Added fullscreen toggle button -->
+            <button id="fullscreen-toggle" class="fullscreen-btn">
+                <svg class="fullscreen-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+                <span class="fullscreen-text">Fullscreen</span>
+            </button>
         </div>
     </header>
 
@@ -33,8 +40,10 @@
             </div>
         </div>
 
-        <div id="cont" class="games-container">
-            <div class="game-grid">
+        <!-- Centered games container with purple themed boxes -->
+        <div class="centered-games-wrapper">
+            <div id="cont" class="games-container">
+                <div class="game-grid">
                 <!-- Updated all game buttons with better structure and kept all original games -->
                 <a href="1/index.html" class="game-link"><button class="game-button">1</button></a>
                 <a href="1on1l0l/index.html" class="game-link"><button class="game-button">1v1.lol</button></a>
@@ -429,6 +438,7 @@
                 <a href="zombs-royale/index.html" class="game-link"><button class="game-button">Zombs Royale</button></a>
             </div>
         </div>
+    </div>
     </main>
 
     <script>
@@ -480,6 +490,34 @@
             if (e.key === "/" && document.activeElement !== searchInput) {
                 e.preventDefault();
                 searchInput.focus();
+            }
+        });
+
+        const fullscreenToggle = document.getElementById("fullscreen-toggle");
+        const fullscreenText = document.querySelector(".fullscreen-text");
+        
+        fullscreenToggle.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    fullscreenText.textContent = "Exit Fullscreen";
+                }).catch(err => {
+                    console.log("[v0] Error attempting to enable fullscreen:", err);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    fullscreenText.textContent = "Fullscreen";
+                }).catch(err => {
+                    console.log("[v0] Error attempting to exit fullscreen:", err);
+                });
+            }
+        });
+
+        // Update button text when fullscreen changes via other means (F11, etc.)
+        document.addEventListener("fullscreenchange", () => {
+            if (document.fullscreenElement) {
+                fullscreenText.textContent = "Exit Fullscreen";
+            } else {
+                fullscreenText.textContent = "Fullscreen";
             }
         });
     </script>
