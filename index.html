@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub - Play Your Favorite Games</title>
+    <!-- Updated title from Game Hub to Arctic -->
+    <title>Arctic</title>
     <!-- Added favicon link -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
@@ -17,8 +18,9 @@
         <header class="header">
             <!-- Added logo image to header -->
             <div class="header-left">
-                <img src="logo.png" alt="Game Hub Logo" class="logo">
-                <h1 class="title">Game Hub</h1>
+                <!-- Updated alt text and title references to Arctic -->
+                <img src="logo.png" alt="Arctic Logo" class="logo">
+                <h1 class="title">Arctic</h1>
             </div>
             <div class="header-controls">
                 <nav class="tab-nav">
@@ -127,8 +129,9 @@
                 <div class="settings-section">
                     <h3>Theme Selection</h3>
                     <div class="theme-buttons">
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white;" onclick="setTheme('purple')">Purple (Current)</button>
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white;" onclick="setTheme('blue')">Blue</button>
+                        <!-- Updated theme button to show Arctic Blue as current -->
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;" onclick="setTheme('arctic')">Arctic Blue (Current)</button>
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white;" onclick="setTheme('purple')">Purple</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #10b981, #34d399); color: white;" onclick="setTheme('green')">Green</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white;" onclick="setTheme('orange')">Orange</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #ef4444, #f87171); color: white;" onclick="setTheme('red')">Red</button>
@@ -221,6 +224,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Added watermark for chesco -->
+    <div class="watermark">made by chesco</div>
 
     <!-- Game Modal -->
     <div id="game-modal" class="modal">
@@ -420,7 +426,8 @@
         }
 
         function resetTabCloak() {
-            document.title = 'Game Hub - Play Your Favorite Games';
+            // Updated default title to Arctic
+            document.title = 'Arctic - Play Your Favorite Games';
             document.getElementById('tab-title').value = '';
             document.getElementById('tab-icon').value = '';
             localStorage.removeItem('cloaked-title');
