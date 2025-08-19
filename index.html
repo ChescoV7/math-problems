@@ -133,6 +133,8 @@
                         <button class="theme-btn" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white;" onclick="setTheme('orange')">Orange</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #ef4444, #f87171); color: white;" onclick="setTheme('red')">Red</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #6b7280, #9ca3af); color: white;" onclick="setTheme('dark')">Dark</button>
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #596eb1, #95baf1); color: white;" onclick="setTheme('egamepass')">Egamepass</button>
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #aaaaaa, #555555); color: white;" onclick="setTheme('lightmode')">Lightmode</button>
                     </div>
                     <div class="settings-description">
                         Choose from predefined themes or create your own custom theme below.
@@ -296,6 +298,89 @@
     </div>
 
     <script>
+        const themes = {
+            "arctic": {
+                "--input-bg-color": "#1e3a8a88",
+                "--main-text-color": "#e0f2fe",
+                "--p-text-color": "#bae6fd",
+                "--border-color": "#0ea5e9bb",
+                "--game-color": "#0284c766",
+                "--bg-1": "#0c4a6e",
+                "--bg-2": "#082f49",
+                "--invert-logo": "0"
+            },
+            "lightmode": {
+                "--input-bg-color": "#aaaaaa88",
+                "--main-text-color": "#555555",
+                "--p-text-color": "#a1a1a1",
+                "--border-color": "#5a5a5abb",
+                "--game-color": "#5e5e5e66",
+                "--bg-1": "#dcdcdc",
+                "--bg-2": "#d3d3d3",
+                "--invert-logo": "1"
+            },
+            "egamepass": {
+                "--input-bg-color": "#596eb188",
+                "--main-text-color": "#95baf1",
+                "--p-text-color": "#8daad8",
+                "--border-color": "#527ac4bb",
+                "--game-color": "#5376eb66",
+                "--bg-1": "#244580",
+                "--bg-2": "#181157",
+                "--invert-logo": "0"
+            },
+            "purple": {
+                "--input-bg-color": "#7c3aed88",
+                "--main-text-color": "#e9d5ff",
+                "--p-text-color": "#c4b5fd",
+                "--border-color": "#8b5cf6bb",
+                "--game-color": "#7c3aed66",
+                "--bg-1": "#581c87",
+                "--bg-2": "#3b0764",
+                "--invert-logo": "0"
+            },
+            "green": {
+                "--input-bg-color": "#059f4688",
+                "--main-text-color": "#d1fae5",
+                "--p-text-color": "#a7f3d0",
+                "--border-color": "#10b981bb",
+                "--game-color": "#059f4666",
+                "--bg-1": "#064e3b",
+                "--bg-2": "#022c22",
+                "--invert-logo": "0"
+            },
+            "orange": {
+                "--input-bg-color": "#ea580c88",
+                "--main-text-color": "#fed7aa",
+                "--p-text-color": "#fdba74",
+                "--border-color": "#f59e0bbb",
+                "--game-color": "#ea580c66",
+                "--bg-1": "#9a3412",
+                "--bg-2": "#7c2d12",
+                "--invert-logo": "0"
+            },
+            "red": {
+                "--input-bg-color": "#dc262688",
+                "--main-text-color": "#fecaca",
+                "--p-text-color": "#fca5a5",
+                "--border-color": "#ef4444bb",
+                "--game-color": "#dc262666",
+                "--bg-1": "#991b1b",
+                "--bg-2": "#7f1d1d",
+                "--invert-logo": "0"
+            },
+            "dark": {
+                "--input-bg-color": "#37415188",
+                "--main-text-color": "#f3f4f6",
+                "--p-text-color": "#d1d5db",
+                "--border-color": "#6b7280bb",
+                "--game-color": "#37415166",
+                "--bg-1": "#1f2937",
+                "--bg-2": "#111827",
+                "--invert-logo": "0"
+            }
+        };
+
         const games = [
             { name: "2048", url: "https://play2048.co/" },
             { name: "Snake", url: "https://www.google.com/fbx?fbx=snake_arcade" },
@@ -332,6 +417,9 @@
         let filteredGames = [...games];
 
         window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('selected-theme') || 'arctic';
+            applyTheme(savedTheme);
+            
             // Load saved settings
             const savedTitle = localStorage.getItem('cloaked-title');
             const savedIcon = localStorage.getItem('cloaked-icon');
@@ -584,8 +672,39 @@
             alert('Tab cloak reset successfully!');
         }
 
-        function setTheme(theme) {
-            alert(`Theme changed to: ${theme}`);
+        function setTheme(themeName) {
+            applyTheme(themeName);
+            localStorage.setItem('selected-theme', themeName);
+            
+            // Update theme button text to show current selection
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            themeButtons.forEach(btn => {
+                const btnTheme = btn.onclick.toString().match(/setTheme$$'(\w+)'$$/);
+                if (btnTheme) {
+                    const theme = btnTheme[1];
+                    if (theme === themeName) {
+                        btn.textContent = btn.textContent.replace(' (Current)', '') + ' (Current)';
+                    } else {
+                        btn.textContent = btn.textContent.replace(' (Current)', '');
+                    }
+                }
+            });
+        }
+
+        function applyTheme(themeName) {
+            const theme = themes[themeName];
+            if (theme) {
+                const root = document.documentElement;
+                Object.keys(theme).forEach(property => {
+                    root.style.setProperty(property, theme[property]);
+                });
+                
+                // Apply logo inversion if needed
+                const logo = document.querySelector('.logo');
+                if (logo) {
+                    logo.style.filter = theme['--invert-logo'] === '1' ? 'invert(1)' : 'invert(0)';
+                }
+            }
         }
 
         function setPassword() {
