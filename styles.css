@@ -121,6 +121,31 @@ body::before {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+/* Watermark styles */
+.watermark {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+    border-top: 2px solid var(--primary-purple);
+    box-shadow: var(--shadow-purple);
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+}
+
+.watermark p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.watermark p:hover {
+    opacity: 1;
+}
 
 .subtitle {
   font-size: 1.375rem;
