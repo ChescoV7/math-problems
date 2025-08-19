@@ -25,12 +25,10 @@
                 <nav class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab('games')">Games</button>
                     <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+                    <!-- Added new About Blank Opener tab -->
+                    <button class="tab-btn" onclick="switchTab('opener')">About Blank</button>
                 </nav>
-                <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-                    </svg>
-                </button>
+                <!-- Removed fullscreen button from header -->
             </div>
         </header>
 
@@ -222,6 +220,51 @@
                 </div>
             </div>
         </div>
+
+        <!-- Added new About Blank Opener tab content -->
+        <div id="opener-tab" class="tab-content">
+            <div class="opener-container">
+                <h2 class="opener-title">About:Blank Opener</h2>
+                <div class="opener-content">
+                    <div class="opener-description">
+                        <p>Launch Arctic in a new about:blank window to completely hide the URL from browser history and address bar.</p>
+                        <p>This provides maximum stealth and privacy while browsing.</p>
+                    </div>
+                    
+                    <div class="opener-controls">
+                        <button class="opener-button primary" onclick="openInAboutBlank()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15,3 21,3 21,9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Open in About:Blank
+                        </button>
+                        
+                        <button class="opener-button secondary" onclick="openInNewTab()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                            Open in New Tab
+                        </button>
+                    </div>
+                    
+                    <div class="opener-features">
+                        <h3>Features:</h3>
+                        <ul>
+                            <li>✓ Complete URL masking</li>
+                            <li>✓ No browser history traces</li>
+                            <li>✓ Bypasses most web filters</li>
+                            <li>✓ Maximum privacy protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Added watermark for chesco -->
@@ -296,16 +339,6 @@
             }
         }
 
-        // Check stealth mode on page load
-        window.addEventListener('load', function() {
-            const stealthEnabled = localStorage.getItem('stealth-mode') === 'true';
-            document.getElementById('stealth-mode').checked = stealthEnabled;
-            
-            if (stealthEnabled && window.location.href !== 'about:blank') {
-                activateStealthMode();
-            }
-        });
-
         // Tab functionality
         function switchTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
@@ -320,7 +353,7 @@
             });
 
             document.getElementById(tabId + '-tab').classList.add('active');
-            const button = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase() === tabId);
+            const button = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase().includes(tabId === 'opener' ? 'about blank' : tabId));
             if (button) {
                 button.classList.add('active');
             }
@@ -521,6 +554,30 @@
                 document.getElementById('tab-icon').value = savedIcon;
             }
         });
+
+        function openInAboutBlank() {
+            // Get the entire HTML content
+            const htmlContent = document.documentElement.outerHTML;
+            
+            // Open about:blank window
+            const newWindow = window.open('about:blank', '_blank');
+            
+            if (newWindow) {
+                // Write content to the new window
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
+                
+                // Focus the new window
+                newWindow.focus();
+            } else {
+                alert('Popup blocked! Please allow popups for this site and try again.');
+            }
+        }
+
+        function openInNewTab() {
+            // Simple new tab opener
+            window.open(window.location.href, '_blank');
+        }
     </script>
 </body>
 </html>
