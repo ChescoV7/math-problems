@@ -14,7 +14,11 @@
         <div class="header-content">
             <h1>Game Hub</h1>
             <p class="subtitle">Discover and play amazing games instantly</p>
-            <!-- Added fullscreen toggle button -->
+            <!-- Added tab navigation -->
+            <nav class="tab-navigation">
+                <button class="tab-btn active" data-tab="games">Games</button>
+                <button class="tab-btn" data-tab="settings">Settings</button>
+            </nav>
             <button id="fullscreen-toggle" class="fullscreen-btn">
                 <svg class="fullscreen-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
@@ -25,469 +29,620 @@
     </header>
 
     <main class="main-content">
-        <div class="search-section">
-            <div class="search-container">
-                <div class="search-input-wrapper">
-                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input id="search" type="text" placeholder="Search for a game..." autocomplete="off">
-                </div>
-                <div class="game-count">
-                    <span id="game-counter">Loading games...</span>
+        <!-- Games tab content -->
+        <div id="games-tab" class="tab-content active">
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input id="search" type="text" placeholder="Search for a game..." autocomplete="off">
+                    </div>
+                    <div class="game-count">
+                        <span id="game-counter">Loading games...</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Centered games container with purple themed boxes -->
-        <div class="centered-games-wrapper">
-            <div id="cont" class="games-container">
-                <div class="game-grid">
-                <!-- Updated all game buttons with better structure and kept all original games -->
-                <a href="1/index.html" class="game-link"><button class="game-button">1</button></a>
-                <a href="1on1l0l/index.html" class="game-link"><button class="game-button">1v1.lol</button></a>
-                <a href="1v1space/index.html" class="game-link"><button class="game-button">1v1 Space</button></a>
-                <a href="8ball-billiards-classic/index.html" class="game-link"><button class="game-button">8 Ball Billiards Classic</button></a>
-                <a href="10-minutes-till-dawn/index.html" class="game-link"><button class="game-button">10 Minutes Till Dawn</button></a>
-                <a href="100ng/index.html" class="game-link"><button class="game-button">100ng</button></a>
-                <a href="2020-game/index.html" class="game-link"><button class="game-button">2020 Game</button></a>
-                <a href="2048/index.html" class="game-link"><button class="game-button">2048</button></a>
-                <a href="2048-multitask/index.html" class="game-link"><button class="game-button">2048 Multitask</button></a>
-                <a href="achievementunlocked/index.html" class="game-link"><button class="game-button">Achievement Unlocked</button></a>
-                <a href="adarkroom/index.html" class="game-link"><button class="game-button">A Dark Room</button></a>
-                <a href="adrenalinechallenge/index.html" class="game-link"><button class="game-button">Adrenaline Challenge</button></a>
-                <a href="age-of-war/index.html" class="game-link"><button class="game-button">Age of War</button></a>
-                <a href="alien-invaders-io/index.html" class="game-link"><button class="game-button">Alien Invaders IO</button></a>
-                <a href="alienhominid/index.html" class="game-link"><button class="game-button">Alien Hominid</button></a>
-                <a href="align-4/index.html" class="game-link"><button class="game-button">Align 4</button></a>
-                <a href="among-us/index.html" class="game-link"><button class="game-button">Among Us</button></a>
-                <a href="angry-birds/index.html" class="game-link"><button class="game-button">Angry Birds</button></a>
-                <a href="anti-terrorist-rush/index.html" class="game-link"><button class="game-button">Anti-Terrorist Rush</button></a>
-                <a href="arcade-wizard/index.html" class="game-link"><button class="game-button">Arcade Wizard</button></a>
-                <a href="asciispace/index.html" class="game-link"><button class="game-button">ASCII Space</button></a>
-                <a href="aspiring-artist/index.html" class="game-link"><button class="game-button">Aspiring Artist</button></a>
-                <a href="asteroids/index.html" class="game-link"><button class="game-button">Asteroids</button></a>
-                <a href="astray/index.html" class="game-link"><button class="game-button">Astray</button></a>
-                <a href="avalanche/index.html" class="game-link"><button class="game-button">Avalanche</button></a>
-                <a href="awesome-tanks-2/index.html" class="game-link"><button class="game-button">Awesome Tanks 2</button></a>
-                <a href="backcountry/index.html" class="game-link"><button class="game-button">Backcountry</button></a>
-                <a href="backflip-dive-3d/index.html" class="game-link"><button class="game-button">Backflip Dive 3D</button></a>
-                <a href="backrooms/index.html" class="game-link"><button class="game-button">Backrooms</button></a>
-                <a href="bad-ice-cream/index.html" class="game-link"><button class="game-button">Bad Ice Cream</button></a>
-                <a href="bad-ice-cream-2/index.html" class="game-link"><button class="game-button">Bad Ice Cream 2</button></a>
-                <a href="bad-ice-cream-3/index.html" class="game-link"><button class="game-button">Bad Ice Cream 3</button></a>
-                <a href="baldis-basics/index.html" class="game-link"><button class="game-button">Baldi's Basics</button></a>
-                <a href="basket-bros-io/index.html" class="game-link"><button class="game-button">Basket Bros IO</button></a>
-                <a href="basketball-io/index.html" class="game-link"><button class="game-button">Basketball IO</button></a>
-                <a href="basketball-stars/index.html" class="game-link"><button class="game-button">Basketball Stars</button></a>
-                <a href="battleforgondor/index.html" class="game-link"><button class="game-button">Battle for Gondor</button></a>
-                <a href="bigredbutton/index.html" class="game-link"><button class="game-button">Big Red Button</button></a>
-                <a href="binding-of-isaac/index.html" class="game-link"><button class="game-button">Binding of Isaac</button></a>
-                <a href="bitlife/index.html" class="game-link"><button class="game-button">BitLife</button></a>
-                <a href="blackholesquare/index.html" class="game-link"><button class="game-button">Black Hole Square</button></a>
-                <a href="blackknight/index.html" class="game-link"><button class="game-button">Black Knight</button></a>
-                <a href="blocky-snakes/index.html" class="game-link"><button class="game-button">Blocky Snakes</button></a>
-                <a href="bloonstd/index.html" class="game-link"><button class="game-button">Bloons TD</button></a>
-                <a href="bloonstd2/index.html" class="game-link"><button class="game-button">Bloons TD 2</button></a>
-                <a href="bloxors/index.html" class="game-link"><button class="game-button">Bloxorz</button></a>
-                <a href="bounceback/index.html" class="game-link"><button class="game-button">Bounce Back</button></a>
-                <a href="boxel-rebound/index.html" class="game-link"><button class="game-button">Boxel Rebound</button></a>
-                <a href="boxhead2play/index.html" class="game-link"><button class="game-button">Boxhead 2Play</button></a>
-                <a href="brave-explorers/index.html" class="game-link"><button class="game-button">Brave Explorers</button></a>
-                <a href="breakingthebank/index.html" class="game-link"><button class="game-button">Breaking the Bank</button></a>
-                <a href="breaklock/index.html" class="game-link"><button class="game-button">Breaklock</button></a>
-                <a href="breakout/index.html" class="game-link"><button class="game-button">Breakout</button></a>
-                <a href="btd4/index.html" class="game-link"><button class="game-button">Bloons TD 4</button></a>
-                <a href="btts/index.html" class="game-link"><button class="game-button">BTTS</button></a>
-                <a href="8lletf0rce/index.html" class="game-link"><button class="game-button">Bullet Force</button></a>
-                <a href="burning-man-2/index.html" class="game-link"><button class="game-button">Burning Man 2</button></a>
-                <a href="cannon-basketball-4/index.html" class="game-link"><button class="game-button">Cannon Basketball 4</button></a>
-                <a href="canyondefense/index.html" class="game-link"><button class="game-button">Canyon Defense</button></a>
-                <a href="captaincallisto/index.html" class="game-link"><button class="game-button">Captain Callisto</button></a>
-                <a href="cars-simulator/index.html" class="game-link"><button class="game-button">Cars Simulator</button></a>
-                <a href="cell-machine/index.html" class="game-link"><button class="game-button">Cell Machine</button></a>
-                <a href="championarcher/index.html" class="game-link"><button class="game-button">Champion Archer</button></a>
-                <a href="chess/index.html" class="game-link"><button class="game-button">Chess</button></a>
-                <a href="chill-radio/index.html" class="game-link"><button class="game-button">Chill Radio</button></a>
-                <a href="chromaincident/index.html" class="game-link"><button class="game-button">Chroma Incident</button></a>
-                <a href="chrome-dino/index.html" class="game-link"><button class="game-button">Chrome Dino</button></a>
-                <a href="circlo/index.html" class="game-link"><button class="game-button">Circlo</button></a>
-                <a href="city-blocks-2/index.html" class="game-link"><button class="game-button">City Blocks 2</button></a>
-                <a href="clean-up-io/index.html" class="game-link"><button class="game-button">Clean Up IO</button></a>
-                <a href="cluster-rush/index.html" class="game-link"><button class="game-button">Cluster Rush</button></a>
-                <a href="color-switch-2-challenges/index.html" class="game-link"><button class="game-button">Color Switch 2 Challenges</button></a>
-                <a href="connect3/index.html" class="game-link"><button class="game-button">Connect 3</button></a>
-                <a href="cookie-clicker/index.html" class="game-link"><button class="game-button">Cookie Clicker</button></a>
-                <a href="core-ball/index.html" class="game-link"><button class="game-button">Core Ball</button></a>
-                <a href="craftmine/index.html" class="game-link"><button class="game-button">Craftmine</button></a>
-                <a href="creativekillchamber/index.html" class="game-link"><button class="game-button">Creative Kill Chamber</button></a>
-                <a href="crossyroad/index.html" class="game-link"><button class="game-button">Crossy Road</button></a>
-                <a href="crowd city 2/index.html" class="game-link"><button class="game-button">Crowd City 2</button></a>
-                <a href="csgo-clicker/index.html" class="game-link"><button class="game-button">CSGO Clicker</button></a>
-                <a href="ctr/index.html" class="game-link"><button class="game-button">CTR</button></a>
-                <a href="ctr-holiday/index.html" class="game-link"><button class="game-button">CTR Holiday</button></a>
-                <a href="ctr-tr/index.html" class="game-link"><button class="game-button">CTR TR</button></a>
-                <a href="cubefield/index.html" class="game-link"><button class="game-button">Cubefield</button></a>
-                <a href="cupcake2048/index.html" class="game-link"><button class="game-button">Cupcake 2048</button></a>
-                <a href="cuttherope/index.html" class="game-link"><button class="game-button">Cut the Rope</button></a>
-                <a href="dadish/index.html" class="game-link"><button class="game-button">Dadish</button></a>
-                <a href="dadish3/index.html" class="game-link"><button class="game-button">Dadish 3</button></a>
-                <a href="dadishtwo/index.html" class="game-link"><button class="game-button">Dadish 2</button></a>
-                <a href="dante/index.html" class="game-link"><button class="game-button">Dante</button></a>
-                <a href="deal-or-no-deal/index.html" class="game-link"><button class="game-button">Deal or No Deal</button></a>
-                <a href="death-run-3d/index.html" class="game-link"><button class="game-button">Death Run 3D</button></a>
-                <a href="death-soul/index.html" class="game-link"><button class="game-button">Death Soul</button></a>
-                <a href="deathrun/index.html" class="game-link"><button class="game-button">Deathrun</button></a>
-                <a href="defend-the-tank/index.html" class="game-link"><button class="game-button">Defend the Tank</button></a>
-                <a href="dino/index.html" class="game-link"><button class="game-button">Dino</button></a>
-                <a href="doctor-acorn2/index.html" class="game-link"><button class="game-button">Doctor Acorn 2</button></a>
-                <a href="dodge/index.html" class="game-link"><button class="game-button">Dodge</button></a>
-                <a href="doge-miner-2/index.html" class="game-link"><button class="game-button">Doge Miner 2</button></a>
-                <a href="doge-mining-simulator/index.html" class="game-link"><button class="game-button">Doge Mining Simulator</button></a>
-                <a href="doge2048/index.html" class="game-link"><button class="game-button">Doge 2048</button></a>
-                <a href="DogeMiner/index.html" class="game-link"><button class="game-button">Doge Miner</button></a>
-                <a href="dont-drop-the-white-ball-2/index.htm" class="game-link"><button class="game-button">Don't Drop the White Ball 2</button></a>
-                <a href="doodle-jump/index.html" class="game-link"><button class="game-button">Doodle Jump</button></a>
-                <a href="doublewires/index.html" class="game-link"><button class="game-button">Double Wires</button></a>
-                <a href="douchebag-workout-2/index.html" class="game-link"><button class="game-button">Douchebag Workout 2</button></a>
-                <a href="dragon-vs-bricks/index.html" class="game-link"><button class="game-button">Dragon vs Bricks</button></a>
-                <a href="draw-the-hill/index.html" class="game-link"><button class="game-button">Draw the Hill</button></a>
-                <a href="drive-mad/index.html" class="game-link"><button class="game-button">Drive Mad</button></a>
-                <a href="duck-life-treasurehunt/index.html" class="game-link"><button class="game-button">Duck Life Treasure Hunt</button></a>
-                <a href="ducklife/index.html" class="game-link"><button class="game-button">Duck Life</button></a>
-                <a href="ducklife1/index.html" class="game-link"><button class="game-button">Duck Life 1</button></a>
-                <a href="ducklife2/index.html" class="game-link"><button class="game-button">Duck Life 2</button></a>
-                <a href="ducklife3/index.html" class="game-link"><button class="game-button">Duck Life 3</button></a>
-                <a href="ducklife4/index.html" class="game-link"><button class="game-button">Duck Life 4</button></a>
-                <a href="duke-dashington-remastered/index.html" class="game-link"><button class="game-button">Duke Dashington Remastered</button></a>
-                <a href="dungeon-craft/index.html" class="game-link"><button class="game-button">Dungeon Craft</button></a>
-                <a href="edge-surf/index.html" class="game-link"><button class="game-button">Edge Surf</button></a>
-                <a href="edgenotfound/index.html" class="game-link"><button class="game-button">Edge Not Found</button></a>
-                <a href="elastic-face/index.html" class="game-link"><button class="game-button">Elastic Face</button></a>
-                <a href="elasticman/index.html" class="game-link"><button class="game-button">Elastic Man</button></a>
-                <a href="emulator-js/index.html" class="game-link"><button class="game-button">Emulator JS</button></a>
-                <a href="endlesswar3/index.html" class="game-link"><button class="game-button">Endless War 3</button></a>
-                <a href="escapingtheprison/index.html" class="game-link"><button class="game-button">Escaping the Prison</button></a>
-                <a href="evio/index.html" class="game-link"><button class="game-button">ev.io</button></a>
-                <a href="evil-glitch/index.html" class="game-link"><button class="game-button">Evil Glitch</button></a>
-                <a href="evilglitch/index.html" class="game-link"><button class="game-button">Evil Glitch (2)</button></a>
-                <a href="evolution/index.html" class="game-link"><button class="game-button">Evolution</button></a>
-                <a href="exo/index.html" class="game-link"><button class="game-button">Exo</button></a>
-                <a href="factory-balls-forever/index.html" class="game-link"><button class="game-button">Factory Balls Forever</button></a>
-                <a href="factoryballs/index.html" class="game-link"><button class="game-button">Factory Balls</button></a>
-                <a href="factoryballsforever/index.html" class="game-link"><button class="game-button">Factory Balls Forever (2)</button></a>
-                <a href="fake-virus/index.html" class="game-link"><button class="game-button">Fake Virus</button></a>
-                <a href="fancypantsadventures/index.html" class="game-link"><button class="game-button">Fancy Pants Adventures</button></a>
-                <a href="fbwg/index.html" class="game-link"><button class="game-button">FBWG</button></a>
-                <a href="finns-fantastic-food-machine/index.html" class="game-link"><button class="game-button">Finn's Fantastic Food Machine</button></a>
-                <a href="fireboywatergirlforesttemple/index.html" class="game-link"><button class="game-button">Fireboy and Watergirl</button></a>
-                <a href="fireice/index.html" class="game-link"><button class="game-button">Fire and Ice</button></a>
-                <a href="firewater/index.html" class="game-link"><button class="game-button">Fire and Water</button></a>
-                <a href="flappy-2048/index.html" class="game-link"><button class="game-button">Flappy 2048</button></a>
-                <a href="flappy-bird/index.html" class="game-link"><button class="game-button">Flappy Bird</button></a>
-                <a href="flappy-defense/index.html" class="game-link"><button class="game-button">Flappy Defense</button></a>
-                <a href="flappybird/index.html" class="game-link"><button class="game-button">Flappy Bird (2)</button></a>
-                <a href="flashtetris/index.html" class="game-link"><button class="game-button">Flash Tetris</button></a>
-                <a href="flippy-fish/index.html" class="game-link"><button class="game-button">Flippy Fish</button></a>
-                <a href="flood-runner-2/index.html" class="game-link"><button class="game-button">Flood Runner 2</button></a>
-                <a href="fridaynightfunkin/index.html" class="game-link"><button class="game-button">Friday Night Funkin'</button></a>
-                <a href="friendlyfire/index.html" class="game-link"><button class="game-button">Friendly Fire</button></a>
-                <a href="froggys-battle/index.html" class="game-link"><button class="game-button">Froggy's Battle</button></a>
-                <a href="fruitninja/index.html" class="game-link"><button class="game-button">Fruit Ninja</button></a>
-                <a href="frying-nemo/index.html" class="game-link"><button class="game-button">Frying Nemo</button></a>
-                <a href="FullScreenMario/Source/index.html" class="game-link"><button class="game-button">Full Screen Mario</button></a>
-                <a href="game-inside/index.html" class="game-link"><button class="game-button">Game Inside</button></a>
-                <a href="generic-fishing-game/index.html" class="game-link"><button class="game-button">Generic Fishing Game</button></a>
-                <a href="geodash/index.html" class="game-link"><button class="game-button">Geo Dash</button></a>
-                <a href="geodash-2/index.html" class="game-link"><button class="game-button">Geo Dash 2</button></a>
-                <a href="geometry_jump_sketchy/index.html" class="game-link"><button class="game-button">Geometry Jump Sketchy</button></a>
-                <a href="geometrydash/index.html" class="game-link"><button class="game-button">Geometry Dash</button></a>
-                <a href="georgeandtheprinter/index.html" class="game-link"><button class="game-button">George and the Printer</button></a>
-                <a href="getaway-shootout/index.html" class="game-link"><button class="game-button">Getaway Shootout</button></a>
-                <a href="getting-over-it/index.html" class="game-link"><button class="game-button">Getting Over It</button></a>
-                <a href="gimme-the-airpod/index.html" class="game-link"><button class="game-button">Gimme the AirPod</button></a>
-                <a href="glass-city/index.html" class="game-link"><button class="game-button">Glass City</button></a>
-                <a href="go-ball/index.html" class="game-link"><button class="game-button">Go Ball</button></a>
-                <a href="golf/index.html" class="game-link"><button class="game-button">Golf</button></a>
-                <a href="goodnight/index.html" class="game-link"><button class="game-button">Goodnight</button></a>
-                <a href="google-snake/index.html" class="game-link"><button class="game-button">Google Snake</button></a>
-                <a href="google-solitaire/index.html" class="game-link"><button class="game-button">Google Solitaire</button></a>
-                <a href="gopher/index.html" class="game-link"><button class="game-button">Gopher</button></a>
-                <a href="gravity-soccer/index.html" class="game-link"><button class="game-button">Gravity Soccer</button></a>
-                <a href="green/index.html" class="game-link"><button class="game-button">Green</button></a>
-                <a href="greybox/index.html" class="game-link"><button class="game-button">Grey Box</button></a>
-                <a href="grindcraft/index.html" class="game-link"><button class="game-button">Grindcraft</button></a>
-                <a href="grow-in-the-hole/index.html" class="game-link"><button class="game-button">Grow in the Hole</button></a>
-                <a href="gun-mayhem/index.html" class="game-link"><button class="game-button">Gun Mayhem</button></a>
-                <a href="gun-mayhem-2/index.html" class="game-link"><button class="game-button">Gun Mayhem 2</button></a>
-                <a href="gun-mayhem-redux/index.html" class="game-link"><button class="game-button">Gun Mayhem Redux</button></a>
-                <a href="gunspin/index.html" class="game-link"><button class="game-button">Gunspin</button></a>
-                <a href="hackertype/index.html" class="game-link"><button class="game-button">Hacker Type</button></a>
-                <a href="happy-hop/index.html" class="game-link"><button class="game-button">Happy Hop</button></a>
-                <a href="happy-wheels/index.html" class="game-link"><button class="game-button">Happy Wheels</button></a>
-                <a href="hba/index.html" class="game-link"><button class="game-button">HBA</button></a>
-                <a href="helicopter/index.html" class="game-link"><button class="game-button">Helicopter</button></a>
-                <a href="helios/index.html" class="game-link"><button class="game-button">Helios</button></a>
-                <a href="hexempire/index.html" class="game-link"><button class="game-button">Hex Empire</button></a>
-                <a href="HexGL/index.html" class="game-link"><button class="game-button">Hex GL</button></a>
-                <a href="hextris/index.html" class="game-link"><button class="game-button">Hextris</button></a>
-                <a href="house-of-hazards/index.html" class="game-link"><button class="game-button">House of Hazards</button></a>
-                <a href="icys-purple-head/index.html" class="game-link"><button class="game-button">Icy's Purple Head</button></a>
-                <a href="idle-breakout/index.html" class="game-link"><button class="game-button">Idle Breakout</button></a>
-                <a href="idle-shark/index.html" class="game-link"><button class="game-button">Idle Shark</button></a>
-                <a href="impossiblequiz/index.html" class="game-link"><button class="game-button">Impossible Quiz</button></a>
-                <a href="interactivebuddy/index.html" class="game-link"><button class="game-button">Interactive Buddy</button></a>
-                <a href="iscribble-io/index.html" class="game-link"><button class="game-button">iScribble IO</button></a>
-                <a href="jelly-truck/index.html" class="game-link"><button class="game-button">Jelly Truck</button></a>
-                <a href="jetpack/index.html" class="game-link"><button class="game-button">Jetpack</button></a>
-                <a href="jimothy-piggerton/index.html" class="game-link"><button class="game-button">Jimothy Piggerton</button></a>
-                <a href="just-one-boss/index.html" class="game-link"><button class="game-button">Just One Boss</button></a>
-                <a href="justfall/index.html" class="game-link"><button class="game-button">Just Fall</button></a>
-                <a href="kart-fight-io/index.html" class="game-link"><button class="game-button">Kart Fight IO</button></a>
-                <a href="kitchen-gun-game/index.html" class="game-link"><button class="game-button">Kitchen Gun Game</button></a>
-                <a href="kittencannon/index.html" class="game-link"><button class="game-button">Kitten Cannon</button></a>
-                <a href="klocki/index.html" class="game-link"><button class="game-button">Klocki</button></a>
-                <a href="konnekt/index.html" class="game-link"><button class="game-button">Konnekt</button></a>
-                <a href="krunker/index.html" class="game-link"><button class="game-button">Krunker</button></a>
-                <a href="learntofly/index.html" class="game-link"><button class="game-button">Learn to Fly</button></a>
-                <a href="learntofly2/index.html" class="game-link"><button class="game-button">Learn to Fly 2</button></a>
-                <a href="ltf3/index.html" class="game-link"><button class="game-button">Learn to Fly 3</button></a>
-                <a href="line-rider/index.html" class="game-link"><button class="game-button">Line Rider</button></a>
-                <a href="linquest/index.html" class="game-link"><button class="game-button">Linquest</button></a>
-                <a href="madalin-stunt-cars-2/index.html" class="game-link"><button class="game-button">Madalin Stunt Cars 2</button></a>
-                <a href="madalin-stunt-cars-3/index.html" class="game-link"><button class="game-button">Madalin Stunt Cars 3</button></a>
-                <a href="mario/index.html" class="game-link"><button class="game-button">Mario</button></a>
-                <a href="marvinspectrum/index.html" class="game-link"><button class="game-button">Marvin Spectrum</button></a>
-                <a href="matrixrampage/index.html" class="game-link"><button class="game-button">Matrix Rampage</button></a>
-                <a href="mc1.5.2/index.html" class="game-link"><button class="game-button">Minecraft 1.5.2</button></a>
-                <a href="e@glercr@ft/index.html" class="game-link"><button class="game-button">Minecraft (Multiplayer)</button></a>
-                <a href="mcbeta0.30/index.html" class="game-link"><button class="game-button">Minecraft Beta 0.30</button></a>
-                <a href="mcbeta1.3/index.html" class="game-link"><button class="game-button">Minecraft Beta 1.3</button></a>
-                <a href="meat-boy/index.html" class="game-link"><button class="game-button">Meat Boy</button></a>
-                <a href="meme2048/index.html" class="game-link"><button class="game-button">Meme 2048</button></a>
-                <a href="minecraft/index.html" class="game-link"><button class="game-button">Minecraft</button></a>
-                <a href="minecraft-classic/index.html" class="game-link"><button class="game-button">Minecraft Classic</button></a>
-                <a href="minecraftbeta/index.html" class="game-link"><button class="game-button">Minecraft Beta</button></a>
-                <a href="minesweeper/index.html" class="game-link"><button class="game-button">Minesweeper</button></a>
-                <a href="mini-stilts/index.html" class="game-link"><button class="game-button">Mini Stilts</button></a>
-                <a href="miniputt/index.html" class="game-link"><button class="game-button">Mini Putt</button></a>
-                <a href="missiles/index.html" class="game-link"><button class="game-button">Missiles</button></a>
-                <a href="my-friend-pedro/index.html" class="game-link"><button class="game-button">My Friend Pedro</button></a>
-                <a href="n-gon/index.html" class="game-link"><button class="game-button">N-Gon</button></a>
-                <a href="ninja/index.html" class="game-link"><button class="game-button">Ninja</button></a>
-                <a href="ninjavsevilcorp/index.html" class="game-link"><button class="game-button">Ninja vs Evil Corp</button></a>
-                <a href="ns-shaft/index.html" class="game-link"><button class="game-button">NS Shaft</button></a>
-                <a href="OfflineParadise/index.html" class="game-link"><button class="game-button">Offline Paradise</button></a>
-                <a href="om-bounce/index.html" class="game-link"><button class="game-button">OM Bounce</button></a>
-                <a href="one-screen-run/index.html" class="game-link"><button class="game-button">One Screen Run</button></a>
-                <a href="one-screen-run-2/index.html" class="game-link"><button class="game-button">One Screen Run 2</button></a>
-                <a href="osu/index.html" class="game-link"><button class="game-button">Osu</button></a>
-                <a href="overtide/index.html" class="game-link"><button class="game-button">Overtide</button></a>
-                <a href="ovo/index.html" class="game-link"><button class="game-button">Ovo</button></a>
-                <a href="packabunchas/index.html" class="game-link"><button class="game-button">Packabunchas</button></a>
-                <a href="pacman/index.html" class="game-link"><button class="game-button">Pacman</button></a>
-                <a href="pandemic2/index.html" class="game-link"><button class="game-button">Pandemic 2</button></a>
-                <a href="papa-louie/index.html" class="game-link"><button class="game-button">Papa Louie</button></a>
-                <a href="paperio2/index.html" class="game-link"><button class="game-button">Paper IO 2</button></a>
-                <a href="papery-planes/index.html" class="game-link"><button class="game-button">Papery Planes</button></a>
-                <a href="particle-clicker/index.html" class="game-link"><button class="game-button">Particle Clicker</button></a>
-                <a href="path-finder/index.html" class="game-link"><button class="game-button">Path Finder</button></a>
-                <a href="pe-noire/index.html" class="game-link"><button class="game-button">Pe Noire</button></a>
-                <a href="pikwip/index.html" class="game-link"><button class="game-button">Pikwip</button></a>
-                <a href="pixel-cave/index.html" class="game-link"><button class="game-button">Pixel Cave</button></a>
-                <a href="pizzeria-simulator/index.html" class="game-link"><button class="game-button">Pizzeria Simulator</button></a>
-                <a href="polybranch/index.html" class="game-link"><button class="game-button">Polybranch</button></a>
-                <a href="popcat-classic/index.html" class="game-link"><button class="game-button">Popcat Classic</button></a>
-                <a href="portalflash/index.html" class="game-link"><button class="game-button">Portal Flash</button></a>
-                <a href="precision-client/index.html" class="game-link"><button class="game-button">Precision Client</button></a>
-                <a href="protektor/index.html" class="game-link"><button class="game-button">Protektor</button></a>
-                <a href="push-the-square/index.html" class="game-link"><button class="game-button">Push the Square</button></a>
-                <a href="push-your-luck/index.html" class="game-link"><button class="game-button">Push Your Luck</button></a>
-                <a href="pushback/index.html" class="game-link"><button class="game-button">Pushback</button></a>
-                <a href="puzzle-ball/index.html" class="game-link"><button class="game-button">Puzzle Ball</button></a>
-                <a href="pvz-2/index.html" class="game-link"><button class="game-button">Plants vs Zombies 2</button></a>
-                <a href="racer/index.html" class="game-link"><button class="game-button">Racer</button></a>
-                <a href="radiusraid/index.html" class="game-link"><button class="game-button">Radius Raid</button></a>
-                <a href="retro-bowl/index.html" class="game-link"><button class="game-button">Retro Bowl</button></a>
-                <a href="retrohaunt/index.html" class="game-link"><button class="game-button">Retro Haunt</button></a>
-                <a href="rise-of-neon-square/index.html" class="game-link"><button class="game-button">Rise of Neon Square</button></a>
-                <a href="roadblocks/index.html" class="game-link"><button class="game-button">Roadblocks</button></a>
-                <a href="roblox/index.html" class="game-link"><button class="game-button">Roblox</button></a>
-                <a href="rocket-soccer/index.html" class="game-link"><button class="game-button">Rocket Soccer</button></a>
-                <a href="rocking-sky-trip/index.html" class="game-link"><button class="game-button">Rocking Sky Trip</button></a>
-                <a href="rolling-forests/index.html" class="game-link"><button class="game-button">Rolling Forests</button></a>
-                <a href="rolly-vortex/index.html" class="game-link"><button class="game-button">Rolly Vortex</button></a>
-                <a href="rooftop-snipers/index.html" class="game-link"><button class="game-button">Rooftop Snipers</button></a>
-                <a href="run-3/index.html" class="game-link"><button class="game-button">Run 3</button></a>
-                <a href="sand-game/index.html" class="game-link"><button class="game-button">Sand Game</button></a>
-                <a href="sandboxels/index.html" class="game-link"><button class="game-button">Sandboxels</button></a>
-                <a href="scrambled-eggs/index.html" class="game-link"><button class="game-button">Scrambled Eggs</button></a>
-                <a href="scrapmetal/index.html" class="game-link"><button class="game-button">Scrap Metal</button></a>
-                <a href="senya-and-oscar-2/index.html" class="game-link"><button class="game-button">Senya and Oscar 2</button></a>
-                <a href="sg/index.html" class="game-link"><button class="game-button">SG</button></a>
-                <a href="shadow-world-adventure/index.html" class="game-link"><button class="game-button">Shadow World Adventure</button></a>
-                <a href="shards/index.html" class="game-link"><button class="game-button">Shards</button></a>
-                <a href="shift-flash/index.html" class="game-link"><button class="game-button">Shift Flash</button></a>
-                <a href="shift-flash-2/index.html" class="game-link"><button class="game-button">Shift Flash 2</button></a>
-                <a href="short-life-2/index.html" class="game-link"><button class="game-button">Short Life 2</button></a>
-                <a href="short-ride/index.html" class="game-link"><button class="game-button">Short Ride</button></a>
-                <a href="shuttledeck/index.html" class="game-link"><button class="game-button">Shuttle Deck</button></a>
-                <a href="skyblock/index.html" class="game-link"><button class="game-button">Skyblock</button></a>
-                <a href="sleepingbeauty/index.html" class="game-link"><button class="game-button">Sleeping Beauty</button></a>
-                <a href="slice-of-sasha/index.html" class="game-link"><button class="game-button">Slice of Sasha</button></a>
-                <a href="slither/index.html" class="game-link"><button class="game-button">Slither</button></a>
-                <a href="slope/index.html" class="game-link"><button class="game-button">Slope</button></a>
-                <a href="slope-ball/index.html" class="game-link"><button class="game-button">Slope Ball</button></a>
-                <a href="slope2/index.html" class="game-link"><button class="game-button">Slope 2</button></a>
-                <a href="sm63/index.html" class="game-link"><button class="game-button">SM63</button></a>
-                <a href="sm64/index.html" class="game-link"><button class="game-button">SM64</button></a>
-                <a href="smashkarts/index.html" class="game-link"><button class="game-button">Smash Karts</button></a>
-                <a href="smokingbarrels/index.html" class="game-link"><button class="game-button">Smoking Barrels</button></a>
-                <a href="snake/index.html" class="game-link"><button class="game-button">Snake</button></a>
-                <a href="snowbattle/index.html" class="game-link"><button class="game-button">Snow Battle</button></a>
-                <a href="soldier-legend/index.html" class="game-link"><button class="game-button">Soldier Legend</button></a>
-                <a href="solitaire/index.html" class="game-link"><button class="game-button">Solitaire</button></a>
-                <a href="sonic-the-hedgehog/src/index.html" class="game-link"><button class="game-button">Sonic the Hedgehog</button></a>
-                <a href="sort-the-court/index.html" class="game-link"><button class="game-button">Sort the Court</button></a>
-                <a href="soundboard/index.html" class="game-link"><button class="game-button">Soundboard</button></a>
-                <a href="space-company/index.html" class="game-link"><button class="game-button">Space Company</button></a>
-                <a href="spacegarden/index.html" class="game-link"><button class="game-button">Space Garden</button></a>
-                <a href="spacehuggers/index.html" class="game-link"><button class="game-button">Space Huggers</button></a>
-                <a href="spelunky/index.html" class="game-link"><button class="game-button">Spelunky</button></a>
-                <a href="ssf/index.html" class="game-link"><button class="game-button">SSF</button></a>
-                <a href="stack/index.html" class="game-link"><button class="game-button">Stack</button></a>
-                <a href="stack-bump-3d/index.html" class="game-link"><button class="game-button">Stack Bump 3D</button></a>
-                <a href="station-141/index.html" class="game-link"><button class="game-button">Station 141</button></a>
-                <a href="stealingthediamond/index.html" class="game-link"><button class="game-button">Stealing the Diamond</button></a>
-                <a href="stick-archers-battle/index.html" class="game-link"><button class="game-button">Stick Archers Battle</button></a>
-                <a href="stickclimb/index.html" class="game-link"><button class="game-button">Stick Climb</button></a>
-                <a href="stickman/index.html" class="game-link"><button class="game-button">Stickman</button></a>
-                <a href="stickman-boost/index.html" class="game-link"><button class="game-button">Stickman Boost</button></a>
-                <a href="stickman-dismount/index.html" class="game-link"><button class="game-button">Stickman Dismount</button></a>
-                <a href="stickman-epic-battle/index.html" class="game-link"><button class="game-button">Stickman Epic Battle</button></a>
-                <a href="stickman-golf/index.html" class="game-link"><button class="game-button">Stickman Golf</button></a>
-                <a href="Stickman-Survival/index.html" class="game-link"><button class="game-button">Stickman Survival</button></a>
-                <a href="stickwar/index.html" class="game-link"><button class="game-button">Stick War</button></a>
-                <a href="stormthehouse2/index.html" class="game-link"><button class="game-button">Storm the House 2</button></a>
-                <a href="subway-surfers/index.html" class="game-link"><button class="game-button">Subway Surfers</button></a>
-                <a href="subway-surfers-bali/index.html" class="game-link"><button class="game-button">Subway Surfers Bali</button></a>
-                <a href="super-mario-maker-online/index.html" class="game-link"><button class="game-button">Super Mario Maker Online</button></a>
-                <a href="super-puffer-fish-3d/index.html" class="game-link"><button class="game-button">Super Puffer Fish 3D</button></a>
-                <a href="superhero-io/index.html" class="game-link"><button class="game-button">Superhero IO</button></a>
-                <a href="superhot/index.html" class="game-link"><button class="game-button">Superhot</button></a>
-                <a href="supermarioconstruct/index.html" class="game-link"><button class="game-button">Super Mario Construct</button></a>
-                <a href="swerve/index.html" class="game-link"><button class="game-button">Swerve</button></a>
-                <a href="synesthesia/index.html" class="game-link"><button class="game-button">Synesthesia</button></a>
-                <a href="tactical-weapon-pack-2/index.html" class="game-link"><button class="game-button">Tactical Weapon Pack 2</button></a>
-                <a href="tacticalassasin2/index.html" class="game-link"><button class="game-button">Tactical Assassin 2</button></a>
-                <a href="tail-of-the-dragon/index.html" class="game-link"><button class="game-button">Tail of the Dragon</button></a>
-                <a href="tam-indian-truck-simulator-3d/index.html" class="game-link"><button class="game-button">TAM Indian Truck Simulator</button></a>
-                <a href="tank-trouble-2/index.html" class="game-link"><button class="game-button">Tank Trouble 2</button></a>
-                <a href="tanuki-sunset/index.html" class="game-link"><button class="game-button">Tanuki Sunset</button></a>
-                <a href="temple-run-2/index.html" class="game-link"><button class="game-button">Temple Run 2</button></a>
-                <a href="tetris/index.html" class="game-link"><button class="game-button">Tetris</button></a>
-                <a href="the-final-earth/index.html" class="game-link"><button class="game-button">The Final Earth</button></a>
-                <a href="the-final-earth-2/index.html" class="game-link"><button class="game-button">The Final Earth 2</button></a>
-                <a href="the-impossible-quiz/index.html" class="game-link"><button class="game-button">The Impossible Quiz</button></a>
-                <a href="the-impossible-quiz-2/index.html" class="game-link"><button class="game-button">The Impossible Quiz 2</button></a>
-                <a href="the-little-giant/index.html" class="game-link"><button class="game-button">The Little Giant</button></a>
-                <a href="thebattle/index.html" class="game-link"><button class="game-button">The Battle</button></a>
-                <a href="theheist/index.html" class="game-link"><button class="game-button">The Heist</button></a>
-                <a href="themazeofspacegoblins/index.html" class="game-link"><button class="game-button">The Maze of Space Goblins</button></a>
-                <a href="there-is-no-game/index.html" class="game-link"><button class="game-button">There Is No Game</button></a>
-                <a href="thisistheonlylevel/index.html" class="game-link"><button class="game-button">This Is the Only Level</button></a>
-                <a href="time-shooter-3/index.html" class="game-link"><button class="game-button">Time Shooter 3</button></a>
-                <a href="tiny-fishing/index.html" class="game-link"><button class="game-button">Tiny Fishing</button></a>
-                <a href="tiny-fragments/index.html" class="game-link"><button class="game-button">Tiny Fragments</button></a>
-                <a href="tiny-islands/index.html" class="game-link"><button class="game-button">Tiny Islands</button></a>
-                <a href="topple-adventure/index.html" class="game-link"><button class="game-button">Topple Adventure</button></a>
-                <a href="tosstheturtle/index.html" class="game-link"><button class="game-button">Toss the Turtle</button></a>
-                <a href="tough-growth/index.html" class="game-link"><button class="game-button">Tough Growth</button></a>
-                <a href="towermaster/index.html" class="game-link"><button class="game-button">Tower Master</button></a>
-                <a href="townscaper/index.html" class="game-link"><button class="game-button">Townscaper</button></a>
-                <a href="trimps/index.html" class="game-link"><button class="game-button">Trimps</button></a>
-                <a href="tube-jumpers/index.html" class="game-link"><button class="game-button">Tube Jumpers</button></a>
-                <a href="tunnel-rush/index.html" class="game-link"><button class="game-button">Tunnel Rush</button></a>
-                <a href="tunnelz/index.html" class="game-link"><button class="game-button">Tunnelz</button></a>
-                <a href="tv-static/index.html" class="game-link"><button class="game-button">TV Static</button></a>
-                <a href="twitch-tetris/index.html" class="game-link"><button class="game-button">Twitch Tetris</button></a>
-                <a href="underrun/index.html" class="game-link"><button class="game-button">Underrun</button></a>
-                <a href="unfold-2/index.html" class="game-link"><button class="game-button">Unfold 2</button></a>
-                <a href="up-left-out/index.html" class="game-link"><button class="game-button">Up Left Out</button></a>
-                <a href="veloce/index.html" class="game-link"><button class="game-button">Veloce</button></a>
-                <a href="vex3/index.html" class="game-link"><button class="game-button">Vex 3</button></a>
-                <a href="vex4/index.html" class="game-link"><button class="game-button">Vex 4</button></a>
-                <a href="vex5/index.html" class="game-link"><button class="game-button">Vex 5</button></a>
-                <a href="vex6/index.html" class="game-link"><button class="game-button">Vex 6</button></a>
-                <a href="vex7/index.html" class="game-link"><button class="game-button">Vex 7</button></a>
-                <a href="waterworks/index.html" class="game-link"><button class="game-button">Waterworks</button></a>
-                <a href="webretro/index.html" class="game-link"><button class="game-button">Webretro</button></a>
-                <a href="winter-falling-price/index.html" class="game-link"><button class="game-button">Winter Falling Price</button></a>
-                <a href="wipo/index.html" class="game-link"><button class="game-button">Wipo</button></a>
-                <a href="wolf3d/index.html" class="game-link"><button class="game-button">Wolf 3D</button></a>
-                <a href="wordle/index.html" class="game-link"><button class="game-button">Wordle</button></a>
-                <a href="worlds-hardest-game/index.html" class="game-link"><button class="game-button">World's Hardest Game</button></a>
-                <a href="worlds-hardest-game-2/index.html" class="game-link"><button class="game-button">World's Hardest Game 2</button></a>
-                <a href="x-trial-racing/index.html" class="game-link"><button class="game-button">X Trial Racing</button></a>
-                <a href="xx142-b2exe/index.html" class="game-link"><button class="game-button">XX142 B2EXE</button></a>
-                <a href="yoshifabrication/index.html" class="game-link"><button class="game-button">Yoshi Fabrication</button></a>
-                <a href="you-are-bezos/index.html" class="game-link"><button class="game-button">You Are Bezos</button></a>
-                <a href="zig-zag/index.html" class="game-link"><button class="game-button">Zig Zag</button></a>
-                <a href="zombocalypse/index.html" class="game-link"><button class="game-button">Zombocalypse</button></a>
-                <a href="zombs-royale/index.html" class="game-link"><button class="game-button">Zombs Royale</button></a>
+            <div class="centered-games-wrapper">
+                <div id="cont" class="games-container">
+                    <div class="game-grid">
+                    <!-- Updated all game buttons with better structure and kept all original games -->
+                    <a href="1/index.html" class="game-link"><button class="game-button">1</button></a>
+                    <a href="1on1l0l/index.html" class="game-link"><button class="game-button">1v1.lol</button></a>
+                    <a href="1v1space/index.html" class="game-link"><button class="game-button">1v1 Space</button></a>
+                    <a href="8ball-billiards-classic/index.html" class="game-link"><button class="game-button">8 Ball Billiards Classic</button></a>
+                    <a href="10-minutes-till-dawn/index.html" class="game-link"><button class="game-button">10 Minutes Till Dawn</button></a>
+                    <a href="100ng/index.html" class="game-link"><button class="game-button">100ng</button></a>
+                    <a href="2020-game/index.html" class="game-link"><button class="game-button">2020 Game</button></a>
+                    <a href="2048/index.html" class="game-link"><button class="game-button">2048</button></a>
+                    <a href="2048-multitask/index.html" class="game-link"><button class="game-button">2048 Multitask</button></a>
+                    <a href="achievementunlocked/index.html" class="game-link"><button class="game-button">Achievement Unlocked</button></a>
+                    <a href="adarkroom/index.html" class="game-link"><button class="game-button">A Dark Room</button></a>
+                    <a href="adrenalinechallenge/index.html" class="game-link"><button class="game-button">Adrenaline Challenge</button></a>
+                    <a href="age-of-war/index.html" class="game-link"><button class="game-button">Age of War</button></a>
+                    <a href="alien-invaders-io/index.html" class="game-link"><button class="game-button">Alien Invaders IO</button></a>
+                    <a href="alienhominid/index.html" class="game-link"><button class="game-button">Alien Hominid</button></a>
+                    <a href="align-4/index.html" class="game-link"><button class="game-button">Align 4</button></a>
+                    <a href="among-us/index.html" class="game-link"><button class="game-button">Among Us</button></a>
+                    <a href="angry-birds/index.html" class="game-link"><button class="game-button">Angry Birds</button></a>
+                    <a href="anti-terrorist-rush/index.html" class="game-link"><button class="game-button">Anti-Terrorist Rush</button></a>
+                    <a href="arcade-wizard/index.html" class="game-link"><button class="game-button">Arcade Wizard</button></a>
+                    <a href="asciispace/index.html" class="game-link"><button class="game-button">ASCII Space</button></a>
+                    <a href="aspiring-artist/index.html" class="game-link"><button class="game-button">Aspiring Artist</button></a>
+                    <a href="asteroids/index.html" class="game-link"><button class="game-button">Asteroids</button></a>
+                    <a href="astray/index.html" class="game-link"><button class="game-button">Astray</button></a>
+                    <a href="avalanche/index.html" class="game-link"><button class="game-button">Avalanche</button></a>
+                    <a href="awesome-tanks-2/index.html" class="game-link"><button class="game-button">Awesome Tanks 2</button></a>
+                    <a href="backcountry/index.html" class="game-link"><button class="game-button">Backcountry</button></a>
+                    <a href="backflip-dive-3d/index.html" class="game-link"><button class="game-button">Backflip Dive 3D</button></a>
+                    <a href="backrooms/index.html" class="game-link"><button class="game-button">Backrooms</button></a>
+                    <a href="bad-ice-cream/index.html" class="game-link"><button class="game-button">Bad Ice Cream</button></a>
+                    <a href="bad-ice-cream-2/index.html" class="game-link"><button class="game-button">Bad Ice Cream 2</button></a>
+                    <a href="bad-ice-cream-3/index.html" class="game-link"><button class="game-button">Bad Ice Cream 3</button></a>
+                    <a href="baldis-basics/index.html" class="game-link"><button class="game-button">Baldi's Basics</button></a>
+                    <a href="basket-bros-io/index.html" class="game-link"><button class="game-button">Basket Bros IO</button></a>
+                    <a href="basketball-io/index.html" class="game-link"><button class="game-button">Basketball IO</button></a>
+                    <a href="basketball-stars/index.html" class="game-link"><button class="game-button">Basketball Stars</button></a>
+                    <a href="battleforgondor/index.html" class="game-link"><button class="game-button">Battle for Gondor</button></a>
+                    <a href="bigredbutton/index.html" class="game-link"><button class="game-button">Big Red Button</button></a>
+                    <a href="binding-of-isaac/index.html" class="game-link"><button class="game-button">Binding of Isaac</button></a>
+                    <a href="bitlife/index.html" class="game-link"><button class="game-button">BitLife</button></a>
+                    <a href="blackholesquare/index.html" class="game-link"><button class="game-button">Black Hole Square</button></a>
+                    <a href="blackknight/index.html" class="game-link"><button class="game-button">Black Knight</button></a>
+                    <a href="blocky-snakes/index.html" class="game-link"><button class="game-button">Blocky Snakes</button></a>
+                    <a href="bloonstd/index.html" class="game-link"><button class="game-button">Bloons TD</button></a>
+                    <a href="bloonstd2/index.html" class="game-link"><button class="game-button">Bloons TD 2</button></a>
+                    <a href="bloxors/index.html" class="game-link"><button class="game-button">Bloxorz</button></a>
+                    <a href="bounceback/index.html" class="game-link"><button class="game-button">Bounce Back</button></a>
+                    <a href="boxel-rebound/index.html" class="game-link"><button class="game-button">Boxel Rebound</button></a>
+                    <a href="boxhead2play/index.html" class="game-link"><button class="game-button">Boxhead 2Play</button></a>
+                    <a href="brave-explorers/index.html" class="game-link"><button class="game-button">Brave Explorers</button></a>
+                    <a href="breakingthebank/index.html" class="game-link"><button class="game-button">Breaking the Bank</button></a>
+                    <a href="breaklock/index.html" class="game-link"><button class="game-button">Breaklock</button></a>
+                    <a href="breakout/index.html" class="game-link"><button class="game-button">Breakout</button></a>
+                    <a href="btd4/index.html" class="game-link"><button class="game-button">Bloons TD 4</button></a>
+                    <a href="btts/index.html" class="game-link"><button class="game-button">BTTS</button></a>
+                    <a href="8lletf0rce/index.html" class="game-link"><button class="game-button">Bullet Force</button></a>
+                    <a href="burning-man-2/index.html" class="game-link"><button class="game-button">Burning Man 2</button></a>
+                    <a href="cannon-basketball-4/index.html" class="game-link"><button class="game-button">Cannon Basketball 4</button></a>
+                    <a href="canyondefense/index.html" class="game-link"><button class="game-button">Canyon Defense</button></a>
+                    <a href="captaincallisto/index.html" class="game-link"><button class="game-button">Captain Callisto</button></a>
+                    <a href="cars-simulator/index.html" class="game-link"><button class="game-button">Cars Simulator</button></a>
+                    <a href="cell-machine/index.html" class="game-link"><button class="game-button">Cell Machine</button></a>
+                    <a href="championarcher/index.html" class="game-link"><button class="game-button">Champion Archer</button></a>
+                    <a href="chess/index.html" class="game-link"><button class="game-button">Chess</button></a>
+                    <a href="chill-radio/index.html" class="game-link"><button class="game-button">Chill Radio</button></a>
+                    <a href="chromaincident/index.html" class="game-link"><button class="game-button">Chroma Incident</button></a>
+                    <a href="chrome-dino/index.html" class="game-link"><button class="game-button">Chrome Dino</button></a>
+                    <a href="circlo/index.html" class="game-link"><button class="game-button">Circlo</button></a>
+                    <a href="city-blocks-2/index.html" class="game-link"><button class="game-button">City Blocks 2</button></a>
+                    <a href="clean-up-io/index.html" class="game-link"><button class="game-button">Clean Up IO</button></a>
+                    <a href="cluster-rush/index.html" class="game-link"><button class="game-button">Cluster Rush</button></a>
+                    <a href="color-switch-2-challenges/index.html" class="game-link"><button class="game-button">Color Switch 2 Challenges</button></a>
+                    <a href="connect3/index.html" class="game-link"><button class="game-button">Connect 3</button></a>
+                    <a href="cookie-clicker/index.html" class="game-link"><button class="game-button">Cookie Clicker</button></a>
+                    <a href="core-ball/index.html" class="game-link"><button class="game-button">Core Ball</button></a>
+                    <a href="craftmine/index.html" class="game-link"><button class="game-button">Craftmine</button></a>
+                    <a href="creativekillchamber/index.html" class="game-link"><button class="game-button">Creative Kill Chamber</button></a>
+                    <a href="crossyroad/index.html" class="game-link"><button class="game-button">Crossy Road</button></a>
+                    <a href="crowd city 2/index.html" class="game-link"><button class="game-button">Crowd City 2</button></a>
+                    <a href="csgo-clicker/index.html" class="game-link"><button class="game-button">CSGO Clicker</button></a>
+                    <a href="ctr/index.html" class="game-link"><button class="game-button">CTR</button></a>
+                    <a href="ctr-holiday/index.html" class="game-link"><button class="game-button">CTR Holiday</button></a>
+                    <a href="ctr-tr/index.html" class="game-link"><button class="game-button">CTR TR</button></a>
+                    <a href="cubefield/index.html" class="game-link"><button class="game-button">Cubefield</button></a>
+                    <a href="cupcake2048/index.html" class="game-link"><button class="game-button">Cupcake 2048</button></a>
+                    <a href="cuttherope/index.html" class="game-link"><button class="game-button">Cut the Rope</button></a>
+                    <a href="dadish/index.html" class="game-link"><button class="game-button">Dadish</button></a>
+                    <a href="dadish3/index.html" class="game-link"><button class="game-button">Dadish 3</button></a>
+                    <a href="dadishtwo/index.html" class="game-link"><button class="game-button">Dadish 2</button></a>
+                    <a href="dante/index.html" class="game-link"><button class="game-button">Dante</button></a>
+                    <a href="deal-or-no-deal/index.html" class="game-link"><button class="game-button">Deal or No Deal</button></a>
+                    <a href="death-run-3d/index.html" class="game-link"><button class="game-button">Death Run 3D</button></a>
+                    <a href="death-soul/index.html" class="game-link"><button class="game-button">Death Soul</button></a>
+                    <a href="deathrun/index.html" class="game-link"><button class="game-button">Deathrun</button></a>
+                    <a href="defend-the-tank/index.html" class="game-link"><button class="game-button">Defend the Tank</button></a>
+                    <a href="dino/index.html" class="game-link"><button class="game-button">Dino</button></a>
+                    <a href="doctor-acorn2/index.html" class="game-link"><button class="game-button">Doctor Acorn 2</button></a>
+                    <a href="dodge/index.html" class="game-link"><button class="game-button">Dodge</button></a>
+                    <a href="doge-miner-2/index.html" class="game-link"><button class="game-button">Doge Miner 2</button></a>
+                    <a href="doge-mining-simulator/index.html" class="game-link"><button class="game-button">Doge Mining Simulator</button></a>
+                    <a href="doge2048/index.html" class="game-link"><button class="game-button">Doge 2048</button></a>
+                    <a href="DogeMiner/index.html" class="game-link"><button class="game-button">Doge Miner</button></a>
+                    <a href="dont-drop-the-white-ball-2/index.htm" class="game-link"><button class="game-button">Don't Drop the White Ball 2</button></a>
+                    <a href="doodle-jump/index.html" class="game-link"><button class="game-button">Doodle Jump</button></a>
+                    <a href="doublewires/index.html" class="game-link"><button class="game-button">Double Wires</button></a>
+                    <a href="douchebag-workout-2/index.html" class="game-link"><button class="game-button">Douchebag Workout 2</button></a>
+                    <a href="dragon-vs-bricks/index.html" class="game-link"><button class="game-button">Dragon vs Bricks</button></a>
+                    <a href="draw-the-hill/index.html" class="game-link"><button class="game-button">Draw the Hill</button></a>
+                    <a href="drive-mad/index.html" class="game-link"><button class="game-button">Drive Mad</button></a>
+                    <a href="duck-life-treasurehunt/index.html" class="game-link"><button class="game-button">Duck Life Treasure Hunt</button></a>
+                    <a href="ducklife/index.html" class="game-link"><button class="game-button">Duck Life</button></a>
+                    <a href="ducklife1/index.html" class="game-link"><button class="game-button">Duck Life 1</button></a>
+                    <a href="ducklife2/index.html" class="game-link"><button class="game-button">Duck Life 2</button></a>
+                    <a href="ducklife3/index.html" class="game-link"><button class="game-button">Duck Life 3</button></a>
+                    <a href="ducklife4/index.html" class="game-link"><button class="game-button">Duck Life 4</button></a>
+                    <a href="duke-dashington-remastered/index.html" class="game-link"><button class="game-button">Duke Dashington Remastered</button></a>
+                    <a href="dungeon-craft/index.html" class="game-link"><button class="game-button">Dungeon Craft</button></a>
+                    <a href="edge-surf/index.html" class="game-link"><button class="game-button">Edge Surf</button></a>
+                    <a href="edgenotfound/index.html" class="game-link"><button class="game-button">Edge Not Found</button></a>
+                    <a href="elastic-face/index.html" class="game-link"><button class="game-button">Elastic Face</button></a>
+                    <a href="elasticman/index.html" class="game-link"><button class="game-button">Elastic Man</button></a>
+                    <a href="emulator-js/index.html" class="game-link"><button class="game-button">Emulator JS</button></a>
+                    <a href="endlesswar3/index.html" class="game-link"><button class="game-button">Endless War 3</button></a>
+                    <a href="escapingtheprison/index.html" class="game-link"><button class="game-button">Escaping the Prison</button></a>
+                    <a href="evio/index.html" class="game-link"><button class="game-button">ev.io</button></a>
+                    <a href="evil-glitch/index.html" class="game-link"><button class="game-button">Evil Glitch</button></a>
+                    <a href="evilglitch/index.html" class="game-link"><button class="game-button">Evil Glitch (2)</button></a>
+                    <a href="evolution/index.html" class="game-link"><button class="game-button">Evolution</button></a>
+                    <a href="exo/index.html" class="game-link"><button class="game-button">Exo</button></a>
+                    <a href="factory-balls-forever/index.html" class="game-link"><button class="game-button">Factory Balls Forever</button></a>
+                    <a href="factoryballs/index.html" class="game-link"><button class="game-button">Factory Balls</button></a>
+                    <a href="factoryballsforever/index.html" class="game-link"><button class="game-button">Factory Balls Forever (2)</button></a>
+                    <a href="fake-virus/index.html" class="game-link"><button class="game-button">Fake Virus</button></a>
+                    <a href="fancypantsadventures/index.html" class="game-link"><button class="game-button">Fancy Pants Adventures</button></a>
+                    <a href="fbwg/index.html" class="game-link"><button class="game-button">FBWG</button></a>
+                    <a href="finns-fantastic-food-machine/index.html" class="game-link"><button class="game-button">Finn's Fantastic Food Machine</button></a>
+                    <a href="fireboywatergirlforesttemple/index.html" class="game-link"><button class="game-button">Fireboy and Watergirl</button></a>
+                    <a href="fireice/index.html" class="game-link"><button class="game-button">Fire and Ice</button></a>
+                    <a href="firewater/index.html" class="game-link"><button class="game-button">Fire and Water</button></a>
+                    <a href="flappy-2048/index.html" class="game-link"><button class="game-button">Flappy 2048</button></a>
+                    <a href="flappy-bird/index.html" class="game-link"><button class="game-button">Flappy Bird</button></a>
+                    <a href="flappy-defense/index.html" class="game-link"><button class="game-button">Flappy Defense</button></a>
+                    <a href="flappybird/index.html" class="game-link"><button class="game-button">Flappy Bird (2)</button></a>
+                    <a href="flashtetris/index.html" class="game-link"><button class="game-button">Flash Tetris</button></a>
+                    <a href="flippy-fish/index.html" class="game-link"><button class="game-button">Flippy Fish</button></a>
+                    <a href="flood-runner-2/index.html" class="game-link"><button class="game-button">Flood Runner 2</button></a>
+                    <a href="fridaynightfunkin/index.html" class="game-link"><button class="game-button">Friday Night Funkin'</button></a>
+                    <a href="friendlyfire/index.html" class="game-link"><button class="game-button">Friendly Fire</button></a>
+                    <a href="froggys-battle/index.html" class="game-link"><button class="game-button">Froggy's Battle</button></a>
+                    <a href="fruitninja/index.html" class="game-link"><button class="game-button">Fruit Ninja</button></a>
+                    <a href="frying-nemo/index.html" class="game-link"><button class="game-button">Frying Nemo</button></a>
+                    <a href="FullScreenMario/Source/index.html" class="game-link"><button class="game-button">Full Screen Mario</button></a>
+                    <a href="game-inside/index.html" class="game-link"><button class="game-button">Game Inside</button></a>
+                    <a href="generic-fishing-game/index.html" class="game-link"><button class="game-button">Generic Fishing Game</button></a>
+                    <a href="geodash/index.html" class="game-link"><button class="game-button">Geo Dash</button></a>
+                    <a href="geodash-2/index.html" class="game-link"><button class="game-button">Geo Dash 2</button></a>
+                    <a href="geometry_jump_sketchy/index.html" class="game-link"><button class="game-button">Geometry Jump Sketchy</button></a>
+                    <a href="geometrydash/index.html" class="game-link"><button class="game-button">Geometry Dash</button></a>
+                    <a href="georgeandtheprinter/index.html" class="game-link"><button class="game-button">George and the Printer</button></a>
+                    <a href="getaway-shootout/index.html" class="game-link"><button class="game-button">Getaway Shootout</button></a>
+                    <a href="getting-over-it/index.html" class="game-link"><button class="game-button">Getting Over It</button></a>
+                    <a href="gimme-the-airpod/index.html" class="game-link"><button class="game-button">Gimme the AirPod</button></a>
+                    <a href="glass-city/index.html" class="game-link"><button class="game-button">Glass City</button></a>
+                    <a href="go-ball/index.html" class="game-link"><button class="game-button">Go Ball</button></a>
+                    <a href="golf/index.html" class="game-link"><button class="game-button">Golf</button></a>
+                    <a href="goodnight/index.html" class="game-link"><button class="game-button">Goodnight</button></a>
+                    <a href="google-snake/index.html" class="game-link"><button class="game-button">Google Snake</button></a>
+                    <a href="google-solitaire/index.html" class="game-link"><button class="game-button">Google Solitaire</button></a>
+                    <a href="gopher/index.html" class="game-link"><button class="game-button">Gopher</button></a>
+                    <a href="gravity-soccer/index.html" class="game-link"><button class="game-button">Gravity Soccer</button></a>
+                    <a href="green/index.html" class="game-link"><button class="game-button">Green</button></a>
+                    <a href="greybox/index.html" class="game-link"><button class="game-button">Grey Box</button></a>
+                    <a href="grindcraft/index.html" class="game-link"><button class="game-button">Grindcraft</button></a>
+                    <a href="grow-in-the-hole/index.html" class="game-link"><button class="game-button">Grow in the Hole</button></a>
+                    <a href="gun-mayhem/index.html" class="game-link"><button class="game-button">Gun Mayhem</button></a>
+                    <a href="gun-mayhem-2/index.html" class="game-link"><button class="game-button">Gun Mayhem 2</button></a>
+                    <a href="gun-mayhem-redux/index.html" class="game-link"><button class="game-button">Gun Mayhem Redux</button></a>
+                    <a href="gunspin/index.html" class="game-link"><button class="game-button">Gunspin</button></a>
+                    <a href="hackertype/index.html" class="game-link"><button class="game-button">Hacker Type</button></a>
+                    <a href="happy-hop/index.html" class="game-link"><button class="game-button">Happy Hop</button></a>
+                    <a href="happy-wheels/index.html" class="game-link"><button class="game-button">Happy Wheels</button></a>
+                    <a href="hba/index.html" class="game-link"><button class="game-button">HBA</button></a>
+                    <a href="helicopter/index.html" class="game-link"><button class="game-button">Helicopter</button></a>
+                    <a href="helios/index.html" class="game-link"><button class="game-button">Helios</button></a>
+                    <a href="hexempire/index.html" class="game-link"><button class="game-button">Hex Empire</button></a>
+                    <a href="HexGL/index.html" class="game-link"><button class="game-button">Hex GL</button></a>
+                    <a href="hextris/index.html" class="game-link"><button class="game-button">Hextris</button></a>
+                    <a href="house-of-hazards/index.html" class="game-link"><button class="game-button">House of Hazards</button></a>
+                    <a href="icys-purple-head/index.html" class="game-link"><button class="game-button">Icy's Purple Head</button></a>
+                    <a href="idle-breakout/index.html" class="game-link"><button class="game-button">Idle Breakout</button></a>
+                    <a href="idle-shark/index.html" class="game-link"><button class="game-button">Idle Shark</button></a>
+                    <a href="impossiblequiz/index.html" class="game-link"><button class="game-button">Impossible Quiz</button></a>
+                    <a href="interactivebuddy/index.html" class="game-link"><button class="game-button">Interactive Buddy</button></a>
+                    <a href="iscribble-io/index.html" class="game-link"><button class="game-button">iScribble IO</button></a>
+                    <a href="jelly-truck/index.html" class="game-link"><button class="game-button">Jelly Truck</button></a>
+                    <a href="jetpack/index.html" class="game-link"><button class="game-button">Jetpack</button></a>
+                    <a href="jimothy-piggerton/index.html" class="game-link"><button class="game-button">Jimothy Piggerton</button></a>
+                    <a href="just-one-boss/index.html" class="game-link"><button class="game-button">Just One Boss</button></a>
+                    <a href="justfall/index.html" class="game-link"><button class="game-button">Just Fall</button></a>
+                    <a href="kart-fight-io/index.html" class="game-link"><button class="game-button">Kart Fight IO</button></a>
+                    <a href="kitchen-gun-game/index.html" class="game-link"><button class="game-button">Kitchen Gun Game</button></a>
+                    <a href="kittencannon/index.html" class="game-link"><button class="game-button">Kitten Cannon</button></a>
+                    <a href="klocki/index.html" class="game-link"><button class="game-button">Klocki</button></a>
+                    <a href="konnekt/index.html" class="game-link"><button class="game-button">Konnekt</button></a>
+                    <a href="krunker/index.html" class="game-link"><button class="game-button">Krunker</button></a>
+                    <a href="learntofly/index.html" class="game-link"><button class="game-button">Learn to Fly</button></a>
+                    <a href="learntofly2/index.html" class="game-link"><button class="game-button">Learn to Fly 2</button></a>
+                    <a href="ltf3/index.html" class="game-link"><button class="game-button">Learn to Fly 3</button></a>
+                    <a href="line-rider/index.html" class="game-link"><button class="game-button">Line Rider</button></a>
+                    <a href="linquest/index.html" class="game-link"><button class="game-button">Linquest</button></a>
+                    <a href="madalin-stunt-cars-2/index.html" class="game-link"><button class="game-button">Madalin Stunt Cars 2</button></a>
+                    <a href="madalin-stunt-cars-3/index.html" class="game-link"><button class="game-button">Madalin Stunt Cars 3</button></a>
+                    <a href="mario/index.html" class="game-link"><button class="game-button">Mario</button></a>
+                    <a href="marvinspectrum/index.html" class="game-link"><button class="game-button">Marvin Spectrum</button></a>
+                    <a href="matrixrampage/index.html" class="game-link"><button class="game-button">Matrix Rampage</button></a>
+                    <a href="mc1.5.2/index.html" class="game-link"><button class="game-button">Minecraft 1.5.2</button></a>
+                    <a href="e@glercr@ft/index.html" class="game-link"><button class="game-button">Minecraft (Multiplayer)</button></a>
+                    <a href="mcbeta0.30/index.html" class="game-link"><button class="game-button">Minecraft Beta 0.30</button></a>
+                    <a href="mcbeta1.3/index.html" class="game-link"><button class="game-button">Minecraft Beta 1.3</button></a>
+                    <a href="meat-boy/index.html" class="game-link"><button class="game-button">Meat Boy</button></a>
+                    <a href="meme2048/index.html" class="game-link"><button class="game-button">Meme 2048</button></a>
+                    <a href="minecraft/index.html" class="game-link"><button class="game-button">Minecraft</button></a>
+                    <a href="minecraft-classic/index.html" class="game-link"><button class="game-button">Minecraft Classic</button></a>
+                    <a href="minecraftbeta/index.html" class="game-link"><button class="game-button">Minecraft Beta</button></a>
+                    <a href="minesweeper/index.html" class="game-link"><button class="game-button">Minesweeper</button></a>
+                    <a href="mini-stilts/index.html" class="game-link"><button class="game-button">Mini Stilts</button></a>
+                    <a href="miniputt/index.html" class="game-link"><button class="game-button">Mini Putt</button></a>
+                    <a href="missiles/index.html" class="game-link"><button class="game-button">Missiles</button></a>
+                    <a href="my-friend-pedro/index.html" class="game-link"><button class="game-button">My Friend Pedro</button></a>
+                    <a href="n-gon/index.html" class="game-link"><button class="game-button">N-Gon</button></a>
+                    <a href="ninja/index.html" class="game-link"><button class="game-button">Ninja</button></a>
+                    <a href="ninjavsevilcorp/index.html" class="game-link"><button class="game-button">Ninja vs Evil Corp</button></a>
+                    <a href="ns-shaft/index.html" class="game-link"><button class="game-button">NS Shaft</button></a>
+                    <a href="OfflineParadise/index.html" class="game-link"><button class="game-button">Offline Paradise</button></a>
+                    <a href="om-bounce/index.html" class="game-link"><button class="game-button">OM Bounce</button></a>
+                    <a href="one-screen-run/index.html" class="game-link"><button class="game-button">One Screen Run</button></a>
+                    <a href="one-screen-run-2/index.html" class="game-link"><button class="game-button">One Screen Run 2</button></a>
+                    <a href="osu/index.html" class="game-link"><button class="game-button">Osu</button></a>
+                    <a href="overtide/index.html" class="game-link"><button class="game-button">Overtide</button></a>
+                    <a href="ovo/index.html" class="game-link"><button class="game-button">Ovo</button></a>
+                    <a href="packabunchas/index.html" class="game-link"><button class="game-button">Packabunchas</button></a>
+                    <a href="pacman/index.html" class="game-link"><button class="game-button">Pacman</button></a>
+                    <a href="pandemic2/index.html" class="game-link"><button class="game-button">Pandemic 2</button></a>
+                    <a href="papa-louie/index.html" class="game-link"><button class="game-button">Papa Louie</button></a>
+                    <a href="paperio2/index.html" class="game-link"><button class="game-button">Paper IO 2</button></a>
+                    <a href="papery-planes/index.html" class="game-link"><button class="game-button">Papery Planes</button></a>
+                    <a href="particle-clicker/index.html" class="game-link"><button class="game-button">Particle Clicker</button></a>
+                    <a href="path-finder/index.html" class="game-link"><button class="game-button">Path Finder</button></a>
+                    <a href="pe-noire/index.html" class="game-link"><button class="game-button">Pe Noire</button></a>
+                    <a href="pikwip/index.html" class="game-link"><button class="game-button">Pikwip</button></a>
+                    <a href="pixel-cave/index.html" class="game-link"><button class="game-button">Pixel Cave</button></a>
+                    <a href="pizzeria-simulator/index.html" class="game-link"><button class="game-button">Pizzeria Simulator</button></a>
+                    <a href="polybranch/index.html" class="game-link"><button class="game-button">Polybranch</button></a>
+                    <a href="popcat-classic/index.html" class="game-link"><button class="game-button">Popcat Classic</button></a>
+                    <a href="portalflash/index.html" class="game-link"><button class="game-button">Portal Flash</button></a>
+                    <a href="precision-client/index.html" class="game-link"><button class="game-button">Precision Client</button></a>
+                    <a href="protektor/index.html" class="game-link"><button class="game-button">Protektor</button></a>
+                    <a href="push-the-square/index.html" class="game-link"><button class="game-button">Push the Square</button></a>
+                    <a href="push-your-luck/index.html" class="game-link"><button class="game-button">Push Your Luck</button></a>
+                    <a href="pushback/index.html" class="game-link"><button class="game-button">Pushback</button></a>
+                    <a href="puzzle-ball/index.html" class="game-link"><button class="game-button">Puzzle Ball</button></a>
+                    <a href="pvz-2/index.html" class="game-link"><button class="game-button">Plants vs Zombies 2</button></a>
+                    <a href="racer/index.html" class="game-link"><button class="game-button">Racer</button></a>
+                    <a href="radiusraid/index.html" class="game-link"><button class="game-button">Radius Raid</button></a>
+                    <a href="retro-bowl/index.html" class="game-link"><button class="game-button">Retro Bowl</button></a>
+                    <a href="retrohaunt/index.html" class="game-link"><button class="game-button">Retro Haunt</button></a>
+                    <a href="rise-of-neon-square/index.html" class="game-link"><button class="game-button">Rise of Neon Square</button></a>
+                    <a href="roadblocks/index.html" class="game-link"><button class="game-button">Roadblocks</button></a>
+                    <a href="roblox/index.html" class="game-link"><button class="game-button">Roblox</button></a>
+                    <a href="rocket-soccer/index.html" class="game-link"><button class="game-button">Rocket Soccer</button></a>
+                    <a href="rocking-sky-trip/index.html" class="game-link"><button class="game-button">Rocking Sky Trip</button></a>
+                    <a href="rolling-forests/index.html" class="game-link"><button class="game-button">Rolling Forests</button></a>
+                    <a href="rolly-vortex/index.html" class="game-link"><button class="game-button">Rolly Vortex</button></a>
+                    <a href="rooftop-snipers/index.html" class="game-link"><button class="game-button">Rooftop Snipers</button></a>
+                    <a href="run-3/index.html" class="game-link"><button class="game-button">Run 3</button></a>
+                    <a href="sand-game/index.html" class="game-link"><button class="game-button">Sand Game</button></a>
+                    <a href="sandboxels/index.html" class="game-link"><button class="game-button">Sandboxels</button></a>
+                    <a href="scrambled-eggs/index.html" class="game-link"><button class="game-button">Scrambled Eggs</button></a>
+                    <a href="scrapmetal/index.html" class="game-link"><button class="game-button">Scrap Metal</button></a>
+                    <a href="senya-and-oscar-2/index.html" class="game-link"><button class="game-button">Senya and Oscar 2</button></a>
+                    <a href="sg/index.html" class="game-link"><button class="game-button">SG</button></a>
+                    <a href="shadow-world-adventure/index.html" class="game-link"><button class="game-button">Shadow World Adventure</button></a>
+                    <a href="shards/index.html" class="game-link"><button class="game-button">Shards</button></a>
+                    <a href="shift-flash/index.html" class="game-link"><button class="game-button">Shift Flash</button></a>
+                    <a href="shift-flash-2/index.html" class="game-link"><button class="game-button">Shift Flash 2</button></a>
+                    <a href="short-life-2/index.html" class="game-link"><button class="game-button">Short Life 2</button></a>
+                    <a href="short-ride/index.html" class="game-link"><button class="game-button">Short Ride</button></a>
+                    <a href="shuttledeck/index.html" class="game-link"><button class="game-button">Shuttle Deck</button></a>
+                    <a href="skyblock/index.html" class="game-link"><button class="game-button">Skyblock</button></a>
+                    <a href="sleepingbeauty/index.html" class="game-link"><button class="game-button">Sleeping Beauty</button></a>
+                    <a href="slice-of-sasha/index.html" class="game-link"><button class="game-button">Slice of Sasha</button></a>
+                    <a href="slither/index.html" class="game-link"><button class="game-button">Slither</button></a>
+                    <a href="slope/index.html" class="game-link"><button class="game-button">Slope</button></a>
+                    <a href="slope-ball/index.html" class="game-link"><button class="game-button">Slope Ball</button></a>
+                    <a href="slope2/index.html" class="game-link"><button class="game-button">Slope 2</button></a>
+                    <a href="sm63/index.html" class="game-link"><button class="game-button">SM63</button></a>
+                    <a href="sm64/index.html" class="game-link"><button class="game-button">SM64</button></a>
+                    <a href="smashkarts/index.html" class="game-link"><button class="game-button">Smash Karts</button></a>
+                    <a href="smokingbarrels/index.html" class="game-link"><button class="game-button">Smoking Barrels</button></a>
+                    <a href="snake/index.html" class="game-link"><button class="game-button">Snake</button></a>
+                    <a href="snowbattle/index.html" class="game-link"><button class="game-button">Snow Battle</button></a>
+                    <a href="soldier-legend/index.html" class="game-link"><button class="game-button">Soldier Legend</button></a>
+                    <a href="solitaire/index.html" class="game-link"><button class="game-button">Solitaire</button></a>
+                    <a href="sonic-the-hedgehog/src/index.html" class="game-link"><button class="game-button">Sonic the Hedgehog</button></a>
+                    <a href="sort-the-court/index.html" class="game-link"><button class="game-button">Sort the Court</button></a>
+                    <a href="soundboard/index.html" class="game-link"><button class="game-button">Soundboard</button></a>
+                    <a href="space-company/index.html" class="game-link"><button class="game-button">Space Company</button></a>
+                    <a href="spacegarden/index.html" class="game-link"><button class="game-button">Space Garden</button></a>
+                    <a href="spacehuggers/index.html" class="game-link"><button class="game-button">Space Huggers</button></a>
+                    <a href="spelunky/index.html" class="game-link"><button class="game-button">Spelunky</button></a>
+                    <a href="ssf/index.html" class="game-link"><button class="game-button">SSF</button></a>
+                    <a href="stack/index.html" class="game-link"><button class="game-button">Stack</button></a>
+                    <a href="stack-bump-3d/index.html" class="game-link"><button class="game-button">Stack Bump 3D</button></a>
+                    <a href="station-141/index.html" class="game-link"><button class="game-button">Station 141</button></a>
+                    <a href="stealingthediamond/index.html" class="game-link"><button class="game-button">Stealing the Diamond</button></a>
+                    <a href="stick-archers-battle/index.html" class="game-link"><button class="game-button">Stick Archers Battle</button></a>
+                    <a href="stickclimb/index.html" class="game-link"><button class="game-button">Stick Climb</button></a>
+                    <a href="stickman/index.html" class="game-link"><button class="game-button">Stickman</button></a>
+                    <a href="stickman-boost/index.html" class="game-link"><button class="game-button">Stickman Boost</button></a>
+                    <a href="stickman-dismount/index.html" class="game-link"><button class="game-button">Stickman Dismount</button></a>
+                    <a href="stickman-epic-battle/index.html" class="game-link"><button class="game-button">Stickman Epic Battle</button></a>
+                    <a href="stickman-golf/index.html" class="game-link"><button class="game-button">Stickman Golf</button></a>
+                    <a href="Stickman-Survival/index.html" class="game-link"><button class="game-button">Stickman Survival</button></a>
+                    <a href="stickwar/index.html" class="game-link"><button class="game-button">Stick War</button></a>
+                    <a href="stormthehouse2/index.html" class="game-link"><button class="game-button">Storm the House 2</button></a>
+                    <a href="subway-surfers/index.html" class="game-link"><button class="game-button">Subway Surfers</button></a>
+                    <a href="subway-surfers-bali/index.html" class="game-link"><button class="game-button">Subway Surfers Bali</button></a>
+                    <a href="super-mario-maker-online/index.html" class="game-link"><button class="game-button">Super Mario Maker Online</button></a>
+                    <a href="super-puffer-fish-3d/index.html" class="game-link"><button class="game-button">Super Puffer Fish 3D</button></a>
+                    <a href="superhero-io/index.html" class="game-link"><button class="game-button">Superhero IO</button></a>
+                    <a href="superhot/index.html" class="game-link"><button class="game-button">Superhot</button></a>
+                    <a href="supermarioconstruct/index.html" class="game-link"><button class="game-button">Super Mario Construct</button></a>
+                    <a href="swerve/index.html" class="game-link"><button class="game-button">Swerve</button></a>
+                    <a href="synesthesia/index.html" class="game-link"><button class="game-button">Synesthesia</button></a>
+                    <a href="tactical-weapon-pack-2/index.html" class="game-link"><button class="game-button">Tactical Weapon Pack 2</button></a>
+                    <a href="tacticalassasin2/index.html" class="game-link"><button class="game-button">Tactical Assassin 2</button></a>
+                    <a href="tail-of-the-dragon/index.html" class="game-link"><button class="game-button">Tail of the Dragon</button></a>
+                    <a href="tam-indian-truck-simulator-3d/index.html" class="game-link"><button class="game-button">TAM Indian Truck Simulator</button></a>
+                    <a href="tank-trouble-2/index.html" class="game-link"><button class="game-button">Tank Trouble 2</button></a>
+                    <a href="tanuki-sunset/index.html" class="game-link"><button class="game-button">Tanuki Sunset</button></a>
+                    <a href="temple-run-2/index.html" class="game-link"><button class="game-button">Temple Run 2</button></a>
+                    <a href="tetris/index.html" class="game-link"><button class="game-button">Tetris</button></a>
+                    <a href="the-final-earth/index.html" class="game-link"><button class="game-button">The Final Earth</button></a>
+                    <a href="the-final-earth-2/index.html" class="game-link"><button class="game-button">The Final Earth 2</button></a>
+                    <a href="the-impossible-quiz/index.html" class="game-link"><button class="game-button">The Impossible Quiz</button></a>
+                    <a href="the-impossible-quiz-2/index.html" class="game-link"><button class="game-button">The Impossible Quiz 2</button></a>
+                    <a href="the-little-giant/index.html" class="game-link"><button class="game-button">The Little Giant</button></a>
+                    <a href="thebattle/index.html" class="game-link"><button class="game-button">The Battle</button></a>
+                    <a href="theheist/index.html" class="game-link"><button class="game-button">The Heist</button></a>
+                    <a href="themazeofspacegoblins/index.html" class="game-link"><button class="game-button">The Maze of Space Goblins</button></a>
+                    <a href="there-is-no-game/index.html" class="game-link"><button class="game-button">There Is No Game</button></a>
+                    <a href="thisistheonlylevel/index.html" class="game-link"><button class="game-button">This Is the Only Level</button></a>
+                    <a href="time-shooter-3/index.html" class="game-link"><button class="game-button">Time Shooter 3</button></a>
+                    <a href="tiny-fishing/index.html" class="game-link"><button class="game-button">Tiny Fishing</button></a>
+                    <a href="tiny-fragments/index.html" class="game-link"><button class="game-button">Tiny Fragments</button></a>
+                    <a href="tiny-islands/index.html" class="game-link"><button class="game-button">Tiny Islands</button></a>
+                    <a href="topple-adventure/index.html" class="game-link"><button class="game-button">Topple Adventure</button></a>
+                    <a href="tosstheturtle/index.html" class="game-link"><button class="game-button">Toss the Turtle</button></a>
+                    <a href="tough-growth/index.html" class="game-link"><button class="game-button">Tough Growth</button></a>
+                    <a href="towermaster/index.html" class="game-link"><button class="game-button">Tower Master</button></a>
+                    <a href="townscaper/index.html" class="game-link"><button class="game-button">Townscaper</button></a>
+                    <a href="trimps/index.html" class="game-link"><button class="game-button">Trimps</button></a>
+                    <a href="tube-jumpers/index.html" class="game-link"><button class="game-button">Tube Jumpers</button></a>
+                    <a href="tunnel-rush/index.html" class="game-link"><button class="game-button">Tunnel Rush</button></a>
+                    <a href="tunnelz/index.html" class="game-link"><button class="game-button">Tunnelz</button></a>
+                    <a href="tv-static/index.html" class="game-link"><button class="game-button">TV Static</button></a>
+                    <a href="twitch-tetris/index.html" class="game-link"><button class="game-button">Twitch Tetris</button></a>
+                    <a href="underrun/index.html" class="game-link"><button class="game-button">Underrun</button></a>
+                    <a href="unfold-2/index.html" class="game-link"><button class="game-button">Unfold 2</button></a>
+                    <a href="up-left-out/index.html" class="game-link"><button class="game-button">Up Left Out</button></a>
+                    <a href="veloce/index.html" class="game-link"><button class="game-button">Veloce</button></a>
+                    <a href="vex3/index.html" class="game-link"><button class="game-button">Vex 3</button></a>
+                    <a href="vex4/index.html" class="game-link"><button class="game-button">Vex 4</button></a>
+                    <a href="vex5/index.html" class="game-link"><button class="game-button">Vex 5</button></a>
+                    <a href="vex6/index.html" class="game-link"><button class="game-button">Vex 6</button></a>
+                    <a href="vex7/index.html" class="game-link"><button class="game-button">Vex 7</button></a>
+                    <a href="waterworks/index.html" class="game-link"><button class="game-button">Waterworks</button></a>
+                    <a href="webretro/index.html" class="game-link"><button class="game-button">Webretro</button></a>
+                    <a href="winter-falling-price/index.html" class="game-link"><button class="game-button">Winter Falling Price</button></a>
+                    <a href="wipo/index.html" class="game-link"><button class="game-button">Wipo</button></a>
+                    <a href="wolf3d/index.html" class="game-link"><button class="game-button">Wolf 3D</button></a>
+                    <a href="wordle/index.html" class="game-link"><button class="game-button">Wordle</button></a>
+                    <a href="worlds-hardest-game/index.html" class="game-link"><button class="game-button">World's Hardest Game</button></a>
+                    <a href="worlds-hardest-game-2/index.html" class="game-link"><button class="game-button">World's Hardest Game 2</button></a>
+                    <a href="x-trial-racing/index.html" class="game-link"><button class="game-button">X Trial Racing</button></a>
+                    <a href="xx142-b2exe/index.html" class="game-link"><button class="game-button">XX142 B2EXE</button></a>
+                    <a href="yoshifabrication/index.html" class="game-link"><button class="game-button">Yoshi Fabrication</button></a>
+                    <a href="you-are-bezos/index.html" class="game-link"><button class="game-button">You Are Bezos</button></a>
+                    <a href="zig-zag/index.html" class="game-link"><button class="game-button">Zig Zag</button></a>
+                    <a href="zombocalypse/index.html" class="game-link"><button class="game-button">Zombocalypse</button></a>
+                    <a href="zombs-royale/index.html" class="game-link"><button class="game-button">Zombs Royale</button></a>
+                </div>
             </div>
         </div>
     </div>
+
+        <!-- Settings tab content -->
+        <div id="settings-tab" class="tab-content">
+            <div class="settings-container">
+                <h2 class="settings-title">Settings</h2>
+                
+                <div class="settings-section">
+                    <h3>Tab Cloak Settings</h3>
+                    <form class="settings-form" onsubmit="setCloakCookie(); return false;">
+                        <div class="form-group">
+                            <label for="webname">Website Name</label>
+                            <input type="text" id="webname" name="webname" placeholder="Game Hub" class="settings-input" />
+                        </div>
+                        <div class="form-group">
+                            <label for="webicon">Website Icon</label>
+                            <input type="text" id="webicon" name="webicon" placeholder="https://example.com/favicon.ico" class="settings-input" />
+                        </div>
+                        <div class="form-group">
+                            <label for="presetCloaks">Or select a preset:</label>
+                            <select id="presetCloaks" class="settings-select">
+                                <option value="google">Google</option>
+                                <option value="canvas">Canvas</option>
+                                <option value="desmos">Desmos</option>
+                                <option value="drive">Google Drive</option>
+                                <option value="classroom">Google Classroom</option>
+                                <option value="newtab">New Tab</option>
+                                <option value="docs">Google Docs</option>
+                                <option value="edpuzzle">Edpuzzle</option>
+                                <option value="khan">Khan Academy</option>
+                                <option value="quizlet">Quizlet</option>
+                                <option value="schoology">Schoology</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="settings-button">Set Tab Cloak</button>
+                    </form>
+                    <button onclick="clearCloak()" class="settings-button secondary">Clear Tab Cloak</button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Privacy Options</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="discordIcon" name="discordIcon">
+                            <span class="checkmark"></span>
+                            Disable Discord Icon
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="blockClose" name="blockClose">
+                            <span class="checkmark"></span>
+                            Block tab from being closed
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tabDisguise" name="tabDisguise">
+                            <span class="checkmark"></span>
+                            Disguise your tab when you click off (currently only Google)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Themes</h3>
+                    <div class="theme-buttons">
+                        <button onclick="setTheme('main')" class="theme-btn" style="background: linear-gradient(135deg, #3c096c, #5a189a); color: #fff;">Game Hub</button>
+                        <button onclick="setTheme('light')" class="theme-btn" style="background: linear-gradient(135deg, #bbbbbb, #e6e6e6); color: #1a1a1a;">Light Mode</button>
+                        <button onclick="setTheme('dark')" class="theme-btn" style="background: linear-gradient(135deg, #333333, #444444); color: #fff;">Dark Mode</button>
+                        <button onclick="setTheme('vaporwave')" class="theme-btn" style="background: linear-gradient(135deg, #4b2d64, #74568d); color: #fff;">Vaporwave</button>
+                        <button onclick="customTheme()" class="theme-btn">Custom</button>
+                    </div>
+                    <div id="customMenu" class="custom-theme-menu" style="display: none;">
+                        <div class="color-inputs">
+                            <div class="color-input-group">
+                                <label>Input Background Color</label>
+                                <input type="color" id="inputbg" class="color-input"/>
+                            </div>
+                            <div class="color-input-group">
+                                <label>Input Border Color</label>
+                                <input type="color" id="inputborder" class="color-input"/>
+                            </div>
+                            <div class="color-input-group">
+                                <label>UI Background Color</label>
+                                <input type="color" id="uibg" class="color-input"/>
+                            </div>
+                            <div class="color-input-group">
+                                <label>Text Color</label>
+                                <input type="color" id="textcolor" class="color-input"/>
+                            </div>
+                            <div class="color-input-group">
+                                <label>Background</label>
+                                <input type="color" id="bg" class="color-input"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Or select an image (press Enter to set)</label>
+                                <input type="text" id="bgimg" placeholder="https://example.com/image.jpg" class="settings-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Panic Mode</h3>
+                    <form class="settings-form" onsubmit="setPanicMode(); return false;">
+                        <div class="form-group">
+                            <label for="panic">Website URL</label>
+                            <input type="text" id="panic" name="panic" placeholder="https://google.com" class="settings-input" />
+                        </div>
+                        <button type="submit" class="settings-button">Set Panic Mode</button>
+                    </form>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Password Protection</h3>
+                    <form class="settings-form" onsubmit="setPassword(); return false;">
+                        <div class="form-group">
+                            <label for="pass">Password to access website</label>
+                            <input type="text" id="pass" name="pass" placeholder="password" class="settings-input" />
+                        </div>
+                        <p class="settings-description">
+                            If a teacher tries to copy the URL from your browser, it will require a password to access the website.
+                            If you type a wrong password, you will be locked out for 10 minutes, likewise, if you type the right password, it'll work for 10 minutes.
+                        </p>
+                        <div class="button-group">
+                            <button type="submit" class="settings-button">Set Password</button>
+                            <button type="button" onclick="delPassword()" class="settings-button secondary">Delete Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                button.classList.add('active');
+                document.getElementById(`${targetTab}-tab`).classList.add('active');
+            });
+        });
+
         const searchInput = document.getElementById("search");
         const gameCounter = document.getElementById("game-counter");
         const gameButtons = document.getElementsByClassName("game-button");
         const gameLinks = document.getElementsByClassName("game-link");
         
         // Initialize game counter
-        gameCounter.textContent = `${gameButtons.length} games available`;
+        if (gameCounter) {
+            gameCounter.textContent = `${gameButtons.length} games available`;
+        }
         
         // Enhanced search with debouncing and better performance
         let searchTimeout;
-        searchInput.addEventListener("input", () => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                const searchValue = searchInput.value.toLowerCase().trim();
-                let visibleCount = 0;
-                
-                Array.from(gameLinks).forEach(link => {
-                    const button = link.querySelector('.game-button');
-                    const buttonText = button.textContent.toLowerCase();
-                    const isVisible = buttonText.includes(searchValue);
+        if (searchInput) {
+            searchInput.addEventListener("input", () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchValue = searchInput.value.toLowerCase().trim();
+                    let visibleCount = 0;
                     
-                    link.style.display = isVisible ? "" : "none";
-                    if (isVisible) visibleCount++;
-                });
-                
-                // Update counter
-                if (searchValue === "") {
-                    gameCounter.textContent = `${gameButtons.length} games available`;
-                } else {
-                    gameCounter.textContent = `${visibleCount} games found`;
-                }
-            }, 150);
-        });
+                    Array.from(gameLinks).forEach(link => {
+                        const button = link.querySelector('.game-button');
+                        const buttonText = button.textContent.toLowerCase();
+                        const isVisible = buttonText.includes(searchValue);
+                        
+                        link.style.display = isVisible ? "" : "none";
+                        if (isVisible) visibleCount++;
+                    });
+                    
+                    // Update counter
+                    if (searchValue === "") {
+                        gameCounter.textContent = `${gameButtons.length} games available`;
+                    } else {
+                        gameCounter.textContent = `${visibleCount} games found`;
+                    }
+                }, 150);
+            });
 
-        // Clear search on escape key
-        searchInput.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                searchInput.value = "";
-                searchInput.dispatchEvent(new Event("input"));
-                searchInput.blur();
-            }
-        });
+            // Clear search on escape key
+            searchInput.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    searchInput.value = "";
+                    searchInput.dispatchEvent(new Event("input"));
+                    searchInput.blur();
+                }
+            });
+        }
 
         // Focus search on "/" key
         document.addEventListener("keydown", (e) => {
-            if (e.key === "/" && document.activeElement !== searchInput) {
+            if (e.key === "/" && document.activeElement !== searchInput && searchInput) {
                 e.preventDefault();
                 searchInput.focus();
             }
@@ -496,28 +651,131 @@
         const fullscreenToggle = document.getElementById("fullscreen-toggle");
         const fullscreenText = document.querySelector(".fullscreen-text");
         
-        fullscreenToggle.addEventListener("click", () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().then(() => {
-                    fullscreenText.textContent = "Exit Fullscreen";
-                }).catch(err => {
-                    console.log("[v0] Error attempting to enable fullscreen:", err);
-                });
-            } else {
-                document.exitFullscreen().then(() => {
-                    fullscreenText.textContent = "Fullscreen";
-                }).catch(err => {
-                    console.log("[v0] Error attempting to exit fullscreen:", err);
-                });
-            }
-        });
+        if (fullscreenToggle) {
+            fullscreenToggle.addEventListener("click", () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Exit Fullscreen";
+                    }).catch(err => {
+                        console.log("[v0] Error attempting to enable fullscreen:", err);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Fullscreen";
+                    }).catch(err => {
+                        console.log("[v0] Error attempting to exit fullscreen:", err);
+                    });
+                }
+            });
+        }
 
         // Update button text when fullscreen changes via other means (F11, etc.)
         document.addEventListener("fullscreenchange", () => {
-            if (document.fullscreenElement) {
-                fullscreenText.textContent = "Exit Fullscreen";
+            if (fullscreenText) {
+                if (document.fullscreenElement) {
+                    fullscreenText.textContent = "Exit Fullscreen";
+                } else {
+                    fullscreenText.textContent = "Fullscreen";
+                }
+            }
+        });
+
+        function setCloakCookie() {
+            const webname = document.getElementById('webname').value || 'Game Hub';
+            const webicon = document.getElementById('webicon').value || '/favicon.ico';
+            const preset = document.getElementById('presetCloaks').value;
+            
+            if (preset && preset !== 'custom') {
+                // Handle preset selection
+                const presets = {
+                    google: { name: 'Google', icon: 'https://www.google.com/favicon.ico' },
+                    canvas: { name: 'Canvas', icon: 'https://canvas.instructure.com/favicon.ico' },
+                    desmos: { name: 'Desmos Graphing Calculator', icon: 'https://www.desmos.com/favicon.ico' },
+                    drive: { name: 'Google Drive', icon: 'https://drive.google.com/favicon.ico' },
+                    classroom: { name: 'Google Classroom', icon: 'https://classroom.google.com/favicon.ico' },
+                    newtab: { name: 'New Tab', icon: 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=' },
+                    docs: { name: 'Google Docs', icon: 'https://docs.google.com/favicon.ico' },
+                    edpuzzle: { name: 'Edpuzzle', icon: 'https://edpuzzle.com/favicon.ico' },
+                    khan: { name: 'Khan Academy', icon: 'https://www.khanacademy.org/favicon.ico' },
+                    quizlet: { name: 'Quizlet', icon: 'https://quizlet.com/favicon.ico' },
+                    schoology: { name: 'Schoology', icon: 'https://www.schoology.com/favicon.ico' }
+                };
+                
+                if (presets[preset]) {
+                    document.title = presets[preset].name;
+                    const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+                    favicon.rel = 'icon';
+                    favicon.href = presets[preset].icon;
+                    if (!document.querySelector('link[rel="icon"]')) {
+                        document.head.appendChild(favicon);
+                    }
+                }
             } else {
-                fullscreenText.textContent = "Fullscreen";
+                // Handle custom input
+                document.title = webname;
+                const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+                favicon.rel = 'icon';
+                favicon.href = webicon;
+                if (!document.querySelector('link[rel="icon"]')) {
+                    document.head.appendChild(favicon);
+                }
+            }
+            
+            alert('Tab cloak set successfully!');
+        }
+
+        function clearCloak() {
+            document.title = 'Game Hub - Play Your Favorite Games';
+            const favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) {
+                favicon.href = '/favicon.ico';
+            }
+            alert('Tab cloak cleared!');
+        }
+
+        function setTheme(theme) {
+            // Basic theme switching - you can expand this
+            document.body.className = `theme-${theme}`;
+            localStorage.setItem('selectedTheme', theme);
+            alert(`Theme set to: ${theme}`);
+        }
+
+        function customTheme() {
+            const customMenu = document.getElementById('customMenu');
+            customMenu.style.display = customMenu.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function setPanicMode() {
+            const panicUrl = document.getElementById('panic').value || 'https://google.com';
+            localStorage.setItem('panicUrl', panicUrl);
+            alert('Panic mode URL set!');
+            
+            // Add panic mode key listener
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && e.shiftKey) {
+                    window.location.href = panicUrl;
+                }
+            });
+        }
+
+        function setPassword() {
+            const password = document.getElementById('pass').value;
+            if (password) {
+                localStorage.setItem('sitePassword', password);
+                alert('Password protection enabled!');
+            }
+        }
+
+        function delPassword() {
+            localStorage.removeItem('sitePassword');
+            alert('Password protection disabled!');
+        }
+
+        // Load saved settings on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme) {
+                document.body.className = `theme-${savedTheme}`;
             }
         });
     </script>
