@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Hub - Play Your Favorite Games</title>
+    <!-- Added favicon link -->
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +15,11 @@
     
     <div class="container">
         <header class="header">
-            <h1 class="title">Game Hub</h1>
+            <!-- Added logo image to header -->
+            <div class="header-left">
+                <img src="logo.png" alt="Game Hub Logo" class="logo">
+                <h1 class="title">Game Hub</h1>
+            </div>
             <div class="header-controls">
                 <nav class="tab-nav">
                     <button class="tab-btn active" onclick="switchTab('games')">Games</button>
