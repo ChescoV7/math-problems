@@ -78,6 +78,88 @@ body::before {
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-purple-xl);
+  /* Updated header to use flexbox for logo and title layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Added header left section for logo and title */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Added logo styling */
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-purple-lg), 0 0 30px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s ease;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-purple-xl), 0 0 50px rgba(139, 92, 246, 0.6);
+  border-color: var(--accent-purple);
+}
+
+/* Updated title styling to work with logo */
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(139, 92, 246, 0.4);
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Updated header controls positioning */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Added tab navigation styling */
+.tab-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 2rem;
+  background: rgba(139, 92, 246, 0.2);
+  border: 2px solid var(--primary-purple);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tab-btn:hover {
+  background: rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  box-shadow: var(--shadow-purple-lg);
 }
 
 .header::before {
@@ -111,15 +193,7 @@ body::before {
 }
 
 .header h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(139, 92, 246, 0.4);
-  letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent-purple) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: none;
 }
 
 .subtitle {
@@ -353,6 +427,28 @@ body::before {
     padding: 3rem 1rem 2rem;
   }
 
+  .header-left {
+    gap: 0.75rem;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .header-controls {
+    gap: 1rem;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
   .fullscreen-btn {
     top: 1.5rem;
     right: 1.5rem;
@@ -363,14 +459,6 @@ body::before {
   .fullscreen-icon {
     width: 18px;
     height: 18px;
-  }
-
-  .header h1 {
-    font-size: 3rem;
-  }
-
-  .subtitle {
-    font-size: 1.25rem;
   }
 
   .main-content {
@@ -405,6 +493,33 @@ body::before {
 }
 
 @media (max-width: 480px) {
+  .header-left {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .header-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tab-nav {
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
   .fullscreen-btn {
     top: 1rem;
     right: 1rem;
@@ -414,35 +529,6 @@ body::before {
 
   .fullscreen-text {
     display: none;
-  }
-
-  .header h1 {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-  }
-
-  .main-content {
-    padding: 1.5rem 0.75rem;
-  }
-
-  .games-container {
-    padding: 2rem;
-    margin: 0 0.25rem;
-    border-radius: 24px;
-  }
-
-  .game-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .game-button {
-    padding: 1.25rem 1rem;
-    font-size: 0.95rem;
-    border-radius: 14px;
   }
 }
 
@@ -494,7 +580,6 @@ body::before {
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-purple);
 }
 
 .fullscreen-btn:hover {
@@ -518,30 +603,6 @@ body::before {
   gap: 1rem;
   margin-top: 2rem;
   justify-content: center;
-}
-
-.tab-btn {
-  padding: 0.75rem 2rem;
-  background: rgba(139, 92, 246, 0.2);
-  border: 2px solid var(--primary-purple);
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.tab-btn:hover {
-  background: rgba(139, 92, 246, 0.3);
-  transform: translateY(-2px);
-}
-
-.tab-btn.active {
-  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
-  box-shadow: var(--shadow-purple-lg);
 }
 
 /* Tab content styles */
