@@ -69,17 +69,35 @@
                 
                 <div class="settings-section">
                     <h3>Tab Cloaking</h3>
+                    <!-- Added preset cloaking options from JSON data -->
                     <div class="settings-form">
                         <div class="form-group">
-                            <label for="tab-title">Tab Title</label>
+                            <label for="cloak-presets">Quick Cloak Presets</label>
+                            <select id="cloak-presets" class="settings-select" onchange="applyPresetCloak()">
+                                <option value="">Select a preset...</option>
+                                <option value="google">Google</option>
+                                <option value="canvas">Canvas Dashboard</option>
+                                <option value="desmos">Desmos Graphing Calculator</option>
+                                <option value="drive">Google Drive</option>
+                                <option value="classroom">Google Classroom</option>
+                                <option value="newtab">New Tab</option>
+                                <option value="docs">Google Docs</option>
+                                <option value="edpuzzle">Edpuzzle</option>
+                                <option value="khan">Khan Academy</option>
+                                <option value="quizlet">Quizlet</option>
+                                <option value="schoology">Schoology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tab-title">Custom Tab Title</label>
                             <input type="text" id="tab-title" class="settings-input" placeholder="Enter custom tab title">
                         </div>
                         <div class="form-group">
-                            <label for="tab-icon">Tab Icon URL</label>
+                            <label for="tab-icon">Custom Tab Icon URL</label>
                             <input type="text" id="tab-icon" class="settings-input" placeholder="Enter favicon URL">
                         </div>
                         <div class="button-group">
-                            <button class="settings-button" onclick="applyTabCloak()">Apply Tab Cloak</button>
+                            <button class="settings-button" onclick="applyTabCloak()">Apply Custom Cloak</button>
                             <button class="settings-button secondary" onclick="resetTabCloak()">Reset</button>
                         </div>
                     </div>
@@ -336,6 +354,48 @@
         }
 
         // Settings functionality
+        const cloakPresets = {
+            "google": ["Google", "https://google.com/favicon.ico"],
+            "canvas": ["Dashboard", "https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico"],
+            "desmos": ["Desmos | Graphing Calculator", "https://www.desmos.com/assets/img/apps/graphing/favicon.ico"],
+            "drive": ["My Drive - Google Drive", "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"],
+            "classroom": ["Home", "https://ssl.gstatic.com/classroom/ic_product_classroom_144.png"],
+            "newtab": ["New Tab", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABRklEQVR42mKgOqjq75ds7510YNL0uV9nAGqniqwKYiCIHIIjcAK22BGQLRdgBWvc3fnWk/FJhrkPO1xPgGvqPfLfJMHhT1yqurvS48bPaJhjD2efgidnVwa2yv59xecvEvi0UWCXq9t0ItfP2MMZ7nwIpkA8F1n8uLxZHM6yrBH7FIl2gFXDHYsErkn2hyKLHtcKrFntk58uVQJ+kSdQnmjhID4cwLLa8+K0BXsfNWCqBOsFdo2Yldv43DBrkxd30cjnNyYBhK0SQGkI9pG4Mu40D5b374DRCAyhHqXVfTmOwivivMkJxBz5wnHCtBfGgNFC+ChWKWRf3hsQIlyEoIv4IYEo5wkgtBLRekY9DE4Uin4Keae6hydGnljPmE8kRcCine6827AMsJ1IuW9ibnlQpXLBCR/WC875m2BP+VSu3c/0m+8V08OBngc0pxcAAAAASUVORK5CYII="],
+            "docs": ["Google Docs", "https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico"],
+            "edpuzzle": ["Edpuzzle", "https://edpuzzle.imgix.net/favicons/favicon-32.png"],
+            "khan": ["Dashboard | Khan Academy", "https://cdn.kastatic.org/images/favicon.ico?logo"],
+            "quizlet": ["Your Sets", "https://assets.quizlet.com/a/j/dist/app/i/logo/2021/q-twilight.e27821d9baad165.png"],
+            "schoology": ["Schoology", "https://technology-mnps.ss13.sharpschool.com/UserFiles/Servers/Server_33575695/Image/Technology/Digital%20Tools/Schoology/Schoology.png"]
+        };
+
+        function applyPresetCloak() {
+            const selectedPreset = document.getElementById('cloak-presets').value;
+            if (selectedPreset && cloakPresets[selectedPreset]) {
+                const [title, iconUrl] = cloakPresets[selectedPreset];
+                
+                // Apply the preset
+                document.title = title;
+                
+                let favicon = document.querySelector('link[rel="icon"]');
+                if (!favicon) {
+                    favicon = document.createElement('link');
+                    favicon.rel = 'icon';
+                    document.head.appendChild(favicon);
+                }
+                favicon.href = iconUrl;
+                
+                // Save to localStorage
+                localStorage.setItem('cloaked-title', title);
+                localStorage.setItem('cloaked-icon', iconUrl);
+                
+                // Update the custom input fields to show what was applied
+                document.getElementById('tab-title').value = title;
+                document.getElementById('tab-icon').value = iconUrl;
+                
+                alert(`Applied ${title} cloak successfully!`);
+            }
+        }
+
         function applyTabCloak() {
             const title = document.getElementById('tab-title').value;
             const icon = document.getElementById('tab-icon').value;
