@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated title from Game Hub to Arctic -->
     <title>Arctic</title>
     <!-- Added favicon link -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -15,21 +14,21 @@
 <body>
     
     <div class="container">
-        <!-- Redesigned header to be more compact with iPhone 16 camera-style layout -->
+        <!-- Redesigned header to be compact like Google with iPhone 16 camera styling -->
         <header class="header">
-            <div class="header-content">
-                <div class="logo-section">
-                    <img src="logo.png" alt="Arctic Logo" class="logo">
-                    <h1 class="title">Arctic</h1>
-                </div>
-                <nav class="tab-nav">
-                    <button class="tab-btn active" onclick="switchTab('games')">Games</button>
-                    <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
-                    <!-- Added new About Blank Opener tab -->
-                    <button class="tab-btn" onclick="switchTab('opener')">About Blank</button>
-                </nav>
-                <!-- Removed fullscreen button from header -->
+            <div class="header-brand">
+                <img src="logo.png" alt="Arctic Logo" class="logo">
+                <h1 class="brand-name">Arctic</h1>
             </div>
+            <nav class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab('games')">Games</button>
+                <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+            </nav>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+            </button>
         </header>
 
         <!-- Games tab content -->
@@ -126,15 +125,12 @@
                 <div class="settings-section">
                     <h3>Theme Selection</h3>
                     <div class="theme-buttons">
-                        <!-- Updated theme button to show Arctic Blue as current -->
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: white;" onclick="setTheme('arctic')">Arctic Blue (Current)</button>
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white;" onclick="setTheme('purple')">Purple</button>
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white;" onclick="setTheme('purple')">Purple (Current)</button>
+                        <button class="theme-btn" style="background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white;" onclick="setTheme('blue')">Blue</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #10b981, #34d399); color: white;" onclick="setTheme('green')">Green</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white;" onclick="setTheme('orange')">Orange</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #ef4444, #f87171); color: white;" onclick="setTheme('red')">Red</button>
                         <button class="theme-btn" style="background: linear-gradient(135deg, #6b7280, #9ca3af); color: white;" onclick="setTheme('dark')">Dark</button>
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #596eb1, #95baf1); color: white;" onclick="setTheme('egamepass')">Egamepass</button>
-                        <button class="theme-btn" style="background: linear-gradient(135deg, #aaaaaa, #555555); color: white;" onclick="setTheme('lightmode')">Lightmode</button>
                     </div>
                     <div class="settings-description">
                         Choose from predefined themes or create your own custom theme below.
@@ -222,55 +218,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Added new About Blank Opener tab content -->
-        <div id="opener-tab" class="tab-content">
-            <div class="opener-container">
-                <h2 class="opener-title">About:Blank Opener</h2>
-                <div class="opener-content">
-                    <div class="opener-description">
-                        <p>Launch Arctic in a new about:blank window to completely hide the URL from browser history and address bar.</p>
-                        <p>This provides maximum stealth and privacy while browsing.</p>
-                    </div>
-                    
-                    <div class="opener-controls">
-                        <button class="opener-button primary" onclick="openInAboutBlank()">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15,3 21,3 21,9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                            Open in About:Blank
-                        </button>
-                        
-                        <button class="opener-button secondary" onclick="openInNewTab()">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14,2 14,8 20,8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10,9 9,9 8,9"></polyline>
-                            </svg>
-                            Open in New Tab
-                        </button>
-                    </div>
-                    
-                    <div class="opener-features">
-                        <h3>Features:</h3>
-                        <ul>
-                            <li>✓ Complete URL masking</li>
-                            <li>✓ No browser history traces</li>
-                            <li>✓ Bypasses most web filters</li>
-                            <li>✓ Maximum privacy protection</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <!-- Added watermark for chesco -->
-    <div class="watermark">made by chesco</div>
 
     <!-- Game Modal -->
     <div id="game-modal" class="modal">
@@ -298,191 +246,6 @@
     </div>
 
     <script>
-        const themes = {
-            "arctic": {
-                "--input-bg-color": "#1e3a8a88",
-                "--main-text-color": "#e0f2fe",
-                "--p-text-color": "#bae6fd",
-                "--border-color": "#0ea5e9bb",
-                "--game-color": "#0284c766",
-                "--bg-1": "#0c4a6e",
-                "--bg-2": "#082f49",
-                "--invert-logo": "0"
-            },
-            "lightmode": {
-                "--input-bg-color": "#aaaaaa88",
-                "--main-text-color": "#555555",
-                "--p-text-color": "#a1a1a1",
-                "--border-color": "#5a5a5abb",
-                "--game-color": "#5e5e5e66",
-                "--bg-1": "#dcdcdc",
-                "--bg-2": "#d3d3d3",
-                "--invert-logo": "1"
-            },
-            "egamepass": {
-                "--input-bg-color": "#596eb188",
-                "--main-text-color": "#95baf1",
-                "--p-text-color": "#8daad8",
-                "--border-color": "#527ac4bb",
-                "--game-color": "#5376eb66",
-                "--bg-1": "#244580",
-                "--bg-2": "#181157",
-                "--invert-logo": "0"
-            },
-            "purple": {
-                "--input-bg-color": "#7c3aed88",
-                "--main-text-color": "#e9d5ff",
-                "--p-text-color": "#c4b5fd",
-                "--border-color": "#8b5cf6bb",
-                "--game-color": "#7c3aed66",
-                "--bg-1": "#581c87",
-                "--bg-2": "#3b0764",
-                "--invert-logo": "0"
-            },
-            "green": {
-                "--input-bg-color": "#059f4688",
-                "--main-text-color": "#d1fae5",
-                "--p-text-color": "#a7f3d0",
-                "--border-color": "#10b981bb",
-                "--game-color": "#059f4666",
-                "--bg-1": "#064e3b",
-                "--bg-2": "#022c22",
-                "--invert-logo": "0"
-            },
-            "orange": {
-                "--input-bg-color": "#ea580c88",
-                "--main-text-color": "#fed7aa",
-                "--p-text-color": "#fdba74",
-                "--border-color": "#f59e0bbb",
-                "--game-color": "#ea580c66",
-                "--bg-1": "#9a3412",
-                "--bg-2": "#7c2d12",
-                "--invert-logo": "0"
-            },
-            "red": {
-                "--input-bg-color": "#dc262688",
-                "--main-text-color": "#fecaca",
-                "--p-text-color": "#fca5a5",
-                "--border-color": "#ef4444bb",
-                "--game-color": "#dc262666",
-                "--bg-1": "#991b1b",
-                "--bg-2": "#7f1d1d",
-                "--invert-logo": "0"
-            },
-            "dark": {
-                "--input-bg-color": "#37415188",
-                "--main-text-color": "#f3f4f6",
-                "--p-text-color": "#d1d5db",
-                "--border-color": "#6b7280bb",
-                "--game-color": "#37415166",
-                "--bg-1": "#1f2937",
-                "--bg-2": "#111827",
-                "--invert-logo": "0"
-            }
-        };
-
-        const games = [
-            { name: "2048", url: "https://play2048.co/" },
-            { name: "Snake", url: "https://www.google.com/fbx?fbx=snake_arcade" },
-            { name: "Tetris", url: "https://tetris.com/play-tetris" },
-            { name: "Pac-Man", url: "https://www.google.com/logos/2010/pacman10-i.html" },
-            { name: "Flappy Bird", url: "https://flappybird.io/" },
-            { name: "Chrome Dino", url: "https://chromedino.com/" },
-            { name: "Slope", url: "https://slope-game.github.io/slope/" },
-            { name: "Run 3", url: "https://run3.io/" },
-            { name: "Happy Wheels", url: "https://www.totaljerkface.com/happy_wheels.tjf" },
-            { name: "Geometry Dash", url: "https://scratch.mit.edu/projects/105500895/" },
-            { name: "Subway Surfers", url: "https://poki.com/en/g/subway-surfers" },
-            { name: "Temple Run", url: "https://poki.com/en/g/temple-run-2" },
-            { name: "Among Us", url: "https://www.crazygames.com/game/among-us" },
-            { name: "Fall Guys", url: "https://www.crazygames.com/game/fall-guys-knockout" },
-            { name: "Minecraft Classic", url: "https://classic.minecraft.net/" },
-            { name: "Roblox", url: "https://www.roblox.com/" },
-            { name: "Fortnite", url: "https://www.fortnite.com/" },
-            { name: "Krunker", url: "https://krunker.io/" },
-            { name: "Shell Shockers", url: "https://shellshock.io/" },
-            { name: "Agar.io", url: "https://agar.io/" },
-            { name: "Slither.io", url: "https://slither.io/" },
-            { name: "Diep.io", url: "https://diep.io/" },
-            { name: "Paper.io", url: "https://paper-io.com/" },
-            { name: "Hole.io", url: "https://hole-io.com/" },
-            { name: "Zombs Royale", url: "https://zombsroyale.io/" },
-            { name: "1v1.lol", url: "https://1v1.lol/" },
-            { name: "Basketball Stars", url: "https://poki.com/en/g/basketball-stars" },
-            { name: "Football Legends", url: "https://poki.com/en/g/football-legends-2021" },
-            { name: "Rocket League", url: "https://www.rocketleague.com/" },
-            { name: "FIFA Online", url: "https://www.ea.com/games/fifa" }
-        ];
-
-        let filteredGames = [...games];
-
-        window.addEventListener('load', function() {
-            const savedTheme = localStorage.getItem('selected-theme') || 'arctic';
-            applyTheme(savedTheme);
-            
-            // Load saved settings
-            const savedTitle = localStorage.getItem('cloaked-title');
-            const savedIcon = localStorage.getItem('cloaked-icon');
-            const stealthMode = localStorage.getItem('stealth-mode') === 'true';
-            
-            if (savedTitle) {
-                document.title = savedTitle;
-                document.getElementById('tab-title').value = savedTitle;
-            }
-            
-            if (savedIcon) {
-                let favicon = document.querySelector('link[rel="icon"]');
-                if (!favicon) {
-                    favicon = document.createElement('link');
-                    favicon.rel = 'icon';
-                    document.head.appendChild(favicon);
-                }
-                favicon.href = savedIcon;
-                document.getElementById('tab-icon').value = savedIcon;
-            }
-
-            // Set stealth mode checkbox
-            document.getElementById('stealth-mode').checked = stealthMode;
-
-            // Initialize games and make Games tab active by default
-            renderGames();
-            switchTab('games');
-
-            // Check if stealth mode should activate
-            if (stealthMode && window.location.href !== 'about:blank') {
-                activateStealthMode();
-            }
-        });
-
-        function renderGames() {
-            const container = document.getElementById('games-container');
-            const gameCount = document.getElementById('game-count');
-            
-            container.innerHTML = '';
-            gameCount.textContent = filteredGames.length;
-            
-            filteredGames.forEach(game => {
-                const button = document.createElement('button');
-                button.className = 'game-btn';
-                button.textContent = game.name;
-                button.onclick = () => openGameModal(game.url, game.name);
-                container.appendChild(button);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search');
-            if (searchInput) {
-                searchInput.addEventListener('input', function(e) {
-                    const searchTerm = e.target.value.toLowerCase();
-                    filteredGames = games.filter(game => 
-                        game.name.toLowerCase().includes(searchTerm)
-                    );
-                    renderGames();
-                });
-            }
-        });
-
         function toggleStealthMode() {
             const stealthEnabled = document.getElementById('stealth-mode').checked;
             localStorage.setItem('stealth-mode', stealthEnabled);
@@ -526,39 +289,42 @@
             }
         }
 
+        // Check stealth mode on page load
+        window.addEventListener('load', function() {
+            const stealthEnabled = localStorage.getItem('stealth-mode') === 'true';
+            document.getElementById('stealth-mode').checked = stealthEnabled;
+            
+            if (stealthEnabled && window.location.href !== 'about:blank') {
+                activateStealthMode();
+            }
+        });
+
+        // Tab functionality
         function switchTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-btn');
 
-            // Hide all tab contents
             tabContents.forEach(content => {
                 content.classList.remove('active');
-                content.style.display = 'none';
             });
 
-            // Remove active class from all buttons
             tabButtons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            // Show selected tab content
-            const selectedTab = document.getElementById(tabId + '-tab');
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-                selectedTab.style.display = 'block';
-            }
-
-            // Add active class to selected button
-            const buttonMap = {
-                'games': 'Games',
-                'settings': 'Settings', 
-                'opener': 'About Blank'
-            };
-            
-            const targetText = buttonMap[tabId];
-            const button = Array.from(tabButtons).find(btn => btn.textContent === targetText);
+            document.getElementById(tabId + '-tab').classList.add('active');
+            const button = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase() === tabId);
             if (button) {
                 button.classList.add('active');
+            }
+        }
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
             }
         }
 
@@ -585,18 +351,7 @@
             }
         }
 
-        document.getElementById('game-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeGameModal();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('game-modal').style.display === 'flex') {
-                closeGameModal();
-            }
-        });
-
+        // Settings functionality
         const cloakPresets = {
             "google": ["Google", "https://google.com/favicon.ico"],
             "canvas": ["Dashboard", "https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico"],
@@ -663,8 +418,7 @@
         }
 
         function resetTabCloak() {
-            // Updated default title to Arctic
-            document.title = 'Arctic - Play Your Favorite Games';
+            document.title = 'Game Hub - Play Your Favorite Games';
             document.getElementById('tab-title').value = '';
             document.getElementById('tab-icon').value = '';
             localStorage.removeItem('cloaked-title');
@@ -672,39 +426,8 @@
             alert('Tab cloak reset successfully!');
         }
 
-        function setTheme(themeName) {
-            applyTheme(themeName);
-            localStorage.setItem('selected-theme', themeName);
-            
-            // Update theme button text to show current selection
-            const themeButtons = document.querySelectorAll('.theme-btn');
-            themeButtons.forEach(btn => {
-                const btnTheme = btn.onclick.toString().match(/setTheme$$'(\w+)'$$/);
-                if (btnTheme) {
-                    const theme = btnTheme[1];
-                    if (theme === themeName) {
-                        btn.textContent = btn.textContent.replace(' (Current)', '') + ' (Current)';
-                    } else {
-                        btn.textContent = btn.textContent.replace(' (Current)', '');
-                    }
-                }
-            });
-        }
-
-        function applyTheme(themeName) {
-            const theme = themes[themeName];
-            if (theme) {
-                const root = document.documentElement;
-                Object.keys(theme).forEach(property => {
-                    root.style.setProperty(property, theme[property]);
-                });
-                
-                // Apply logo inversion if needed
-                const logo = document.querySelector('.logo');
-                if (logo) {
-                    logo.style.filter = theme['--invert-logo'] === '1' ? 'invert(1)' : 'invert(0)';
-                }
-            }
+        function setTheme(theme) {
+            alert(`Theme changed to: ${theme}`);
         }
 
         function setPassword() {
@@ -768,6 +491,28 @@
                 location.reload();
             }
         }
+
+        // Load saved settings on page load
+        window.addEventListener('load', function() {
+            const savedTitle = localStorage.getItem('cloaked-title');
+            const savedIcon = localStorage.getItem('cloaked-icon');
+            
+            if (savedTitle) {
+                document.title = savedTitle;
+                document.getElementById('tab-title').value = savedTitle;
+            }
+            
+            if (savedIcon) {
+                let favicon = document.querySelector('link[rel="icon"]');
+                if (!favicon) {
+                    favicon = document.createElement('link');
+                    favicon.rel = 'icon';
+                    document.head.appendChild(favicon);
+                }
+                favicon.href = savedIcon;
+                document.getElementById('tab-icon').value = savedIcon;
+            }
+        });
     </script>
 </body>
 </html>
