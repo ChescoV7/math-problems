@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Updated title from Game Hub to Arctic -->
-    <title>Arctic</title>
+    <title>Arctic - Play Your Favorite Games</title>
     <!-- Added favicon link -->
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
@@ -296,6 +296,105 @@
     </div>
 
     <script>
+        const games = [
+            { name: "2048", url: "https://play2048.co/" },
+            { name: "Snake", url: "https://www.google.com/fbx?fbx=snake_arcade" },
+            { name: "Tetris", url: "https://tetris.com/play-tetris" },
+            { name: "Pac-Man", url: "https://www.google.com/logos/2010/pacman10-i.html" },
+            { name: "Flappy Bird", url: "https://flappybird.io/" },
+            { name: "Chrome Dino", url: "https://chromedino.com/" },
+            { name: "Slope", url: "https://slope-game.github.io/slope/" },
+            { name: "Run 3", url: "https://run3.io/" },
+            { name: "Happy Wheels", url: "https://www.totaljerkface.com/happy_wheels.tjf" },
+            { name: "Geometry Dash", url: "https://scratch.mit.edu/projects/105500895/" },
+            { name: "Subway Surfers", url: "https://poki.com/en/g/subway-surfers" },
+            { name: "Temple Run", url: "https://poki.com/en/g/temple-run-2" },
+            { name: "Among Us", url: "https://www.crazygames.com/game/among-us" },
+            { name: "Fall Guys", url: "https://www.crazygames.com/game/fall-guys-knockout" },
+            { name: "Minecraft Classic", url: "https://classic.minecraft.net/" },
+            { name: "Roblox", url: "https://www.roblox.com/" },
+            { name: "Fortnite", url: "https://www.fortnite.com/" },
+            { name: "Krunker", url: "https://krunker.io/" },
+            { name: "Shell Shockers", url: "https://shellshock.io/" },
+            { name: "Agar.io", url: "https://agar.io/" },
+            { name: "Slither.io", url: "https://slither.io/" },
+            { name: "Diep.io", url: "https://diep.io/" },
+            { name: "Paper.io", url: "https://paper-io.com/" },
+            { name: "Hole.io", url: "https://hole-io.com/" },
+            { name: "Zombs Royale", url: "https://zombsroyale.io/" },
+            { name: "1v1.lol", url: "https://1v1.lol/" },
+            { name: "Basketball Stars", url: "https://poki.com/en/g/basketball-stars" },
+            { name: "Football Legends", url: "https://poki.com/en/g/football-legends-2021" },
+            { name: "Rocket League", url: "https://www.rocketleague.com/" },
+            { name: "FIFA Online", url: "https://www.ea.com/games/fifa" }
+        ];
+
+        let filteredGames = [...games];
+
+        window.addEventListener('load', function() {
+            // Load saved settings
+            const savedTitle = localStorage.getItem('cloaked-title');
+            const savedIcon = localStorage.getItem('cloaked-icon');
+            const stealthMode = localStorage.getItem('stealth-mode') === 'true';
+            
+            if (savedTitle) {
+                document.title = savedTitle;
+                document.getElementById('tab-title').value = savedTitle;
+            }
+            
+            if (savedIcon) {
+                let favicon = document.querySelector('link[rel="icon"]');
+                if (!favicon) {
+                    favicon = document.createElement('link');
+                    favicon.rel = 'icon';
+                    document.head.appendChild(favicon);
+                }
+                favicon.href = savedIcon;
+                document.getElementById('tab-icon').value = savedIcon;
+            }
+
+            // Set stealth mode checkbox
+            document.getElementById('stealth-mode').checked = stealthMode;
+
+            // Initialize games and make Games tab active by default
+            renderGames();
+            switchTab('games');
+
+            // Check if stealth mode should activate
+            if (stealthMode && window.location.href !== 'about:blank') {
+                activateStealthMode();
+            }
+        });
+
+        function renderGames() {
+            const container = document.getElementById('games-container');
+            const gameCount = document.getElementById('game-count');
+            
+            container.innerHTML = '';
+            gameCount.textContent = filteredGames.length;
+            
+            filteredGames.forEach(game => {
+                const button = document.createElement('button');
+                button.className = 'game-btn';
+                button.textContent = game.name;
+                button.onclick = () => openGameModal(game.url, game.name);
+                container.appendChild(button);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    filteredGames = games.filter(game => 
+                        game.name.toLowerCase().includes(searchTerm)
+                    );
+                    renderGames();
+                });
+            }
+        });
+
         function toggleStealthMode() {
             const stealthEnabled = document.getElementById('stealth-mode').checked;
             localStorage.setItem('stealth-mode', stealthEnabled);
@@ -339,32 +438,39 @@
             }
         }
 
-        // Tab functionality
         function switchTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-btn');
 
+            // Hide all tab contents
             tabContents.forEach(content => {
                 content.classList.remove('active');
+                content.style.display = 'none';
             });
 
+            // Remove active class from all buttons
             tabButtons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            document.getElementById(tabId + '-tab').classList.add('active');
-            const button = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase().includes(tabId === 'opener' ? 'about blank' : tabId));
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabId + '-tab');
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                selectedTab.style.display = 'block';
+            }
+
+            // Add active class to selected button
+            const buttonMap = {
+                'games': 'Games',
+                'settings': 'Settings', 
+                'opener': 'About Blank'
+            };
+            
+            const targetText = buttonMap[tabId];
+            const button = Array.from(tabButtons).find(btn => btn.textContent === targetText);
             if (button) {
                 button.classList.add('active');
-            }
-        }
-
-        // Fullscreen functionality
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else {
-                document.exitFullscreen();
             }
         }
 
@@ -391,7 +497,18 @@
             }
         }
 
-        // Settings functionality
+        document.getElementById('game-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGameModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('game-modal').style.display === 'flex') {
+                closeGameModal();
+            }
+        });
+
         const cloakPresets = {
             "google": ["Google", "https://google.com/favicon.ico"],
             "canvas": ["Dashboard", "https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico"],
@@ -531,52 +648,6 @@
                 localStorage.clear();
                 location.reload();
             }
-        }
-
-        // Load saved settings on page load
-        window.addEventListener('load', function() {
-            const savedTitle = localStorage.getItem('cloaked-title');
-            const savedIcon = localStorage.getItem('cloaked-icon');
-            
-            if (savedTitle) {
-                document.title = savedTitle;
-                document.getElementById('tab-title').value = savedTitle;
-            }
-            
-            if (savedIcon) {
-                let favicon = document.querySelector('link[rel="icon"]');
-                if (!favicon) {
-                    favicon = document.createElement('link');
-                    favicon.rel = 'icon';
-                    document.head.appendChild(favicon);
-                }
-                favicon.href = savedIcon;
-                document.getElementById('tab-icon').value = savedIcon;
-            }
-        });
-
-        function openInAboutBlank() {
-            // Get the entire HTML content
-            const htmlContent = document.documentElement.outerHTML;
-            
-            // Open about:blank window
-            const newWindow = window.open('about:blank', '_blank');
-            
-            if (newWindow) {
-                // Write content to the new window
-                newWindow.document.write(htmlContent);
-                newWindow.document.close();
-                
-                // Focus the new window
-                newWindow.focus();
-            } else {
-                alert('Popup blocked! Please allow popups for this site and try again.');
-            }
-        }
-
-        function openInNewTab() {
-            // Simple new tab opener
-            window.open(window.location.href, '_blank');
         }
     </script>
 </body>
