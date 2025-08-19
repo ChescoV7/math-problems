@@ -10,6 +10,909 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Added stealth mode script that immediately redirects to about:blank -->
+    <script>
+        // Stealth mode - immediately launch into about:blank
+        (function() {
+            // Check if we're already in about:blank to prevent infinite loop
+            if (window.location.href === 'about:blank') return;
+            
+            // Open about:blank window and write content there
+            const newWindow = window.open('about:blank', '_blank');
+            
+            if (newWindow) {
+                // Get the entire HTML content
+                const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Play Your Favorite Games</title>
+    <style>
+        ${getStylesContent()}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    ${document.body.innerHTML}
+    <script>
+        ${getScriptContent()}
+    <\/script>
+</body>
+</html>`;
+                
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
+                
+                // Close the original window after a short delay
+                setTimeout(() => {
+                    window.close();
+                    // If window.close() doesn't work, redirect to a blank page
+                    if (!window.closed) {
+                        window.location.replace('about:blank');
+                    }
+                }, 100);
+            } else {
+                // If popup was blocked, redirect current window to about:blank
+                const currentContent = document.documentElement.outerHTML;
+                window.location.replace('about:blank');
+                setTimeout(() => {
+                    document.open();
+                    document.write(currentContent);
+                    document.close();
+                }, 100);
+            }
+        })();
+
+        function getStylesContent() {
+            // Return the CSS content as a string
+            return `
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1a0b2e 0%, #16213e 25%, #0f3460 50%, #16213e 75%, #1a0b2e 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #e2e8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.header {
+    position: relative;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 1.5rem 0;
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tab-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 12px;
+    color: #e2e8f0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    border-color: #a855f7;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.fullscreen-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.fullscreen-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+}
+
+.main-content {
+    position: relative;
+    z-index: 5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8b5cf6;
+    z-index: 2;
+}
+
+#search {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#search:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1), 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+#search::placeholder {
+    color: #64748b;
+}
+
+.game-count {
+    color: #a855f7;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.centered-games-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.games-container {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+}
+
+.games-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%, rgba(168, 85, 247, 0.1) 100%);
+    pointer-events: none;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.game-button {
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(168, 85, 247, 0.6));
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 16px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
+.game-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.game-button:hover::before {
+    left: 100%;
+}
+
+.game-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+    border-color: rgba(168, 85, 247, 0.6);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(168, 85, 247, 0.7));
+}
+
+.game-button:active {
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Settings Styles */
+.settings-container {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.settings-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 16px;
+}
+
+.settings-section h3 {
+    color: #a855f7;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.settings-input, .settings-select {
+    padding: 0.75rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.settings-input:focus, .settings-select:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.settings-button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.settings-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.settings-button.secondary {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8b5cf6;
+}
+
+.theme-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.theme-btn {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.settings-description {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* Game Modal Styles */
+.game-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.game-modal-content {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.game-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.game-modal-title {
+    color: #a855f7;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.game-modal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.game-control-btn {
+    padding: 0.5rem;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-control-btn:hover {
+    background: rgba(139, 92, 246, 0.3);
+    transform: scale(1.05);
+}
+
+.game-iframe-container {
+    flex: 1;
+    position: relative;
+}
+
+#game-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .games-container {
+        padding: 1rem;
+    }
+    
+    .tab-navigation {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .tab-btn {
+        text-align: center;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .theme-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .game-button {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+            `;
+        }
+
+        function getScriptContent() {
+            return `
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(\`\${targetTab}-tab\`).classList.add('active');
+            });
+        });
+
+        // Game search functionality
+        const searchInput = document.getElementById("search");
+        const gameCounter = document.getElementById("game-counter");
+        const gameButtons = document.getElementsByClassName("game-button");
+        
+        if (gameCounter) {
+            gameCounter.textContent = \`\${gameButtons.length} games available\`;
+        }
+        
+        let searchTimeout;
+        if (searchInput) {
+            searchInput.addEventListener("input", () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchValue = searchInput.value.toLowerCase().trim();
+                    let visibleCount = 0;
+                    
+                    Array.from(gameButtons).forEach(button => {
+                        const buttonText = button.textContent.toLowerCase();
+                        const isVisible = buttonText.includes(searchValue);
+                        
+                        button.style.display = isVisible ? "" : "none";
+                        if (isVisible) visibleCount++;
+                    });
+                    
+                    if (searchValue === "") {
+                        gameCounter.textContent = \`\${gameButtons.length} games available\`;
+                    } else {
+                        gameCounter.textContent = \`\${visibleCount} games found\`;
+                    }
+                }, 150);
+            });
+
+            searchInput.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    searchInput.value = "";
+                    searchInput.dispatchEvent(new Event("input"));
+                    searchInput.blur();
+                }
+            });
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "/" && document.activeElement !== searchInput && searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Fullscreen functionality
+        const fullscreenToggle = document.getElementById("fullscreen-toggle");
+        const fullscreenText = document.querySelector(".fullscreen-text");
+        
+        if (fullscreenToggle) {
+            fullscreenToggle.addEventListener("click", () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Exit Fullscreen";
+                    }).catch(err => {
+                        console.log("Error attempting to enable fullscreen:", err);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Fullscreen";
+                    }).catch(err => {
+                        console.log("Error attempting to exit fullscreen:", err);
+                    });
+                }
+            });
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            if (fullscreenText) {
+                if (document.fullscreenElement) {
+                    fullscreenText.textContent = "Exit Fullscreen";
+                } else {
+                    fullscreenText.textContent = "Fullscreen";
+                }
+            }
+        });
+
+        // Game modal functionality
+        const gameModal = document.getElementById('game-modal');
+        const gameIframe = document.getElementById('game-iframe');
+        const gameTitle = document.getElementById('game-title');
+        const closeGameBtn = document.getElementById('close-game-btn');
+        const gameFullscreenBtn = document.getElementById('game-fullscreen-btn');
+
+        function openGame(gameUrl, gameName) {
+            gameTitle.textContent = gameName;
+            gameIframe.src = gameUrl;
+            gameModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGame() {
+            gameModal.style.display = 'none';
+            gameIframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function fullscreenGame() {
+            if (gameIframe.requestFullscreen) {
+                gameIframe.requestFullscreen();
+            } else if (gameIframe.webkitRequestFullscreen) {
+                gameIframe.webkitRequestFullscreen();
+            } else if (gameIframe.msRequestFullscreen) {
+                gameIframe.msRequestFullscreen();
+            }
+        }
+
+        closeGameBtn.addEventListener('click', closeGame);
+        gameFullscreenBtn.addEventListener('click', fullscreenGame);
+
+        gameModal.addEventListener('click', (e) => {
+            if (e.target === gameModal) {
+                closeGame();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && gameModal.style.display === 'flex') {
+                closeGame();
+            }
+        });
+
+        // Settings functionality
+        function applyTabCloak() {
+            const title = document.getElementById('tab-title').value;
+            const icon = document.getElementById('tab-icon').value;
+            
+            if (title) {
+                document.title = title;
+                localStorage.setItem('cloaked-title', title);
+            }
+            
+            if (icon) {
+                let favicon = document.querySelector('link[rel="icon"]');
+                if (!favicon) {
+                    favicon = document.createElement('link');
+                    favicon.rel = 'icon';
+                    document.head.appendChild(favicon);
+                }
+                favicon.href = icon;
+                localStorage.setItem('cloaked-icon', icon);
+            }
+            
+            alert('Tab cloak applied successfully!');
+        }
+
+        function resetTabCloak() {
+            document.title = 'Game Hub - Play Your Favorite Games';
+            document.getElementById('tab-title').value = '';
+            document.getElementById('tab-icon').value = '';
+            localStorage.removeItem('cloaked-title');
+            localStorage.removeItem('cloaked-icon');
+            alert('Tab cloak reset successfully!');
+        }
+
+        function setTheme(theme) {
+            alert(\`Theme changed to: \${theme}\`);
+        }
+
+        function setPassword() {
+            const password = document.getElementById('site-password').value;
+            if (password) {
+                localStorage.setItem('site-password', password);
+                alert('Password set successfully!');
+            }
+        }
+
+        function removePassword() {
+            localStorage.removeItem('site-password');
+            document.getElementById('site-password').value = '';
+            alert('Password removed successfully!');
+        }
+
+        function exportSettings() {
+            const settings = {
+                tabTitle: localStorage.getItem('cloaked-title'),
+                tabIcon: localStorage.getItem('cloaked-icon'),
+                password: localStorage.getItem('site-password'),
+            };
+            
+            const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'game-hub-settings.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importSettings() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const settings = JSON.parse(e.target.result);
+                            if (settings.tabTitle) localStorage.setItem('cloaked-title', settings.tabTitle);
+                            if (settings.tabIcon) localStorage.setItem('cloaked-icon', settings.tabIcon);
+                            if (settings.password) localStorage.setItem('site-password', settings.password);
+                            alert('Settings imported successfully!');
+                        } catch (error) {
+                            alert('Error importing settings: Invalid file format');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        function resetAllSettings() {
+            if (confirm('Are you sure you want to reset all settings? This cannot be undone.')) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+
+        // Load saved settings on page load
+        window.addEventListener('load', () => {
+            const savedTitle = localStorage.getItem('cloaked-title');
+            const savedIcon = localStorage.getItem('cloaked-icon');
+            
+            if (savedTitle) {
+                document.title = savedTitle;
+                document.getElementById('tab-title').value = savedTitle;
+            }
+            
+            if (savedIcon) {
+                let favicon = document.querySelector('link[rel="icon"]');
+                if (!favicon) {
+                    favicon = document.createElement('link');
+                    favicon.rel = 'icon';
+                    document.head.appendChild(favicon);
+                }
+                favicon.href = savedIcon;
+                document.getElementById('tab-icon').value = savedIcon;
+            }
+        });
+
+        // Panic mode functionality
+        document.addEventListener('keydown', (e) => {
+            const panicEnabled = document.getElementById('panic-enabled').checked;
+            const panicKey = document.getElementById('panic-key').value;
+            const panicUrl = document.getElementById('panic-url').value;
+            
+            if (panicEnabled && e.key === panicKey) {
+                window.location.href = panicUrl || 'https://classroom.google.com';
+            }
+        });
+            `;
+        }
+    </script>
+
     <header class="header">
         <div class="header-content">
             <h1>Game Hub</h1>
@@ -609,282 +1512,7 @@
     </div>
 
     <script>
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetTab = button.getAttribute('data-tab');
-                
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                button.classList.add('active');
-                document.getElementById(`${targetTab}-tab`).classList.add('active');
-            });
-        });
-
-        // Game search functionality
-        const searchInput = document.getElementById("search");
-        const gameCounter = document.getElementById("game-counter");
-        const gameButtons = document.getElementsByClassName("game-button");
-        
-        if (gameCounter) {
-            gameCounter.textContent = `${gameButtons.length} games available`;
-        }
-        
-        let searchTimeout;
-        if (searchInput) {
-            searchInput.addEventListener("input", () => {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    const searchValue = searchInput.value.toLowerCase().trim();
-                    let visibleCount = 0;
-                    
-                    Array.from(gameButtons).forEach(button => {
-                        const buttonText = button.textContent.toLowerCase();
-                        const isVisible = buttonText.includes(searchValue);
-                        
-                        button.style.display = isVisible ? "" : "none";
-                        if (isVisible) visibleCount++;
-                    });
-                    
-                    if (searchValue === "") {
-                        gameCounter.textContent = `${gameButtons.length} games available`;
-                    } else {
-                        gameCounter.textContent = `${visibleCount} games found`;
-                    }
-                }, 150);
-            });
-
-            searchInput.addEventListener("keydown", (e) => {
-                if (e.key === "Escape") {
-                    searchInput.value = "";
-                    searchInput.dispatchEvent(new Event("input"));
-                    searchInput.blur();
-                }
-            });
-        }
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "/" && document.activeElement !== searchInput && searchInput) {
-                e.preventDefault();
-                searchInput.focus();
-            }
-        });
-
-        // Fullscreen functionality
-        const fullscreenToggle = document.getElementById("fullscreen-toggle");
-        const fullscreenText = document.querySelector(".fullscreen-text");
-        
-        if (fullscreenToggle) {
-            fullscreenToggle.addEventListener("click", () => {
-                if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen().then(() => {
-                        if (fullscreenText) fullscreenText.textContent = "Exit Fullscreen";
-                    }).catch(err => {
-                        console.log("[v0] Error attempting to enable fullscreen:", err);
-                    });
-                } else {
-                    document.exitFullscreen().then(() => {
-                        if (fullscreenText) fullscreenText.textContent = "Fullscreen";
-                    }).catch(err => {
-                        console.log("[v0] Error attempting to exit fullscreen:", err);
-                    });
-                }
-            });
-        }
-
-        document.addEventListener("fullscreenchange", () => {
-            if (fullscreenText) {
-                if (document.fullscreenElement) {
-                    fullscreenText.textContent = "Exit Fullscreen";
-                } else {
-                    fullscreenText.textContent = "Fullscreen";
-                }
-            }
-        });
-
-        // Game modal functionality
-        const gameModal = document.getElementById('game-modal');
-        const gameIframe = document.getElementById('game-iframe');
-        const gameTitle = document.getElementById('game-title');
-        const closeGameBtn = document.getElementById('close-game-btn');
-        const gameFullscreenBtn = document.getElementById('game-fullscreen-btn');
-
-        function openGame(gameUrl, gameName) {
-            gameTitle.textContent = gameName;
-            gameIframe.src = gameUrl;
-            gameModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGame() {
-            gameModal.style.display = 'none';
-            gameIframe.src = '';
-            document.body.style.overflow = 'auto';
-        }
-
-        function fullscreenGame() {
-            if (gameIframe.requestFullscreen) {
-                gameIframe.requestFullscreen();
-            } else if (gameIframe.webkitRequestFullscreen) {
-                gameIframe.webkitRequestFullscreen();
-            } else if (gameIframe.msRequestFullscreen) {
-                gameIframe.msRequestFullscreen();
-            }
-        }
-
-        closeGameBtn.addEventListener('click', closeGame);
-        gameFullscreenBtn.addEventListener('click', fullscreenGame);
-
-        gameModal.addEventListener('click', (e) => {
-            if (e.target === gameModal) {
-                closeGame();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && gameModal.style.display === 'flex') {
-                closeGame();
-            }
-        });
-
-        // Settings functionality
-        function applyTabCloak() {
-            const title = document.getElementById('tab-title').value;
-            const icon = document.getElementById('tab-icon').value;
-            
-            if (title) {
-                document.title = title;
-                localStorage.setItem('cloaked-title', title);
-            }
-            
-            if (icon) {
-                let favicon = document.querySelector('link[rel="icon"]');
-                if (!favicon) {
-                    favicon = document.createElement('link');
-                    favicon.rel = 'icon';
-                    document.head.appendChild(favicon);
-                }
-                favicon.href = icon;
-                localStorage.setItem('cloaked-icon', icon);
-            }
-            
-            alert('Tab cloak applied successfully!');
-        }
-
-        function resetTabCloak() {
-            document.title = 'Game Hub - Play Your Favorite Games';
-            document.getElementById('tab-title').value = '';
-            document.getElementById('tab-icon').value = '';
-            localStorage.removeItem('cloaked-title');
-            localStorage.removeItem('cloaked-icon');
-            alert('Tab cloak reset successfully!');
-        }
-
-        function setTheme(theme) {
-            // This would implement theme switching
-            alert(`Theme changed to: ${theme}`);
-        }
-
-        function setPassword() {
-            const password = document.getElementById('site-password').value;
-            if (password) {
-                localStorage.setItem('site-password', password);
-                alert('Password set successfully!');
-            }
-        }
-
-        function removePassword() {
-            localStorage.removeItem('site-password');
-            document.getElementById('site-password').value = '';
-            alert('Password removed successfully!');
-        }
-
-        function exportSettings() {
-            const settings = {
-                tabTitle: localStorage.getItem('cloaked-title'),
-                tabIcon: localStorage.getItem('cloaked-icon'),
-                password: localStorage.getItem('site-password'),
-                // Add other settings as needed
-            };
-            
-            const blob = new Blob([JSON.stringify(settings, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'game-hub-settings.json';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function importSettings() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            input.onchange = (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        try {
-                            const settings = JSON.parse(e.target.result);
-                            // Apply imported settings
-                            if (settings.tabTitle) localStorage.setItem('cloaked-title', settings.tabTitle);
-                            if (settings.tabIcon) localStorage.setItem('cloaked-icon', settings.tabIcon);
-                            if (settings.password) localStorage.setItem('site-password', settings.password);
-                            alert('Settings imported successfully!');
-                        } catch (error) {
-                            alert('Error importing settings: Invalid file format');
-                        }
-                    };
-                    reader.readAsText(file);
-                }
-            };
-            input.click();
-        }
-
-        function resetAllSettings() {
-            if (confirm('Are you sure you want to reset all settings? This cannot be undone.')) {
-                localStorage.clear();
-                location.reload();
-            }
-        }
-
-        // Load saved settings on page load
-        window.addEventListener('load', () => {
-            const savedTitle = localStorage.getItem('cloaked-title');
-            const savedIcon = localStorage.getItem('cloaked-icon');
-            
-            if (savedTitle) {
-                document.title = savedTitle;
-                document.getElementById('tab-title').value = savedTitle;
-            }
-            
-            if (savedIcon) {
-                let favicon = document.querySelector('link[rel="icon"]');
-                if (!favicon) {
-                    favicon = document.createElement('link');
-                    favicon.rel = 'icon';
-                    document.head.appendChild(favicon);
-                }
-                favicon.href = savedIcon;
-                document.getElementById('tab-icon').value = savedIcon;
-            }
-        });
-
-        // Panic mode functionality
-        document.addEventListener('keydown', (e) => {
-            const panicEnabled = document.getElementById('panic-enabled').checked;
-            const panicKey = document.getElementById('panic-key').value;
-            const panicUrl = document.getElementById('panic-url').value;
-            
-            if (panicEnabled && e.key === panicKey) {
-                window.location.href = panicUrl || 'https://classroom.google.com';
-            }
-        });
+        // All the existing JavaScript functionality is now handled by the stealth mode script above
     </script>
 </body>
 </html>
