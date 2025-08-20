@@ -3,397 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Assessment | Arctic</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Nebula - Access</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8b5cf6;
+            --secondary-purple: #a78bfa;
+            --accent-purple: #c4b5fd;
+            --dark-purple: #6d28d9;
+            --bg-primary: #1e1b4b;
+            --bg-secondary: #312e81;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --shadow-purple: 0 4px 14px 0 rgba(139, 92, 246, 0.15);
+            --shadow-purple-lg: 0 10px 25px -3px rgba(139, 92, 246, 0.2);
+            --glow-purple: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+            padding: 2rem;
+            box-shadow: var(--shadow-purple-lg);
+            border-bottom: 1px solid var(--accent-purple);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .app-name {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .lock-container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(30, 27, 75, 0.95);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-purple-lg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--accent-purple);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .lock-container:hover {
+            transform: translateY(-4px);
+        }
+
+        .lock-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .lock-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--accent-purple);
+        }
+
+        .lock-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .lock-message {
+            margin-bottom: 2.5rem;
+        }
+
+        .lock-message h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .lock-message p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .lock-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .lock-input {
+            width: 100%;
+            max-width: 350px;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            border: 2px solid var(--text-muted);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .lock-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .lock-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .lock-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 350px;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--primary-purple);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lock-button:hover {
+            background: var(--secondary-purple);
+            transform: translateY(-4px);
+            box-shadow: var(--glow-purple);
+        }
+
+        .lock-button:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: #f87171;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lock-help {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .lock-help a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .lock-help a:hover {
+            color: var(--secondary-purple);
+        }
+
+        .watermark {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem;
+            }
+
+            .lock-container {
+                padding: 2rem;
+            }
+
+            .lock-title {
+                font-size: 1.75rem;
+            }
+
+            .lock-message h2 {
+                font-size: 1.5rem;
+            }
+
+            .lock-message p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .app-name {
+                font-size: 1.75rem;
+            }
+
+            .logo, .lock-logo {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+            }
+
+            .lock-container {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .lock-title {
+                font-size: 1.5rem;
+            }
+
+            .lock-message h2 {
+                font-size: 1.25rem;
+            }
+
+            .lock-message p {
+                font-size: 1rem;
+            }
+
+            .lock-input,
+            .lock-button {
+                max-width: 100%;
+                font-size: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="browser-bar">
-            <div class="left-section">
-                <img src="logo.png" alt="Arctic Logo" class="logo">
-                <h1 class="app-name">Arctic</h1>
-            </div>
+            <img src="logo.png" alt="Nebula Logo" class="logo">
+            <h1 class="app-name">Nebula</h1>
         </div>
     </header>
 
-    <main class="main-content">
-        <!-- Replaced lock interface with math test -->
-        <div class="math-test-container">
-            <div class="test-header">
-                <h1 class="test-title">Mathematics Assessment</h1>
-                <p class="test-subtitle">Complete the following problems to continue</p>
-                <div class="test-info">
-                    <span class="time-limit">Time Limit: 10 minutes</span>
-                    <span class="question-count">5 Questions</span>
-                </div>
+    <div class="lock-container" role="main" aria-labelledby="lock-title">
+        <div class="lock-content">
+            <div class="lock-header">
+                <img src="logo.png" alt="Nebula Logo" class="lock-logo">
+                <h1 class="lock-title" id="lock-title">Nebula Access</h1>
             </div>
-
-            <form id="math-test-form" class="test-form">
-                <div class="question-block">
-                    <h3 class="question-number">Question 1</h3>
-                    <p class="question-text">What is 15 + 27?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q1" value="a">
-                            <span class="option-text">A) 32</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="b">
-                            <span class="option-text">B) 42</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="c">
-                            <span class="option-text">C) 41</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="d">
-                            <span class="option-text">D) 43</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 2</h3>
-                    <p class="question-text">Solve for x: 3x + 9 = 24</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q2" value="a">
-                            <span class="option-text">A) x = 4</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="b">
-                            <span class="option-text">B) x = 5</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="c">
-                            <span class="option-text">C) x = 6</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="d">
-                            <span class="option-text">D) x = 7</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 3</h3>
-                    <p class="question-text">What is 8² - 4²?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q3" value="a">
-                            <span class="option-text">A) 32</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="b">
-                            <span class="option-text">B) 48</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="c">
-                            <span class="option-text">C) 52</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="d">
-                            <span class="option-text">D) 60</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 4</h3>
-                    <p class="question-text">If a triangle has angles of 60° and 70°, what is the third angle?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q4" value="a">
-                            <span class="option-text">A) 40°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="b">
-                            <span class="option-text">B) 50°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="c">
-                            <span class="option-text">C) 60°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="d">
-                            <span class="option-text">D) 70°</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 5</h3>
-                    <p class="question-text">What is 25% of 80?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q5" value="a">
-                            <span class="option-text">A) 15</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="b">
-                            <span class="option-text">B) 20</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="c">
-                            <span class="option-text">C) 25</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="d">
-                            <span class="option-text">D) 30</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="test-actions">
-                    <button type="button" class="submit-btn" onclick="submitTest()">Submit Test</button>
-                    <button type="button" class="reset-btn" onclick="resetTest()">Reset Answers</button>
+            
+            <div class="lock-message">
+                <h2>Enter Access Code</h2>
+                <p>Please provide your access code to unlock Nebula and continue.</p>
+            </div>
+            
+            <form class="lock-form" onsubmit="checkCode(event)" aria-describedby="errorMessage">
+                <div class="input-group">
+                    <input 
+                        type="password" 
+                        id="codeInput" 
+                        class="lock-input" 
+                        placeholder="Access code" 
+                        required
+                        autocomplete="off"
+                        aria-label="Enter your access code"
+                    >
+                    <button type="submit" class="lock-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10,17 15,12 10,7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Unlock
+                    </button>
                 </div>
             </form>
-
-            <div id="test-result" class="test-result" style="display: none;">
-                <h3>Test Complete!</h3>
-                <p id="score-display"></p>
-                <button class="continue-btn" onclick="window.location.href='index.html'">Continue</button>
+            
+            <div id="errorMessage" class="error-message" style="display: none;" role="alert">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+                Incorrect code. Please try again.
+            </div>
+            
+            <div class="lock-help">
+                <p>Need assistance? <a href="mailto:admin@nebula.com">Contact our support team</a></p>
             </div>
         </div>
-
-        <!-- Added invisible button in bottom left corner -->
-        <button id="secret-button" onclick="window.location.href='main.html'" style="
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-            opacity: 0;
-        "></button>
-    </main>
-
-    <script>
-        function submitTest() {
-            const form = document.getElementById('math-test-form');
-            const result = document.getElementById('test-result');
-            const scoreDisplay = document.getElementById('score-display');
-            
-            // Correct answers: b, b, b, b, b (all B's for simplicity)
-            const correctAnswers = {
-                q1: 'b', // 42
-                q2: 'b', // x = 5
-                q3: 'b', // 48
-                q4: 'b', // 50°
-                q5: 'b'  // 20
-            };
-            
-            let score = 0;
-            let totalQuestions = 5;
-            
-            // Check answers
-            for (let question in correctAnswers) {
-                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
-                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
-                    score++;
-                }
-            }
-            
-            // Display result
-            const percentage = Math.round((score / totalQuestions) * 100);
-            scoreDisplay.textContent = `You scored ${score}/${totalQuestions} (${percentage}%)`;
-            
-            form.style.display = 'none';
-            result.style.display = 'block';
-        }
-        
-        function resetTest() {
-            const form = document.getElementById('math-test-form');
-            const inputs = form.querySelectorAll('input[type="radio"]');
-            inputs.forEach(input => input.checked = false);
-        }
-        
-        // Timer functionality (optional visual element)
-        let timeLeft = 600; // 10 minutes in seconds
-        
-        function updateTimer() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            const timerDisplay = document.querySelector('.time-limit');
-            if (timerDisplay) {
-                timerDisplay.textContent = `Time Limit: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-            }
-            
-            if (timeLeft > 0) {
-                timeLeft--;
-                setTimeout(updateTimer, 1000);
-            }
-        }
-        
-        // Start timer when page loads
-        window.addEventListener('load', () => {
-            updateTimer();
-        });
-    </script>
-
-    <style>
-        /* Added math test specific styles */
-        .math-test-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .test-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-        
-        .test-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .test-subtitle {
-            color: #6b7280;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .test-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            font-size: 0.9rem;
-            color: #374151;
-        }
-        
-        .question-block {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            background: #f9fafb;
-        }
-        
-        .question-number {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .question-text {
-            font-size: 1.1rem;
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-        
-        .answer-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .option {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .option:hover {
-            background: #e5e7eb;
-        }
-        
-        .option input[type="radio"] {
-            margin-right: 0.75rem;
-        }
-        
-        .option-text {
-            font-size: 1rem;
-            color: #374151;
-        }
-        
-        .test-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .submit-btn, .reset-btn, .continue-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .submit-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-        }
-        
-        .submit-btn:hover {
-            background: #2563eb;
-        }
-        
-        .reset-btn {
-            background: #6b7280;
-            color: white;
-            border: none;
-        }
-        
-        .reset-btn:hover {
-            background: #4b5563;
-        }
-        
-        .continue-btn {
-            background: #10b981;
-            color: white;
-            border: none;
-        }
-        
-        .continue-btn:hover {
-            background: #059669;
-        }
-        
-        .test-result {
-            text-align: center;
-            padding: 2rem;
-            background: #f0fdf4;
-            border-radius: 8px;
-            border: 1px solid #bbf7d0;
-        }
-        
-        .test-result h3 {
-            color: #166534;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .test-result p {
-            color: #15803d;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-    </style>
+    </div>
 
     <footer class="watermark">
-        <p>made by chesco</p>
+        <p>Made by Chesco</p>
     </footer>
+
+    <script>
+        function checkCode(event) {
+            event.preventDefault();
+            const input = document.getElementById('codeInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const code = input.value.trim().toLowerCase();
+            
+            if (code === 'chesco') {
+                window.location.href = 'main.html';
+            } else {
+                errorMessage.style.display = 'flex';
+                input.value = '';
+                input.focus();
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('codeInput').focus();
+        });
+
+        document.getElementById('codeInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                checkCode(e);
+            }
+        });
+    </script>
 </body>
 </html>
