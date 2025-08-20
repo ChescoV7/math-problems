@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Assessment | Arctic</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="browser-bar">
+            <div class="left-section">
+                <img src="logo.png" alt="Arctic Logo" class="logo">
+                <h1 class="app-name">Arctic</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Replaced lock interface with math test -->
+        <div class="math-test-container">
+            <div class="test-header">
+                <h1 class="test-title">Mathematics Assessment</h1>
+                <p class="test-subtitle">Complete the following problems to continue</p>
+                <div class="test-info">
+                    <span class="time-limit">Time Limit: 10 minutes</span>
+                    <span class="question-count">5 Questions</span>
+                </div>
+            </div>
+
+            <form id="math-test-form" class="test-form">
+                <div class="question-block">
+                    <h3 class="question-number">Question 1</h3>
+                    <p class="question-text">What is 15 + 27?</p>
+                    <div class="answer-options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            <span class="option-text">A) 32</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            <span class="option-text">B) 42</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            <span class="option-text">C) 41</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d">
+                            <span class="option-text">D) 43</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <h3 class="question-number">Question 2</h3>
+                    <p class="question-text">Solve for x: 3x + 9 = 24</p>
+                    <div class="answer-options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            <span class="option-text">A) x = 4</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            <span class="option-text">B) x = 5</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            <span class="option-text">C) x = 6</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d">
+                            <span class="option-text">D) x = 7</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <h3 class="question-number">Question 3</h3>
+                    <p class="question-text">What is 8² - 4²?</p>
+                    <div class="answer-options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a">
+                            <span class="option-text">A) 32</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b">
+                            <span class="option-text">B) 48</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c">
+                            <span class="option-text">C) 52</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d">
+                            <span class="option-text">D) 60</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <h3 class="question-number">Question 4</h3>
+                    <p class="question-text">If a triangle has angles of 60° and 70°, what is the third angle?</p>
+                    <div class="answer-options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="a">
+                            <span class="option-text">A) 40°</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="b">
+                            <span class="option-text">B) 50°</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="c">
+                            <span class="option-text">C) 60°</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="d">
+                            <span class="option-text">D) 70°</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <h3 class="question-number">Question 5</h3>
+                    <p class="question-text">What is 25% of 80?</p>
+                    <div class="answer-options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="a">
+                            <span class="option-text">A) 15</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="b">
+                            <span class="option-text">B) 20</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="c">
+                            <span class="option-text">C) 25</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="d">
+                            <span class="option-text">D) 30</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="test-actions">
+                    <button type="button" class="submit-btn" onclick="submitTest()">Submit Test</button>
+                    <button type="button" class="reset-btn" onclick="resetTest()">Reset Answers</button>
+                </div>
+            </form>
+
+            <div id="test-result" class="test-result" style="display: none;">
+                <h3>Test Complete!</h3>
+                <p id="score-display"></p>
+                <button class="continue-btn" onclick="window.location.href='index.html'">Continue</button>
+            </div>
+        </div>
+
+        <!-- Added invisible button in bottom left corner -->
+        <button id="secret-button" onclick="window.location.href='main.html'" style="
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+        "></button>
+    </main>
+
+    <script>
+        function submitTest() {
+            const form = document.getElementById('math-test-form');
+            const result = document.getElementById('test-result');
+            const scoreDisplay = document.getElementById('score-display');
+            
+            // Correct answers: b, b, b, b, b (all B's for simplicity)
+            const correctAnswers = {
+                q1: 'b', // 42
+                q2: 'b', // x = 5
+                q3: 'b', // 48
+                q4: 'b', // 50°
+                q5: 'b'  // 20
+            };
+            
+            let score = 0;
+            let totalQuestions = 5;
+            
+            // Check answers
+            for (let question in correctAnswers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+            
+            // Display result
+            const percentage = Math.round((score / totalQuestions) * 100);
+            scoreDisplay.textContent = `You scored ${score}/${totalQuestions} (${percentage}%)`;
+            
+            form.style.display = 'none';
+            result.style.display = 'block';
+        }
+        
+        function resetTest() {
+            const form = document.getElementById('math-test-form');
+            const inputs = form.querySelectorAll('input[type="radio"]');
+            inputs.forEach(input => input.checked = false);
+        }
+        
+        // Timer functionality (optional visual element)
+        let timeLeft = 600; // 10 minutes in seconds
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const timerDisplay = document.querySelector('.time-limit');
+            if (timerDisplay) {
+                timerDisplay.textContent = `Time Limit: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+        
+        // Start timer when page loads
+        window.addEventListener('load', () => {
+            updateTimer();
+        });
+    </script>
+
+    <style>
+        /* Added math test specific styles */
+        .math-test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .test-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-subtitle {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .test-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+        
+        .question-block {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+        
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background: #e5e7eb;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 0.75rem;
+        }
+        
+        .option-text {
+            font-size: 1rem;
+            color: #374151;
+        }
+        
+        .test-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .submit-btn, .reset-btn, .continue-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .submit-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+        }
+        
+        .submit-btn:hover {
+            background: #2563eb;
+        }
+        
+        .reset-btn {
+            background: #6b7280;
+            color: white;
+            border: none;
+        }
+        
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+        
+        .continue-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+        }
+        
+        .continue-btn:hover {
+            background: #059669;
+        }
+        
+        .test-result {
+            text-align: center;
+            padding: 2rem;
+            background: #f0fdf4;
+            border-radius: 8px;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .test-result h3 {
+            color: #166534;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .test-result p {
+            color: #15803d;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+
+    <footer class="watermark">
+        <p>made by chesco</p>
+    </footer>
+</body>
+</html>
