@@ -4,39 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arctic - Locked</title>
+    <!-- Added favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet>
 </head>
 <body>
-    <!-- Created lock page with Arctic branding and proper logo/title alignment -->
+    <!-- Enhanced lock page with better UX -->
     <div class="lock-container">
         <div class="lock-content">
             <div class="lock-header">
-                <img src="logo.png" alt="Arctic Logo" class="lock-logo">
+                <img src="favicon.png" alt="Arctic Logo" class="lock-logo">
                 <h1 class="lock-title">Arctic</h1>
             </div>
             
             <div class="lock-message">
-                <h2>🔒 Page Locked</h2>
-                <p>Enter the access code to continue</p>
+                <h2>🔒 Access Required</h2>
+                <p>Enter your access code to continue to Arctic</p>
             </div>
             
             <form class="lock-form" onsubmit="checkCode(event)">
-                <input 
-                    type="password" 
-                    id="codeInput" 
-                    class="lock-input" 
-                    placeholder="Enter access code" 
-                    required
-                    autocomplete="off"
-                >
-                <button type="submit" class="lock-button">Unlock</button>
+                <div class="input-group">
+                    <input 
+                        type="password" 
+                        id="codeInput" 
+                        class="lock-input" 
+                        placeholder="Enter access code" 
+                        required
+                        autocomplete="off"
+                        maxlength="20"
+                    >
+                    <button type="submit" class="lock-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4l4-4-4-4m4 4H3"/>
+                        </svg>
+                        Unlock
+                    </button>
+                </div>
             </form>
             
             <div id="errorMessage" class="error-message" style="display: none;">
-                Incorrect code. Please try again.
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="15" y1="9" x2="9" y2="15"/>
+                    <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+                Incorrect access code. Please try again.
+            </div>
+
+            <div class="lock-help">
+                <p>Need help? Contact your administrator</p>
             </div>
         </div>
     </div>
@@ -49,33 +68,79 @@
             const errorMessage = document.getElementById('errorMessage');
             const code = input.value.trim().toLowerCase();
             
-            if (code === 'chesco') {
-                // Correct code - redirect to main page
-                window.location.href = 'main.html';
-            } else {
-                // Incorrect code - show error
-                errorMessage.style.display = 'block';
-                input.value = '';
-                input.focus();
-                
-                // Hide error after 3 seconds
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
-            }
+            const button = event.target.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<div class="loading-spinner"></div>Checking...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                if (code === 'chesco') {
+                    // Correct code - show success and redirect
+                    button.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Access Granted';
+                    button.style.background = 'var(--success-color, #10b981)';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'main.html';
+                    }, 1000);
+                } else {
+                    // Incorrect code - show error
+                    errorMessage.style.display = 'flex';
+                    input.value = '';
+                    input.focus();
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                    // Add shake animation
+                    input.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        input.style.animation = '';
+                    }, 500);
+                    
+                    // Hide error after 4 seconds
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 4000);
+                }
+            }, 800);
         }
 
-        // Focus on input when page loads
-        window.addEventListener('load', () => {
-            document.getElementById('codeInput').focus();
+        // Enhanced keyboard handling
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('codeInput');
+            input.focus();
+            
+            // Clear error when user starts typing
+            input.addEventListener('input', () => {
+                const errorMessage = document.getElementById('errorMessage');
+                if (errorMessage.style.display !== 'none') {
+                    errorMessage.style.display = 'none';
+                }
+            });
         });
 
-        // Allow Enter key to submit
-        document.getElementById('codeInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                checkCode(e);
+        // Add loading spinner styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .loading-spinner {
+                width: 16px;
+                height: 16px;
+                border: 2px solid rgba(255,255,255,0.3);
+                border-radius: 50%;
+                border-top-color: white;
+                animation: spin 1s ease-in-out infinite;
+                display: inline-block;
+                margin-right: 8px;
             }
-        });
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-8px); }
+                75% { transform: translateX(8px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 
     <footer class="watermark">
