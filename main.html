@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arctic</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Redesigned header with browser-like layout -->
+    <header class="header">
+        <div class="browser-bar">
+            <div class="left-section">
+                <img src="logo.png" alt="Arctic Logo" class="logo">
+                <h1 class="app-name">Arctic</h1>
+            </div>
+            
+            <nav class="tab-navigation">
+                <button class="tab-btn active" data-tab="games">Games</button>
+                <button class="tab-btn" data-tab="settings">Settings</button>
+            </nav>
+            
+            
+        </div>
+        <div class="subtitle-section">
+            <p class="subtitle">great_rubble5, grier is chopped</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Games tab content -->
+        <div id="games-tab" class="tab-content active">
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input id="search" type="text" placeholder="Search for a game..." autocomplete="off">
+                    </div>
+                    <div class="game-count">
+                        <span id="game-counter">Loading games...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="centered-games-wrapper">
+                <div id="cont" class="games-container">
+                    <div class="game-grid">
+                        <button class="game-button" onclick="openGame('1/index.html', '1')">1</button>
+                        <button class="game-button" onclick="openGame('1v1lol/index.html', '1v1.lol')">1v1.lol</button>
+                        <button class="game-button" onclick="openGame('1v1space/index.html', '1v1 Space')">1v1 Space</button>
+                        <button class="game-button" onclick="openGame('8ball-billiards-classic/index.html', '8 Ball Billiards Classic')">8 Ball Billiards Classic</button>
+                        <button class="game-button" onclick="openGame('10-minutes-till-dawn/index.html', '10 Minutes Till Dawn')">10 Minutes Till Dawn</button>
+                        <button class="game-button" onclick="openGame('100ng/index.html', '100ng')">100ng</button>
+                        <button class="game-button" onclick="openGame('2020-game/index.html', '2020 Game')">2020 Game</button>
+                        <button class="game-button" onclick="openGame('2048/index.html', '2048')">2048</button>
+                        <button class="game-button" onclick="openGame('2048-multitask/index.html', '2048 Multitask')">2048 Multitask</button>
+                        <button class="game-button" onclick="openGame('achievementunlocked/index.html', 'Achievement Unlocked')">Achievement Unlocked</button>
+                        <button class="game-button" onclick="openGame('adarkroom/index.html', 'A Dark Room')">A Dark Room</button>
+                        <button class="game-button" onclick="openGame('adrenalinechallenge/index.html', 'Adrenaline Challenge')">Adrenaline Challenge</button>
+                        <button class="game-button" onclick="openGame('age-of-war/index.html', 'Age of War')">Age of War</button>
+                        <button class="game-button" onclick="openGame('alien-invaders-io/index.html', 'Alien Invaders IO')">Alien Invaders IO</button>
+                        <button class="game-button" onclick="openGame('alienhominid/index.html', 'Alien Hominid')">Alien Hominid</button>
+                        <button class="game-button" onclick="openGame('align-4/index.html', 'Align 4')">Align 4</button>
+                        <button class="game-button" onclick="openGame('among-us/index.html', 'Among Us')">Among Us</button>
+                        <button class="game-button" onclick="openGame('angry-birds/index.html', 'Angry Birds')">Angry Birds</button>
+                        <button class="game-button" onclick="openGame('anti-terrorist-rush/index.html', 'Anti-Terrorist Rush')">Anti-Terrorist Rush</button>
+                        <button class="game-button" onclick="openGame('arcade-wizard/index.html', 'Arcade Wizard')">Arcade Wizard</button>
+                        <button class="game-button" onclick="openGame('asciispace/index.html', 'ASCII Space')">ASCII Space</button>
+                        <button class="game-button" onclick="openGame('aspiring-artist/index.html', 'Aspiring Artist')">Aspiring Artist</button>
+                        <button class="game-button" onclick="openGame('asteroids/index.html', 'Asteroids')">Asteroids</button>
+                        <button class="game-button" onclick="openGame('astray/index.html', 'Astray')">Astray</button>
+                        <button class="game-button" onclick="openGame('avalanche/index.html', 'Avalanche')">Avalanche</button>
+                        <button class="game-button" onclick="openGame('awesome-tanks-2/index.html', 'Awesome Tanks 2')">Awesome Tanks 2</button>
+                        <button class="game-button" onclick="openGame('backcountry/index.html', 'Backcountry')">Backcountry</button>
+                        <button class="game-button" onclick="openGame('backflip-dive-3d/index.html', 'Backflip Dive 3D')">Backflip Dive 3D</button>
+                        <button class="game-button" onclick="openGame('backrooms/index.html', 'Backrooms')">Backrooms</button>
+                        <button class="game-button" onclick="openGame('bad-ice-cream/index.html', 'Bad Ice Cream')">Bad Ice Cream</button>
+                        <button class="game-button" onclick="openGame('bad-ice-cream-2/index.html', 'Bad Ice Cream 2')">Bad Ice Cream 2</button>
+                        <button class="game-button" onclick="openGame('bad-ice-cream-3/index.html', 'Bad Ice Cream 3')">Bad Ice Cream 3</button>
+                        <button class="game-button" onclick="openGame('baldis-basics/index.html', 'Baldi\'s Basics')">Baldi's Basics</button>
+                        <button class="game-button" onclick="openGame('basket-bros-io/index.html', 'Basket Bros IO')">Basket Bros IO</button>
+                        <button class="game-button" onclick="openGame('basketball-io/index.html', 'Basketball IO')">Basketball IO</button>
+                        <button class="game-button" onclick="openGame('basketball-stars/index.html', 'Basketball Stars')">Basketball Stars</button>
+                        <button class="game-button" onclick="openGame('battleforgondor/index.html', 'Battle for Gondor')">Battle for Gondor</button>
+                        <button class="game-button" onclick="openGame('bigredbutton/index.html', 'Big Red Button')">Big Red Button</button>
+                        <button class="game-button" onclick="openGame('binding-of-isaac/index.html', 'Binding of Isaac')">Binding of Isaac</button>
+                        <button class="game-button" onclick="openGame('bitlife/index.html', 'BitLife')">BitLife</button>
+                        <button class="game-button" onclick="openGame('blackholesquare/index.html', 'Black Hole Square')">Black Hole Square</button>
+                        <button class="game-button" onclick="openGame('blackknight/index.html', 'Black Knight')">Black Knight</button>
+                        <button class="game-button" onclick="openGame('blocky-snakes/index.html', 'Blocky Snakes')">Blocky Snakes</button>
+                        <button class="game-button" onclick="openGame('bloonstd/index.html', 'Bloons TD')">Bloons TD</button>
+                        <button class="game-button" onclick="openGame('bloonstd2/index.html', 'Bloons TD 2')">Bloons TD 2</button>
+                        <button class="game-button" onclick="openGame('bloxors/index.html', 'Bloxorz')">Bloxorz</button>
+                        <button class="game-button" onclick="openGame('bounceback/index.html', 'Bounce Back')">Bounce Back</button>
+                        <button class="game-button" onclick="openGame('boxel-rebound/index.html', 'Boxel Rebound')">Boxel Rebound</button>
+                        <button class="game-button" onclick="openGame('boxhead2play/index.html', 'Boxhead 2Play')">Boxhead 2Play</button>
+                        <button class="game-button" onclick="openGame('brave-explorers/index.html', 'Brave Explorers')">Brave Explorers</button>
+                        <button class="game-button" onclick="openGame('breakingthebank/index.html', 'Breaking the Bank')">Breaking the Bank</button>
+                        <button class="game-button" onclick="openGame('breaklock/index.html', 'Breaklock')">Breaklock</button>
+                        <button class="game-button" onclick="openGame('breakout/index.html', 'Breakout')">Breakout</button>
+                        <button class="game-button" onclick="openGame('btd4/index.html', 'Bloons TD 4')">Bloons TD 4</button>
+                        <button class="game-button" onclick="openGame('btts/index.html', 'BTTS')">BTTS</button>
+                        <button class="game-button" onclick="openGame('8lletf0rce/index.html', 'Bullet Force')">Bullet Force</button>
+                        <button class="game-button" onclick="openGame('burning-man-2/index.html', 'Burning Man 2')">Burning Man 2</button>
+                        <button class="game-button" onclick="openGame('cannon-basketball-4/index.html', 'Cannon Basketball 4')">Cannon Basketball 4</button>
+                        <button class="game-button" onclick="openGame('canyondefense/index.html', 'Canyon Defense')">Canyon Defense</button>
+                        <button class="game-button" onclick="openGame('captaincallisto/index.html', 'Captain Callisto')">Captain Callisto</button>
+                        <button class="game-button" onclick="openGame('cars-simulator/index.html', 'Cars Simulator')">Cars Simulator</button>
+                        <button class="game-button" onclick="openGame('cell-machine/index.html', 'Cell Machine')">Cell Machine</button>
+                        <button class="game-button" onclick="openGame('championarcher/index.html', 'Champion Archer')">Champion Archer</button>
+                        <button class="game-button" onclick="openGame('chess/index.html', 'Chess')">Chess</button>
+                        <button class="game-button" onclick="openGame('chill-radio/index.html', 'Chill Radio')">Chill Radio</button>
+                        <button class="game-button" onclick="openGame('chromaincident/index.html', 'Chroma Incident')">Chroma Incident</button>
+                        <button class="game-button" onclick="openGame('chrome-dino/index.html', 'Chrome Dino')">Chrome Dino</button>
+                        <button class="game-button" onclick="openGame('circlo/index.html', 'Circlo')">Circlo</button>
+                        <button class="game-button" onclick="openGame('city-blocks-2/index.html', 'City Blocks 2')">City Blocks 2</button>
+                        <button class="game-button" onclick="openGame('clean-up-io/index.html', 'Clean Up IO')">Clean Up IO</button>
+                        <button class="game-button" onclick="openGame('cluster-rush/index.html', 'Cluster Rush')">Cluster Rush</button>
+                        <button class="game-button" onclick="openGame('color-switch-2-challenges/index.html', 'Color Switch 2 Challenges')">Color Switch 2 Challenges</button>
+                        <button class="game-button" onclick="openGame('connect3/index.html', 'Connect 3')">Connect 3</button>
+                        <button class="game-button" onclick="openGame('cookie-clicker/index.html', 'Cookie Clicker')">Cookie Clicker</button>
+                        <button class="game-button" onclick="openGame('core-ball/index.html', 'Core Ball')">Core Ball</button>
+                        <button class="game-button" onclick="openGame('craftmine/index.html', 'Craftmine')">Craftmine</button>
+                        <button class="game-button" onclick="openGame('creativekillchamber/index.html', 'Creative Kill Chamber')">Creative Kill Chamber</button>
+                        <button class="game-button" onclick="openGame('crossyroad/index.html', 'Crossy Road')">Crossy Road</button>
+                        <button class="game-button" onclick="openGame('crowd city 2/index.html', 'Crowd City 2')">Crowd City 2</button>
+                        <button class="game-button" onclick="openGame('csgo-clicker/index.html', 'CSGO Clicker')">CSGO Clicker</button>
+                        <button class="game-button" onclick="openGame('ctr/index.html', 'CTR')">CTR</button>
+                        <button class="game-button" onclick="openGame('ctr-holiday/index.html', 'CTR Holiday')">CTR Holiday</button>
+                        <button class="game-button" onclick="openGame('ctr-tr/index.html', 'CTR TR')">CTR TR</button>
+                        <button class="game-button" onclick="openGame('cubefield/index.html', 'Cubefield')">Cubefield</button>
+                        <button class="game-button" onclick="openGame('cupcake2048/index.html', 'Cupcake 2048')">Cupcake 2048</button>
+                        <button class="game-button" onclick="openGame('cuttherope/index.html', 'Cut the Rope')">Cut the Rope</button>
+                        <button class="game-button" onclick="openGame('dadish/index.html', 'Dadish')">Dadish</button>
+                        <button class="game-button" onclick="openGame('dadish3/index.html', 'Dadish 3')">Dadish 3</button>
+                        <button class="game-button" onclick="openGame('dadishtwo/index.html', 'Dadish 2')">Dadish 2</button>
+                        <button class="game-button" onclick="openGame('dante/index.html', 'Dante')">Dante</button>
+                        <button class="game-button" onclick="openGame('deal-or-no-deal/index.html', 'Deal or No Deal')">Deal or No Deal</button>
+                        <button class="game-button" onclick="openGame('death-run-3d/index.html', 'Death Run 3D')">Death Run 3D</button>
+                        <button class="game-button" onclick="openGame('death-soul/index.html', 'Death Soul')">Death Soul</button>
+                        <button class="game-button" onclick="openGame('deathrun/index.html', 'Deathrun')">Deathrun</button>
+                        <button class="game-button" onclick="openGame('defend-the-tank/index.html', 'Defend the Tank')">Defend the Tank</button>
+                        <button class="game-button" onclick="openGame('dino/index.html', 'Dino')">Dino</button>
+                        <button class="game-button" onclick="openGame('doctor-acorn2/index.html', 'Doctor Acorn 2')">Doctor Acorn 2</button>
+                        <button class="game-button" onclick="openGame('dodge/index.html', 'Dodge')">Dodge</button>
+                        <button class="game-button" onclick="openGame('doge-miner-2/index.html', 'Doge Miner 2')">Doge Miner 2</button>
+                        <button class="game-button" onclick="openGame('doge-mining-simulator/index.html', 'Doge Mining Simulator')">Doge Mining Simulator</button>
+                        <button class="game-button" onclick="openGame('doge2048/index.html', 'Doge 2048')">Doge 2048</button>
+                        <button class="game-button" onclick="openGame('DogeMiner/index.html', 'Doge Miner')">Doge Miner</button>
+                        <button class="game-button" onclick="openGame('dont-drop-the-white-ball-2/index.htm', 'Don\'t Drop the White Ball 2')">Don't Drop the White Ball 2</button>
+                        <button class="game-button" onclick="openGame('doodle-jump/index.html', 'Doodle Jump')">Doodle Jump</button>
+                        <button class="game-button" onclick="openGame('doublewires/index.html', 'Double Wires')">Double Wires</button>
+                        <button class="game-button" onclick="openGame('douchebag-workout-2/index.html', 'Douchebag Workout 2')">Douchebag Workout 2</button>
+                        <button class="game-button" onclick="openGame('dragon-vs-bricks/index.html', 'Dragon vs Bricks')">Dragon vs Bricks</button>
+                        <button class="game-button" onclick="openGame('draw-the-hill/index.html', 'Draw the Hill')">Draw the Hill</button>
+                        <button class="game-button" onclick="openGame('drive-mad/index.html', 'Drive Mad')">Drive Mad</button>
+                        <button class="game-button" onclick="openGame('duck-life-treasurehunt/index.html', 'Duck Life Treasure Hunt')">Duck Life Treasure Hunt</button>
+                        <button class="game-button" onclick="openGame('ducklife/index.html', 'Duck Life')">Duck Life</button>
+                        <button class="game-button" onclick="openGame('ducklife1/index.html', 'Duck Life 1')">Duck Life 1</button>
+                        <button class="game-button" onclick="openGame('ducklife2/index.html', 'Duck Life 2')">Duck Life 2</button>
+                        <button class="game-button" onclick="openGame('ducklife3/index.html', 'Duck Life 3')">Duck Life 3</button>
+                        <button class="game-button" onclick="openGame('ducklife4/index.html', 'Duck Life 4')">Duck Life 4</button>
+                        <button class="game-button" onclick="openGame('duke-dashington-remastered/index.html', 'Duke Dashington Remastered')">Duke Dashington Remastered</button>
+                        <button class="game-button" onclick="openGame('dungeon-craft/index.html', 'Dungeon Craft')">Dungeon Craft</button>
+                        <button class="game-button" onclick="openGame('edge-surf/index.html', 'Edge Surf')">Edge Surf</button>
+                        <button class="game-button" onclick="openGame('edgenotfound/index.html', 'Edge Not Found')">Edge Not Found</button>
+                        <button class="game-button" onclick="openGame('elastic-face/index.html', 'Elastic Face')">Elastic Face</button>
+                        <button class="game-button" onclick="openGame('elasticman/index.html', 'Elastic Man')">Elastic Man</button>
+                        <button class="game-button" onclick="openGame('emulator-js/index.html', 'Emulator JS')">Emulator JS</button>
+                        <button class="game-button" onclick="openGame('endlesswar3/index.html', 'Endless War 3')">Endless War 3</button>
+                        <button class="game-button" onclick="openGame('escapingtheprison/index.html', 'Escaping the Prison')">Escaping the Prison</button>
+                        <button class="game-button" onclick="openGame('evio/index.html', 'ev.io')">ev.io</button>
+                        <button class="game-button" onclick="openGame('evil-glitch/index.html', 'Evil Glitch')">Evil Glitch</button>
+                        <button class="game-button" onclick="openGame('evilglitch/index.html', 'Evil Glitch (2)')">Evil Glitch (2)</button>
+                        <button class="game-button" onclick="openGame('evolution/index.html', 'Evolution')">Evolution</button>
+                        <button class="game-button" onclick="openGame('exo/index.html', 'Exo')">Exo</button>
+                        <button class="game-button" onclick="openGame('factory-balls-forever/index.html', 'Factory Balls Forever')">Factory Balls Forever</button>
+                        <button class="game-button" onclick="openGame('factoryballs/index.html', 'Factory Balls')">Factory Balls</button>
+                        <button class="game-button" onclick="openGame('factoryballsforever/index.html', 'Factory Balls Forever (2)')">Factory Balls Forever (2)</button>
+                        <button class="game-button" onclick="openGame('fake-virus/index.html', 'Fake Virus')">Fake Virus</button>
+                        <button class="game-button" onclick="openGame('fancypantsadventures/index.html', 'Fancy Pants Adventures')">Fancy Pants Adventures</button>
+                        <button class="game-button" onclick="openGame('fbwg/index.html', 'FBWG')">FBWG</button>
+                        <button class="game-button" onclick="openGame('finns-fantastic-food-machine/index.html', 'Finn\'s Fantastic Food Machine')">Finn's Fantastic Food Machine</button>
+                        <button class="game-button" onclick="openGame('fireboywatergirlforesttemple/index.html', 'Fireboy and Watergirl')">Fireboy and Watergirl</button>
+                        <button class="game-button" onclick="openGame('fireice/index.html', 'Fire and Ice')">Fire and Ice</button>
+                        <button class="game-button" onclick="openGame('firewater/index.html', 'Fire and Water')">Fire and Water</button>
+                        <button class="game-button" onclick="openGame('flappy-2048/index.html', 'Flappy 2048')">Flappy 2048</button>
+                        <button class="game-button" onclick="openGame('flappy-bird/index.html', 'Flappy Bird')">Flappy Bird</button>
+                        <button class="game-button" onclick="openGame('flappy-defense/index.html', 'Flappy Defense')">Flappy Defense</button>
+                        <button class="game-button" onclick="openGame('flappybird/index.html', 'Flappy Bird (2)')">Flappy Bird (2)</button>
+                        <button class="game-button" onclick="openGame('flashtetris/index.html', 'Flash Tetris')">Flash Tetris</button>
+                        <button class="game-button" onclick="openGame('flippy-fish/index.html', 'Flippy Fish')">Flippy Fish</button>
+                        <button class="game-button" onclick="openGame('flood-runner-2/index.html', 'Flood Runner 2')">Flood Runner 2</button>
+                        <button class="game-button" onclick="openGame('fridaynightfunkin/index.html', 'Friday Night Funkin\'')">Friday Night Funkin'</button>
+                        <button class="game-button" onclick="openGame('friendlyfire/index.html', 'Friendly Fire')">Friendly Fire</button>
+                        <button class="game-button" onclick="openGame('froggys-battle/index.html', 'Froggy\'s Battle')">Froggy's Battle</button>
+                        <button class="game-button" onclick="openGame('fruitninja/index.html', 'Fruit Ninja')">Fruit Ninja</button>
+                        <button class="game-button" onclick="openGame('frying-nemo/index.html', 'Frying Nemo')">Frying Nemo</button>
+                        <button class="game-button" onclick="openGame('FullScreenMario/Source/index.html', 'Full Screen Mario')">Full Screen Mario</button>
+                        <button class="game-button" onclick="openGame('game-inside/index.html', 'Game Inside')">Game Inside</button>
+                        <button class="game-button" onclick="openGame('generic-fishing-game/index.html', 'Generic Fishing Game')">Generic Fishing Game</button>
+                        <button class="game-button" onclick="openGame('geodash/index.html', 'Geo Dash')">Geo Dash</button>
+                        <button class="game-button" onclick="openGame('geodash-2/index.html', 'Geo Dash 2')">Geo Dash 2</button>
+                        <button class="game-button" onclick="openGame('geometry_jump_sketchy/index.html', 'Geometry Jump Sketchy')">Geometry Jump Sketchy</button>
+                        <button class="game-button" onclick="openGame('geometrydash/index.html', 'Geometry Dash')">Geometry Dash</button>
+                        <button class="game-button" onclick="openGame('georgeandtheprinter/index.html', 'George and the Printer')">George and the Printer</button>
+                        <button class="game-button" onclick="openGame('getaway-shootout/index.html', 'Getaway Shootout')">Getaway Shootout</button>
+                        <button class="game-button" onclick="openGame('getting-over-it/index.html', 'Getting Over It')">Getting Over It</button>
+                        <button class="game-button" onclick="openGame('gimme-the-airpod/index.html', 'Gimme the AirPod')">Gimme the AirPod</button>
+                        <button class="game-button" onclick="openGame('glass-city/index.html', 'Glass City')">Glass City</button>
+                        <button class="game-button" onclick="openGame('go-ball/index.html', 'Go Ball')">Go Ball</button>
+                        <button class="game-button" onclick="openGame('golf/index.html', 'Golf')">Golf</button>
+                        <button class="game-button" onclick="openGame('goodnight/index.html', 'Goodnight')">Goodnight</button>
+                        <button class="game-button" onclick="openGame('google-snake/index.html', 'Google Snake')">Google Snake</button>
+                        <button class="game-button" onclick="openGame('google-solitaire/index.html', 'Google Solitaire')">Google Solitaire</button>
+                        <button class="game-button" onclick="openGame('gopher/index.html', 'Gopher')">Gopher</button>
+                        <button class="game-button" onclick="openGame('gravity-soccer/index.html', 'Gravity Soccer')">Gravity Soccer</button>
+                        <button class="game-button" onclick="openGame('green/index.html', 'Green')">Green</button>
+                        <button class="game-button" onclick="openGame('greybox/index.html', 'Grey Box')">Grey Box</button>
+                        <button class="game-button" onclick="openGame('grindcraft/index.html', 'Grindcraft')">Grindcraft</button>
+                        <button class="game-button" onclick="openGame('grow-in-the-hole/index.html', 'Grow in the Hole')">Grow in the Hole</button>
+                        <button class="game-button" onclick="openGame('gun-mayhem/index.html', 'Gun Mayhem')">Gun Mayhem</button>
+                        <button class="game-button" onclick="openGame('gun-mayhem-2/index.html', 'Gun Mayhem 2')">Gun Mayhem 2</button>
+                        <button class="game-button" onclick="openGame('gun-mayhem-redux/index.html', 'Gun Mayhem Redux')">Gun Mayhem Redux</button>
+                        <button class="game-button" onclick="openGame('gunspin/index.html', 'Gunspin')">Gunspin</button>
+                        <button class="game-button" onclick="openGame('hackertype/index.html', 'Hacker Type')">Hacker Type</button>
+                        <button class="game-button" onclick="openGame('happy-hop/index.html', 'Happy Hop')">Happy Hop</button>
+                        <button class="game-button" onclick="openGame('happy-wheels/index.html', 'Happy Wheels')">Happy Wheels</button>
+                        <button class="game-button" onclick="openGame('hba/index.html', 'HBA')">HBA</button>
+                        <button class="game-button" onclick="openGame('helicopter/index.html', 'Helicopter')">Helicopter</button>
+                        <button class="game-button" onclick="openGame('helios/index.html', 'Helios')">Helios</button>
+                        <button class="game-button" onclick="openGame('hexempire/index.html', 'Hex Empire')">Hex Empire</button>
+                        <button class="game-button" onclick="openGame('HexGL/index.html', 'Hex GL')">Hex GL</button>
+                        <button class="game-button" onclick="openGame('hextris/index.html', 'Hextris')">Hextris</button>
+                        <button class="game-button" onclick="openGame('house-of-hazards/index.html', 'House of Hazards')">House of Hazards</button>
+                        <button class="game-button" onclick="openGame('icys-purple-head/index.html', 'Icy\'s Purple Head')">Icy's Purple Head</button>
+                        <button class="game-button" onclick="openGame('idle-breakout/index.html', 'Idle Breakout')">Idle Breakout</button>
+                        <button class="game-button" onclick="openGame('idle-shark/index.html', 'Idle Shark')">Idle Shark</button>
+                        <button class="game-button" onclick="openGame('impossiblequiz/index.html', 'Impossible Quiz')">Impossible Quiz</button>
+                        <button class="game-button" onclick="openGame('interactivebuddy/index.html', 'Interactive Buddy')">Interactive Buddy</button>
+                        <button class="game-button" onclick="openGame('iscribble-io/index.html', 'iScribble IO')">iScribble IO</button>
+                        <button class="game-button" onclick="openGame('jelly-truck/index.html', 'Jelly Truck')">Jelly Truck</button>
+                        <button class="game-button" onclick="openGame('jetpack/index.html', 'Jetpack')">Jetpack</button>
+                        <button class="game-button" onclick="openGame('jimothy-piggerton/index.html', 'Jimothy Piggerton')">Jimothy Piggerton</button>
+                        <button class="game-button" onclick="openGame('just-one-boss/index.html', 'Just One Boss')">Just One Boss</button>
+                        <button class="game-button" onclick="openGame('justfall/index.html', 'Just Fall')">Just Fall</button>
+                        <button class="game-button" onclick="openGame('kart-fight-io/index.html', 'Kart Fight IO')">Kart Fight IO</button>
+                        <button class="game-button" onclick="openGame('kitchen-gun-game/index.html', 'Kitchen Gun Game')">Kitchen Gun Game</button>
+                        <button class="game-button" onclick="openGame('kittencannon/index.html', 'Kitten Cannon')">Kitten Cannon</button>
+                        <button class="game-button" onclick="openGame('klocki/index.html', 'Klocki')">Klocki</button>
+                        <button class="game-button" onclick="openGame('konnekt/index.html', 'Konnekt')">Konnekt</button>
+                        <button class="game-button" onclick="openGame('krunker/index.html', 'Krunker')">Krunker</button>
+                        <button class="game-button" onclick="openGame('learntofly/index.html', 'Learn to Fly')">Learn to Fly</button>
+                        <button class="game-button" onclick="openGame('learntofly2/index.html', 'Learn to Fly 2')">Learn to Fly 2</button>
+                        <button class="game-button" onclick="openGame('ltf3/index.html', 'Learn to Fly 3')">Learn to Fly 3</button>
+                        <button class="game-button" onclick="openGame('line-rider/index.html', 'Line Rider')">Line Rider</button>
+                        <button class="game-button" onclick="openGame('linquest/index.html', 'Linquest')">Linquest</button>
+                        <button class="game-button" onclick="openGame('madalin-stunt-cars-2/index.html', 'Madalin Stunt Cars 2')">Madalin Stunt Cars 2</button>
+                        <button class="game-button" onclick="openGame('madalin-stunt-cars-3/index.html', 'Madalin Stunt Cars 3')">Madalin Stunt Cars 3</button>
+                        <button class="game-button" onclick="openGame('mario/index.html', 'Mario')">Mario</button>
+                        <button class="game-button" onclick="openGame('marvinspectrum/index.html', 'Marvin Spectrum')">Marvin Spectrum</button>
+                        <button class="game-button" onclick="openGame('matrixrampage/index.html', 'Matrix Rampage')">Matrix Rampage</button>
+                        <button class="game-button" onclick="openGame('mc1.5.2/index.html', 'Minecraft 1.5.2')">Minecraft 1.5.2</button>
+                        <button class="game-button" onclick="openGame('e@glercr@ft/index.html', 'Minecraft (Multiplayer)')">Minecraft (Multiplayer)</button>
+                        <button class="game-button" onclick="openGame('mcbeta0.30/index.html', 'Minecraft Beta 0.30')">Minecraft Beta 0.30</button>
+                        <button class="game-button" onclick="openGame('mcbeta1.3/index.html', 'Minecraft Beta 1.3')">Minecraft Beta 1.3</button>
+                        <button class="game-button" onclick="openGame('meat-boy/index.html', 'Meat Boy')">Meat Boy</button>
+                        <button class="game-button" onclick="openGame('meme2048/index.html', 'Meme 2048')">Meme 2048</button>
+                        <button class="game-button" onclick="openGame('minecraft/index.html', 'Minecraft')">Minecraft</button>
+                        <button class="game-button" onclick="openGame('minecraft-classic/index.html', 'Minecraft Classic')">Minecraft Classic</button>
+                        <button class="game-button" onclick="openGame('minecraftbeta/index.html', 'Minecraft Beta')">Minecraft Beta</button>
+                        <button class="game-button" onclick="openGame('minesweeper/index.html', 'Minesweeper')">Minesweeper</button>
+                        <button class="game-button" onclick="openGame('mini-stilts/index.html', 'Mini Stilts')">Mini Stilts</button>
+                        <button class="game-button" onclick="openGame('miniputt/index.html', 'Mini Putt')">Mini Putt</button>
+                        <button class="game-button" onclick="openGame('missiles/index.html', 'Missiles')">Missiles</button>
+                        <button class="game-button" onclick="openGame('my-friend-pedro/index.html', 'My Friend Pedro')">My Friend Pedro</button>
+                        <button class="game-button" onclick="openGame('n-gon/index.html', 'N-Gon')">N-Gon</button>
+                        <button class="game-button" onclick="openGame('ninja/index.html', 'Ninja')">Ninja</button>
+                        <button class="game-button" onclick="openGame('ninjavsevilcorp/index.html', 'Ninja vs Evil Corp')">Ninja vs Evil Corp</button>
+                        <button class="game-button" onclick="openGame('ns-shaft/index.html', 'NS Shaft')">NS Shaft</button>
+                        <button class="game-button" onclick="openGame('OfflineParadise/index.html', 'Offline Paradise')">Offline Paradise</button>
+                        <button class="game-button" onclick="openGame('om-bounce/index.html', 'OM Bounce')">OM Bounce</button>
+                        <button class="game-button" onclick="openGame('one-screen-run/index.html', 'One Screen Run')">One Screen Run</button>
+                        <button class="game-button" onclick="openGame('one-screen-run-2/index.html', 'One Screen Run 2')">One Screen Run 2</button>
+                        <button class="game-button" onclick="openGame('osu/index.html', 'Osu')">Osu</button>
+                        <button class="game-button" onclick="openGame('overtide/index.html', 'Overtide')">Overtide</button>
+                        <button class="game-button" onclick="openGame('ovo/index.html', 'Ovo')">Ovo</button>
+                        <button class="game-button" onclick="openGame('packabunchas/index.html', 'Packabunchas')">Packabunchas</button>
+                        <button class="game-button" onclick="openGame('pacman/index.html', 'Pacman')">Pacman</button>
+                        <button class="game-button" onclick="openGame('pandemic2/index.html', 'Pandemic 2')">Pandemic 2</button>
+                        <button class="game-button" onclick="openGame('papa-louie/index.html', 'Papa Louie')">Papa Louie</button>
+                        <button class="game-button" onclick="openGame('paperio2/index.html', 'Paper IO 2')">Paper IO 2</button>
+                        <button class="game-button" onclick="openGame('papery-planes/index.html', 'Papery Planes')">Papery Planes</button>
+                        <button class="game-button" onclick="openGame('particle-clicker/index.html', 'Particle Clicker')">Particle Clicker</button>
+                        <button class="game-button" onclick="openGame('path-finder/index.html', 'Path Finder')">Path Finder</button>
+                        <button class="game-button" onclick="openGame('pe-noire/index.html', 'Pe Noire')">Pe Noire</button>
+                        <button class="game-button" onclick="openGame('pikwip/index.html', 'Pikwip')">Pikwip</button>
+                        <button class="game-button" onclick="openGame('pixel-cave/index.html', 'Pixel Cave')">Pixel Cave</button>
+                        <button class="game-button" onclick="openGame('pizzeria-simulator/index.html', 'Pizzeria Simulator')">Pizzeria Simulator</button>
+                        <button class="game-button" onclick="openGame('polybranch/index.html', 'Polybranch')">Polybranch</button>
+                        <button class="game-button" onclick="openGame('popcat-classic/index.html', 'Popcat Classic')">Popcat Classic</button>
+                        <button class="game-button" onclick="openGame('portalflash/index.html', 'Portal Flash')">Portal Flash</button>
+                        <button class="game-button" onclick="openGame('precision-client/index.html', 'Precision Client')">Precision Client</button>
+                        <button class="game-button" onclick="openGame('protektor/index.html', 'Protektor')">Protektor</button>
+                        <button class="game-button" onclick="openGame('push-the-square/index.html', 'Push the Square')">Push the Square</button>
+                        <button class="game-button" onclick="openGame('push-your-luck/index.html', 'Push Your Luck')">Push Your Luck</button>
+                        <button class="game-button" onclick="openGame('pushback/index.html', 'Pushback')">Pushback</button>
+                        <button class="game-button" onclick="openGame('puzzle-ball/index.html', 'Puzzle Ball')">Puzzle Ball</button>
+                        <button class="game-button" onclick="openGame('pvz-2/index.html', 'Plants vs Zombies 2')">Plants vs Zombies 2</button>
+                        <button class="game-button" onclick="openGame('racer/index.html', 'Racer')">Racer</button>
+                        <button class="game-button" onclick="openGame('radiusraid/index.html', 'Radius Raid')">Radius Raid</button>
+                        <button class="game-button" onclick="openGame('retrobowl/index.html', 'Retro Bowl')">Retro Bowl</button>
+                        <button class="game-button" onclick="openGame('retrohaunt/index.html', 'Retro Haunt')">Retro Haunt</button>
+                        <button class="game-button" onclick="openGame('rise-of-neon-square/index.html', 'Rise of Neon Square')">Rise of Neon Square</button>
+                        <button class="game-button" onclick="openGame('roadblocks/index.html', 'Roadblocks')">Roadblocks</button>
+                        <button class="game-button" onclick="openGame('roblox/index.html', 'Roblox')">Roblox</button>
+                        <button class="game-button" onclick="openGame('rocket-soccer/index.html', 'Rocket Soccer')">Rocket Soccer</button>
+                        <button class="game-button" onclick="openGame('rocking-sky-trip/index.html', 'Rocking Sky Trip')">Rocking Sky Trip</button>
+                        <button class="game-button" onclick="openGame('rolling-forests/index.html', 'Rolling Forests')">Rolling Forests</button>
+                        <button class="game-button" onclick="openGame('rolly-vortex/index.html', 'Rolly Vortex')">Rolly Vortex</button>
+                        <button class="game-button" onclick="openGame('rooftop-snipers/index.html', 'Rooftop Snipers')">Rooftop Snipers</button>
+                        <button class="game-button" onclick="openGame('run-3/index.html', 'Run 3')">Run 3</button>
+                        <button class="game-button" onclick="openGame('sand-game/index.html', 'Sand Game')">Sand Game</button>
+                        <button class="game-button" onclick="openGame('sandboxels/index.html', 'Sandboxels')">Sandboxels</button>
+                        <button class="game-button" onclick="openGame('scrambled-eggs/index.html', 'Scrambled Eggs')">Scrambled Eggs</button>
+                        <button class="game-button" onclick="openGame('scrapmetal/index.html', 'Scrap Metal')">Scrap Metal</button>
+                        <button class="game-button" onclick="openGame('senya-and-oscar-2/index.html', 'Senya and Oscar 2')">Senya and Oscar 2</button>
+                        <button class="game-button" onclick="openGame('sg/index.html', 'SG')">SG</button>
+                        <button class="game-button" onclick="openGame('shadow-world-adventure/index.html', 'Shadow World Adventure')">Shadow World Adventure</button>
+                        <button class="game-button" onclick="openGame('shards/index.html', 'Shards')">Shards</button>
+                        <button class="game-button" onclick="openGame('shift-flash/index.html', 'Shift Flash')">Shift Flash</button>
+                        <button class="game-button" onclick="openGame('shift-flash-2/index.html', 'Shift Flash 2')">Shift Flash 2</button>
+                        <button class="game-button" onclick="openGame('short-life-2/index.html', 'Short Life 2')">Short Life 2</button>
+                        <button class="game-button" onclick="openGame('short-ride/index.html', 'Short Ride')">Short Ride</button>
+                        <button class="game-button" onclick="openGame('shuttledeck/index.html', 'Shuttle Deck')">Shuttle Deck</button>
+                        <button class="game-button" onclick="openGame('skyblock/index.html', 'Skyblock')">Skyblock</button>
+                        <button class="game-button" onclick="openGame('sleepingbeauty/index.html', 'Sleeping Beauty')">Sleeping Beauty</button>
+                        <button class="game-button" onclick="openGame('slice-of-sasha/index.html', 'Slice of Sasha')">Slice of Sasha</button>
+                        <button class="game-button" onclick="openGame('slither/index.html', 'Slither')">Slither</button>
+                        <button class="game-button" onclick="openGame('slope/index.html', 'Slope')">Slope</button>
+                        <button class="game-button" onclick="openGame('slope-ball/index.html', 'Slope Ball')">Slope Ball</button>
+                        <button class="game-button" onclick="openGame('slope2/index.html', 'Slope 2')">Slope 2</button>
+                        <button class="game-button" onclick="openGame('sm63/index.html', 'SM63')">SM63</button>
+                        <button class="game-button" onclick="openGame('sm64/index.html', 'SM64')">SM64</button>
+                        <button class="game-button" onclick="openGame('smashkarts/index.html', 'Smash Karts')">Smash Karts</button>
+                        <button class="game-button" onclick="openGame('smokingbarrels/index.html', 'Smoking Barrels')">Smoking Barrels</button>
+                        <button class="game-button" onclick="openGame('snake/index.html', 'Snake')">Snake</button>
+                        <button class="game-button" onclick="openGame('snowbattle/index.html', 'Snow Battle')">Snow Battle</button>
+                        <button class="game-button" onclick="openGame('soldier-legend/index.html', 'Soldier Legend')">Soldier Legend</button>
+                        <button class="game-button" onclick="openGame('solitaire/index.html', 'Solitaire')">Solitaire</button>
+                        <button class="game-button" onclick="openGame('sonic-the-hedgehog/src/index.html', 'Sonic the Hedgehog')">Sonic the Hedgehog</button>
+                        <button class="game-button" onclick="openGame('sort-the-court/index.html', 'Sort the Court')">Sort the Court</button>
+                        <button class="game-button" onclick="openGame('soundboard/index.html', 'Soundboard')">Soundboard</button>
+                        <button class="game-button" onclick="openGame('space-company/index.html', 'Space Company')">Space Company</button>
+                        <button class="game-button" onclick="openGame('spacegarden/index.html', 'Space Garden')">Space Garden</button>
+                        <button class="game-button" onclick="openGame('spacehuggers/index.html', 'Space Huggers')">Space Huggers</button>
+                        <button class="game-button" onclick="openGame('spelunky/index.html', 'Spelunky')">Spelunky</button>
+                        <button class="game-button" onclick="openGame('ssf/index.html', 'SSF')">SSF</button>
+                        <button class="game-button" onclick="openGame('stack/index.html', 'Stack')">Stack</button>
+                        <button class="game-button" onclick="openGame('stack-bump-3d/index.html', 'Stack Bump 3D')">Stack Bump 3D</button>
+                        <button class="game-button" onclick="openGame('station-141/index.html', 'Station 141')">Station 141</button>
+                        <button class="game-button" onclick="openGame('stealingthediamond/index.html', 'Stealing the Diamond')">Stealing the Diamond</button>
+                        <button class="game-button" onclick="openGame('stick-archers-battle/index.html', 'Stick Archers Battle')">Stick Archers Battle</button>
+                        <button class="game-button" onclick="openGame('stickclimb/index.html', 'Stick Climb')">Stick Climb</button>
+                        <button class="game-button" onclick="openGame('stickman/index.html', 'Stickman')">Stickman</button>
+                        <button class="game-button" onclick="openGame('stickman-boost/index.html', 'Stickman Boost')">Stickman Boost</button>
+                        <button class="game-button" onclick="openGame('stickman-dismount/index.html', 'Stickman Dismount')">Stickman Dismount</button>
+                        <button class="game-button" onclick="openGame('stickman-epic-battle/index.html', 'Stickman Epic Battle')">Stickman Epic Battle</button>
+                        <button class="game-button" onclick="openGame('stickman-golf/index.html', 'Stickman Golf')">Stickman Golf</button>
+                        <button class="game-button" onclick="openGame('Stickman-Survival/index.html', 'Stickman Survival')">Stickman Survival</button>
+                        <button class="game-button" onclick="openGame('stickwar/index.html', 'Stick War')">Stick War</button>
+                        <button class="game-button" onclick="openGame('stormthehouse2/index.html', 'Storm the House 2')">Storm the House 2</button>
+                        <button class="game-button" onclick="openGame('subway-surfers/index.html', 'Subway Surfers')">Subway Surfers</button>
+                        <button class="game-button" onclick="openGame('subway-surfers-bali/index.html', 'Subway Surfers Bali')">Subway Surfers Bali</button>
+                        <button class="game-button" onclick="openGame('super-mario-maker-online/index.html', 'Super Mario Maker Online')">Super Mario Maker Online</button>
+                        <button class="game-button" onclick="openGame('super-puffer-fish-3d/index.html', 'Super Puffer Fish 3D')">Super Puffer Fish 3D</button>
+                        <button class="game-button" onclick="openGame('superhero-io/index.html', 'Superhero IO')">Superhero IO</button>
+                        <button class="game-button" onclick="openGame('superhot/index.html', 'Superhot')">Superhot</button>
+                        <button class="game-button" onclick="openGame('supermarioconstruct/index.html', 'Super Mario Construct')">Super Mario Construct</button>
+                        <button class="game-button" onclick="openGame('swerve/index.html', 'Swerve')">Swerve</button>
+                        <button class="game-button" onclick="openGame('synesthesia/index.html', 'Synesthesia')">Synesthesia</button>
+                        <button class="game-button" onclick="openGame('tactical-weapon-pack-2/index.html', 'Tactical Weapon Pack 2')">Tactical Weapon Pack 2</button>
+                        <button class="game-button" onclick="openGame('tacticalassasin2/index.html', 'Tactical Assassin 2')">Tactical Assassin 2</button>
+                        <button class="game-button" onclick="openGame('tail-of-the-dragon/index.html', 'Tail of the Dragon')">Tail of the Dragon</button>
+                        <button class="game-button" onclick="openGame('tam-indian-truck-simulator-3d/index.html', 'TAM Indian Truck Simulator')">TAM Indian Truck Simulator</button>
+                        <button class="game-button" onclick="openGame('tank-trouble-2/index.html', 'Tank Trouble 2')">Tank Trouble 2</button>
+                        <button class="game-button" onclick="openGame('tanuki-sunset/index.html', 'Tanuki Sunset')">Tanuki Sunset</button>
+                        <button class="game-button" onclick="openGame('temple-run-2/index.html', 'Temple Run 2')">Temple Run 2</button>
+                        <button class="game-button" onclick="openGame('tetris/index.html', 'Tetris')">Tetris</button>
+                        <button class="game-button" onclick="openGame('the-final-earth/index.html', 'The Final Earth')">The Final Earth</button>
+                        <button class="game-button" onclick="openGame('the-final-earth-2/index.html', 'The Final Earth 2')">The Final Earth 2</button>
+                        <button class="game-button" onclick="openGame('the-impossible-quiz/index.html', 'The Impossible Quiz')">The Impossible Quiz</button>
+                        <button class="game-button" onclick="openGame('the-impossible-quiz-2/index.html', 'The Impossible Quiz 2')">The Impossible Quiz 2</button>
+                        <button class="game-button" onclick="openGame('the-little-giant/index.html', 'The Little Giant')">The Little Giant</button>
+                        <button class="game-button" onclick="openGame('thebattle/index.html', 'The Battle')">The Battle</button>
+                        <button class="game-button" onclick="openGame('theheist/index.html', 'The Heist')">The Heist</button>
+                        <button class="game-button" onclick="openGame('themazeofspacegoblins/index.html', 'The Maze of Space Goblins')">The Maze of Space Goblins</button>
+                        <button class="game-button" onclick="openGame('there-is-no-game/index.html', 'There Is No Game')">There Is No Game</button>
+                        <button class="game-button" onclick="openGame('thisistheonlylevel/index.html', 'This Is the Only Level')">This Is the Only Level</button>
+                        <button class="game-button" onclick="openGame('time-shooter-3/index.html', 'Time Shooter 3')">Time Shooter 3</button>
+                        <button class="game-button" onclick="openGame('tiny-fishing/index.html', 'Tiny Fishing')">Tiny Fishing</button>
+                        <button class="game-button" onclick="openGame('tiny-fragments/index.html', 'Tiny Fragments')">Tiny Fragments</button>
+                        <button class="game-button" onclick="openGame('tiny-islands/index.html', 'Tiny Islands')">Tiny Islands</button>
+                        <button class="game-button" onclick="openGame('topple-adventure/index.html', 'Topple Adventure')">Topple Adventure</button>
+                        <button class="game-button" onclick="openGame('tosstheturtle/index.html', 'Toss the Turtle')">Toss the Turtle</button>
+                        <button class="game-button" onclick="openGame('tough-growth/index.html', 'Tough Growth')">Tough Growth</button>
+                        <button class="game-button" onclick="openGame('towermaster/index.html', 'Tower Master')">Tower Master</button>
+                        <button class="game-button" onclick="openGame('townscaper/index.html', 'Townscaper')">Townscaper</button>
+                        <button class="game-button" onclick="openGame('trimps/index.html', 'Trimps')">Trimps</button>
+                        <button class="game-button" onclick="openGame('tube-jumpers/index.html', 'Tube Jumpers')">Tube Jumpers</button>
+                        <button class="game-button" onclick="openGame('tunnel-rush/index.html', 'Tunnel Rush')">Tunnel Rush</button>
+                        <button class="game-button" onclick="openGame('tunnelz/index.html', 'Tunnelz')">Tunnelz</button>
+                        <button class="game-button" onclick="openGame('tv-static/index.html', 'TV Static')">TV Static</button>
+                        <button class="game-button" onclick="openGame('twitch-tetris/index.html', 'Twitch Tetris')">Twitch Tetris</button>
+                        <button class="game-button" onclick="openGame('underrun/index.html', 'Underrun')">Underrun</button>
+                        <button class="game-button" onclick="openGame('unfold-2/index.html', 'Unfold 2')">Unfold 2</button>
+                        <button class="game-button" onclick="openGame('up-left-out/index.html', 'Up Left Out')">Up Left Out</button>
+                        <button class="game-button" onclick="openGame('veloce/index.html', 'Veloce')">Veloce</button>
+                        <button class="game-button" onclick="openGame('vex3/index.html', 'Vex 3')">Vex 3</button>
+                        <button class="game-button" onclick="openGame('vex4/index.html', 'Vex 4')">Vex 4</button>
+                        <button class="game-button" onclick="openGame('vex5/index.html', 'Vex 5')">Vex 5</button>
+                        <button class="game-button" onclick="openGame('vex6/index.html', 'Vex 6')">Vex 6</button>
+                        <button class="game-button" onclick="openGame('vex7/index.html', 'Vex 7')">Vex 7</button>
+                        <button class="game-button" onclick="openGame('waterworks/index.html', 'Waterworks')">Waterworks</button>
+                        <button class="game-button" onclick="openGame('webretro/index.html', 'Webretro')">Webretro</button>
+                        <button class="game-button" onclick="openGame('winter-falling-price/index.html', 'Winter Falling Price')">Winter Falling Price</button>
+                        <button class="game-button" onclick="openGame('wipo/index.html', 'Wipo')">Wipo</button>
+                        <button class="game-button" onclick="openGame('wolf3d/index.html', 'Wolf 3D')">Wolf 3D</button>
+                        <button class="game-button" onclick="openGame('wordle/index.html', 'Wordle')">Wordle</button>
+                        <button class="game-button" onclick="openGame('worlds-hardest-game/index.html', 'World\'s Hardest Game')">World's Hardest Game</button>
+                        <button class="game-button" onclick="openGame('worlds-hardest-game-2/index.html', 'World\'s Hardest Game 2')">World's Hardest Game 2</button>
+                        <button class="game-button" onclick="openGame('x-trial-racing/index.html', 'X Trial Racing')">X Trial Racing</button>
+                        <button class="game-button" onclick="openGame('xx142-b2exe/index.html', 'XX142 B2EXE')">XX142 B2EXE</button>
+                        <button class="game-button" onclick="openGame('yoshifabrication/index.html', 'Yoshi Fabrication')">Yoshi Fabrication</button>
+                        <button class="game-button" onclick="openGame('you-are-bezos/index.html', 'You Are Bezos')">You Are Bezos</button>
+                        <button class="game-button" onclick="openGame('zig-zag/index.html', 'Zig Zag')">Zig Zag</button>
+                        <button class="game-button" onclick="openGame('zombocalypse/index.html', 'Zombocalypse')">Zombocalypse</button>
+                        <button class="game-button" onclick="openGame('zombs-royale/index.html', 'Zombs Royale')">Zombs Royale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings tab content -->
+        
+    </main>
+
+    <!-- Game modal overlay -->
+    <div id="game-modal" class="game-modal">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h3 id="game-title" class="game-modal-title">Game Title</h3>
+                <div class="game-modal-controls">
+                    <button id="game-fullscreen-btn" class="game-control-btn" title="Fullscreen Game">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </button>
+                    <button id="close-game-btn" class="game-control-btn" title="Close Game">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="game-iframe-container">
+                <iframe id="game-iframe" src="/placeholder.svg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                if (targetTab === 'settings') {
+                    window.location.href = 'settings.html';
+                    return;
+                }
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(`${targetTab}-tab`).classList.add('active');
+            });
+        });
+
+    
+
+        // Game search functionality
+        const searchInput = document.getElementById("search");
+        const gameCounter = document.getElementById("game-counter");
+        const gameButtons = document.getElementsByClassName("game-button");
+        
+        if (gameCounter) {
+            gameCounter.textContent = `${gameButtons.length} games available`;
+        }
+        
+        let searchTimeout;
+        if (searchInput) {
+            searchInput.addEventListener("input", () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchValue = searchInput.value.toLowerCase().trim();
+                    let visibleCount = 0;
+                    
+                    Array.from(gameButtons).forEach(button => {
+                        const buttonText = button.textContent.toLowerCase();
+                        const isVisible = buttonText.includes(searchValue);
+                        
+                        button.style.display = isVisible ? "" : "none";
+                        if (isVisible) visibleCount++;
+                    });
+                    
+                    if (searchValue === "") {
+                        gameCounter.textContent = `${gameButtons.length} games available`;
+                    } else {
+                        gameCounter.textContent = `${visibleCount} games found`;
+                    }
+                }, 150);
+            });
+
+            searchInput.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    searchInput.value = "";
+                    searchInput.dispatchEvent(new Event("input"));
+                    searchInput.blur();
+                }
+            });
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "/" && document.activeElement !== searchInput && searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Fullscreen functionality
+        const fullscreenToggle = document.getElementById("fullscreen-toggle");
+        const fullscreenText = document.querySelector(".fullscreen-text");
+        
+        if (fullscreenToggle) {
+            fullscreenToggle.addEventListener("click", () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Exit Fullscreen";
+                    }).catch(err => {
+                        console.log("[v0] Error attempting to enable fullscreen:", err);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        if (fullscreenText) fullscreenText.textContent = "Fullscreen";
+                    }).catch(err => {
+                        console.log("[v0] Error attempting to exit fullscreen:", err);
+                    });
+                }
+            });
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            if (fullscreenText) {
+                if (document.fullscreenElement) {
+                    fullscreenText.textContent = "Exit Fullscreen";
+                } else {
+                    fullscreenText.textContent = "Fullscreen";
+                }
+            }
+        });
+
+        // Game modal functionality
+        const gameModal = document.getElementById('game-modal');
+        const gameIframe = document.getElementById('game-iframe');
+        const gameTitle = document.getElementById('game-title');
+        const closeGameBtn = document.getElementById('close-game-btn');
+        const gameFullscreenBtn = document.getElementById('game-fullscreen-btn');
+
+        function openGame(gameUrl, gameName) {
+            gameTitle.textContent = gameName;
+            gameIframe.src = gameUrl;
+            gameModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGame() {
+            gameModal.style.display = 'none';
+            gameIframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function fullscreenGame() {
+            if (gameIframe.requestFullscreen) {
+                gameIframe.requestFullscreen();
+            } else if (gameIframe.webkitRequestFullscreen) {
+                gameIframe.webkitRequestFullscreen();
+            } else if (gameIframe.msRequestFullscreen) {
+                gameIframe.msRequestFullscreen();
+            }
+        }
+
+        closeGameBtn.addEventListener('click', closeGame);
+        gameFullscreenBtn.addEventListener('click', fullscreenGame);
+
+        gameModal.addEventListener('click', (e) => {
+            if (e.target === gameModal) {
+                closeGame();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && gameModal.style.display === 'flex') {
+                closeGame();
+            }
+        });
+
+        // Settings functionality
+
+        // Load saved settings on page load
+        window.addEventListener('load', () => {
+        });
+
+        // Panic mode functionality
+        document.addEventListener('keydown', (e) => {
+        });
+    </script>
+<footer class="watermark">
+    <p>made by chesco</p>
+</footer>
+</body>
+</html>
