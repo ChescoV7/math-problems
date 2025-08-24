@@ -260,14 +260,11 @@
             margin-top: 2rem;
         }
 
-        /* ... existing media queries ... */
     </style>
 </head>
 <body>
-    <!-- Removed restrictive navigation security that was causing redirects -->
     <script>
     (function() {
-        // Set auth token for this session to allow navigation
         sessionStorage.setItem('nebula_auth', 'true');
     })();
     </script>
@@ -288,7 +285,7 @@
             
             <div class="lock-message">
                 <h2>Enter Access Code</h2>
-                <p>Please provide your access code to unlock Nebula and continue to the gaming platform.</p>
+                <p>Please provide your access code to unlock Nebula.</p>
             </div>
             
             <form class="lock-form" onsubmit="checkCode(event)" aria-describedby="errorMessage">
@@ -302,7 +299,6 @@
                         autocomplete="off"
                         aria-label="Enter your access code"
                     >
-                    <!-- Removed icon from unlock button for cleaner appearance -->
                     <button type="submit" class="lock-button">
                         Unlock
                     </button>
@@ -310,7 +306,6 @@
             </form>
             
             <div id="errorMessage" class="error-message" style="display: none;" role="alert">
-                <!-- Removed error icon -->
                 Incorrect code. Please try again.
             </div>
             
