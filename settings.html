@@ -10,30 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Added proper navigation security that prevents direct URL access -->
     <script>
     (function() {
-        // Check if user came from a legitimate source
         const referrer = document.referrer;
         const hasAuth = sessionStorage.getItem('nebula_auth');
         const currentPath = window.location.pathname;
-        
-        // Allow access if:
-        // 1. User has auth token from previous navigation
-        // 2. User came from the index page (referrer check)
-        // 3. User came from another page within the site
+
         if (!hasAuth && !referrer.includes('index.html') && !referrer.includes(window.location.origin)) {
-            // Redirect to index if direct access attempt
             window.location.href = 'index.html';
             return;
         }
         
-        // Set auth token for future navigation
         sessionStorage.setItem('nebula_auth', 'true');
     })();
     </script>
 
-    <!-- Updated header to be more user-friendly and removed icons -->
     <header class="header">
         <div class="browser-bar">
             <div class="left-section">
@@ -122,7 +113,6 @@
             window.location.href = 'main.html';
         }
 
-        // Settings functionality
         function applyTabCloak() {
             const title = document.getElementById('tab-title').value;
             const icon = document.getElementById('tab-icon').value;
@@ -213,7 +203,6 @@
             }
         }
 
-        // Load saved settings on page load
         window.addEventListener('load', () => {
             const savedTitle = localStorage.getItem('cloaked-title');
             const savedIcon = localStorage.getItem('cloaked-icon');
@@ -227,7 +216,6 @@
             }
         });
 
-        // Panic mode functionality
         document.addEventListener('keydown', (e) => {
             const panicEnabled = document.getElementById('panic-enabled').checked;
             const panicKey = document.getElementById('panic-key').value;
