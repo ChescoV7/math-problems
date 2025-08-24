@@ -229,81 +229,6 @@
             animation: blink 2s infinite;
         }
 
-        .announcement-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .announcement-modal {
-            background: linear-gradient(to bottom, #ffffff, #f8f8f8);
-            border: 5px ridge #999;
-            padding: 30px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-        }
-
-        .announcement-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 0px #bbb;
-        }
-
-        .announcement-message {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .announcement-close {
-            background: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
-            color: #333;
-            border: 3px outset #999;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-family: "Times New Roman", Times, serif;
-            font-weight: bold;
-            text-shadow: 1px 1px 0px #fff;
-        }
-
-        .announcement-close:hover {
-            background: linear-gradient(to bottom, #d0d0d0, #e0e0e0);
-        }
-
-        .announcement-info {
-            background: linear-gradient(to bottom, #ffffcc, #ffff99);
-            border-left: 5px solid #ffcc00;
-        }
-
-        .announcement-warning {
-            background: linear-gradient(to bottom, #ffe6cc, #ffcc99);
-            border-left: 5px solid #ff9900;
-        }
-
-        .announcement-error {
-            background: linear-gradient(to bottom, #ffcccc, #ff9999);
-            border-left: 5px solid #ff0000;
-        }
-
-        .announcement-success {
-            background: linear-gradient(to bottom, #ccffcc, #99ff99);
-            border-left: 5px solid #00cc00;
-        }
-
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -320,14 +245,6 @@
     </style>
 </head>
 <body>
-    <div id="announcement-overlay" class="announcement-overlay">
-        <div id="announcement-modal" class="announcement-modal">
-            <h2 id="announcement-title" class="announcement-title"></h2>
-            <p id="announcement-message" class="announcement-message"></p>
-            <button id="announcement-close" class="announcement-close" onclick="closeAnnouncement()">Close</button>
-        </div>
-    </div>
-
     <div class="header">
         <h1 class="app-name">Educational Assessment Portal</h1>
         <div class="subtitle blink">Standardized Mathematics Testing System v2.1</div>
@@ -523,67 +440,10 @@
                 submitTest();
             }
         }
-        
-        window.addEventListener('load', () => {
-            updateTimer();
-            const inputs = document.querySelectorAll('input[type="radio"]');
-            inputs.forEach(input => input.addEventListener('change', updateProgress));
-            
-            checkForAnnouncements();
-            setInterval(checkForAnnouncements, 30000);
-        });
 
         function redirectToLocked() {
             sessionStorage.setItem('nebula_auth', 'true');
             window.location.href = 'locked.html';
-        }
-
-        let lastAnnouncementCheck = 0;
-        let dismissedAnnouncements = JSON.parse(localStorage.getItem('dismissedAnnouncements') || '[]');
-
-        async function checkForAnnouncements() {
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/chescov6/chescov6.github.io/main/announcements.json?t=' + Date.now());
-                const data = await response.json();
-                
-                if (data.active && data.message && data.timestamp > lastAnnouncementCheck) {
-                    if (!dismissedAnnouncements.includes(data.timestamp)) {
-                        showAnnouncement(data);
-                    }
-                    lastAnnouncementCheck = data.timestamp;
-                }
-            } catch (error) {
-                console.log('[v0] Announcement check failed:', error);
-            }
-        }
-
-        function showAnnouncement(data) {
-            const overlay = document.getElementById('announcement-overlay');
-            const modal = document.getElementById('announcement-modal');
-            const title = document.getElementById('announcement-title');
-            const message = document.getElementById('announcement-message');
-            const closeBtn = document.getElementById('announcement-close');
-            
-            title.textContent = data.title || 'System Announcement';
-            message.textContent = data.message;
-            
-            modal.className = 'announcement-modal announcement-' + (data.type || 'info');
-            
-            closeBtn.style.display = data.dismissible !== false ? 'inline-block' : 'none';
-            
-            overlay.style.display = 'flex';
-            
-            window.currentAnnouncementTimestamp = data.timestamp;
-        }
-
-        function closeAnnouncement() {
-            const overlay = document.getElementById('announcement-overlay');
-            overlay.style.display = 'none';
-            
-            if (window.currentAnnouncementTimestamp) {
-                dismissedAnnouncements.push(window.currentAnnouncementTimestamp);
-                localStorage.setItem('dismissedAnnouncements', JSON.stringify(dismissedAnnouncements));
-            }
         }
     </script>
 </body>
