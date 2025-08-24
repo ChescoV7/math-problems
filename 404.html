@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Arctic</title>
+    <title>404 - Page Not Found | Nebula</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Added navigation security check -->
+    <script>
+    (function() {
+        const validReferrers = ['index.html', 'main.html', 'settings.html', 'locked.html'];
+        const currentPage = window.location.pathname.split('/').pop();
+        const referrer = document.referrer.split('/').pop();
+        
+        // Check if user came from a valid page or if it's the first visit
+        if (!validReferrers.includes(referrer) && !sessionStorage.getItem('nebula_auth')) {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Set auth token for this session
+        sessionStorage.setItem('nebula_auth', 'true');
+    })();
+    </script>
+
     <header class="header">
         <div class="browser-bar">
             <div class="left-section">
-                <img src="logo.png" alt="Arctic Logo" class="logo">
-                <h1 class="app-name">Arctic</h1>
+                <img src="logo.png" alt="Nebula Logo" class="logo">
+                <h1 class="app-name">Nebula</h1>
             </div>
             
             <nav class="tab-navigation">
@@ -27,13 +45,7 @@
     <main class="main-content">
         <div class="error-container">
             <div class="error-content">
-                <div class="error-icon">
-                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
-                </div>
+                <!-- Removed error icon for cleaner look -->
                 <h1 class="error-title">404</h1>
                 <h2 class="error-subtitle">Page Not Found</h2>
                 <p class="error-description">
@@ -41,18 +53,11 @@
                     Let's get you back to the games!
                 </p>
                 <div class="error-actions">
+                    <!-- Removed icons from buttons for user-friendly appearance -->
                     <button class="error-btn primary" onclick="window.location.href='index.html'">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
-                        </svg>
                         Go Home
                     </button>
                     <button class="error-btn secondary" onclick="history.back()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m12 19-7-7 7-7"></path>
-                            <path d="M19 12H5"></path>
-                        </svg>
                         Go Back
                     </button>
                 </div>
