@@ -10,7 +10,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Redesigned header with browser-like layout -->
+    <script>
+    (function() {
+        const referrer = document.referrer;
+        const hasAuth = sessionStorage.getItem('nebula_auth');
+        const currentPath = window.location.pathname;
+        
+        if (!hasAuth && !referrer.includes('index.html') && !referrer.includes(window.location.origin)) {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        sessionStorage.setItem('nebula_auth', 'true');
+    })();
+    </script>
+
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <img src="logo.png" alt="Nebula Logo" class="welcome-logo-img">
+            </div>
+            <h1 class="welcome-title">Welcome to Nebula</h1>
+            <p class="welcome-subtitle">Your gaming adventure starts here</p>
+            <div class="welcome-loading">
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="browser-bar">
             <div class="left-section">
@@ -22,8 +53,6 @@
                 <button class="tab-btn active" data-tab="games">Games</button>
                 <button class="tab-btn" data-tab="settings">Settings</button>
             </nav>
-            
-            
         </div>
         <div class="subtitle-section">
             <p class="subtitle">6 7 🤡</p>
@@ -31,19 +60,11 @@
     </header>
 
     <main class="main-content">
-        <!-- Games tab content -->
         <div id="games-tab" class="tab-content active">
-            <!-- Enhanced search section with better visual design -->
             <div class="search-section">
                 <div class="search-container">
                     <div class="search-input-wrapper">
-                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
                         <input id="search" type="text" placeholder="Search for a game..." autocomplete="off">
-                        <div class="search-shortcut">
-                        </div>
                     </div>
                     <div class="game-count">
                         <span id="game-counter">Loading games...</span>
@@ -447,26 +468,19 @@
             </div>
         </div>
 
-        <!-- Settings tab content -->
         
     </main>
 
-    <!-- Game modal overlay -->
     <div id="game-modal" class="game-modal">
         <div class="game-modal-content">
             <div class="game-modal-header">
                 <h3 id="game-title" class="game-modal-title">Game Title</h3>
                 <div class="game-modal-controls">
                     <button id="game-fullscreen-btn" class="game-control-btn" title="Fullscreen Game">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                        </svg>
+                        Fullscreen
                     </button>
                     <button id="close-game-btn" class="game-control-btn" title="Close Game">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
+                        Close
                     </button>
                 </div>
             </div>
@@ -477,7 +491,19 @@
     </div>
 
     <script>
-        // Tab functionality
+        window.addEventListener('load', () => {
+            const welcomeScreen = document.getElementById('welcome-screen');
+            
+            const fadeOut = () => {
+                welcomeScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    welcomeScreen.remove();
+                }, 800);
+            };
+            
+            setTimeout(fadeOut, 3000);
+        });
+
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
 
@@ -500,7 +526,6 @@
 
     
 
-        // Game search functionality
         const searchInput = document.getElementById("search");
         const gameCounter = document.getElementById("game-counter");
         const gameButtons = document.getElementsByClassName("game-button");
@@ -549,7 +574,6 @@
             }
         });
 
-        // Fullscreen functionality
         const fullscreenToggle = document.getElementById("fullscreen-toggle");
         const fullscreenText = document.querySelector(".fullscreen-text");
         
@@ -581,7 +605,6 @@
             }
         });
 
-        // Game modal functionality
         const gameModal = document.getElementById('game-modal');
         const gameIframe = document.getElementById('game-iframe');
         const gameTitle = document.getElementById('game-title');
@@ -626,13 +649,10 @@
             }
         });
 
-        // Settings functionality
 
-        // Load saved settings on page load
         window.addEventListener('load', () => {
         });
 
-        // Panic mode functionality
         document.addEventListener('keydown', (e) => {
         });
     </script>
@@ -641,5 +661,3 @@
 </footer>
 </body>
 </html>
-
-
