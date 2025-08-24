@@ -10,7 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Updated header to match main page layout exactly -->
+    <!-- Added proper navigation security that prevents direct URL access -->
+    <script>
+    (function() {
+        // Check if user came from a legitimate source
+        const referrer = document.referrer;
+        const hasAuth = sessionStorage.getItem('nebula_auth');
+        const currentPath = window.location.pathname;
+        
+        // Allow access if:
+        // 1. User has auth token from previous navigation
+        // 2. User came from the index page (referrer check)
+        // 3. User came from another page within the site
+        if (!hasAuth && !referrer.includes('index.html') && !referrer.includes(window.location.origin)) {
+            // Redirect to index if direct access attempt
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Set auth token for future navigation
+        sessionStorage.setItem('nebula_auth', 'true');
+    })();
+    </script>
+
+    <!-- Updated header to be more user-friendly and removed icons -->
     <header class="header">
         <div class="browser-bar">
             <div class="left-section">
@@ -24,7 +47,7 @@
             </nav>
         </div>
         <div class="subtitle-section">
-            <p class="subtitle">6 7 🤡</p>
+            <p class="subtitle">Customize Your Experience</p>
         </div>
     </header>
 
@@ -34,6 +57,7 @@
             
             <div class="settings-section">
                 <h3>Tab Cloaking</h3>
+                <p class="section-description">Disguise your browser tab to look like other websites</p>
                 <div class="settings-form">
                     <div class="form-group">
                         <label for="tab-title">Tab Title</label>
@@ -52,6 +76,7 @@
 
             <div class="settings-section">
                 <h3>Panic Mode</h3>
+                <p class="section-description">Quickly redirect to a safe website when needed</p>
                 <div class="settings-form">
                     <div class="form-group">
                         <label for="panic-key">Panic Key</label>
@@ -82,6 +107,7 @@
 
             <div class="settings-section">
                 <h3>Export/Import Settings</h3>
+                <p class="section-description">Backup and restore your configuration</p>
                 <div class="button-group">
                     <button class="settings-button" onclick="exportSettings()">Export Settings</button>
                     <button class="settings-button secondary" onclick="importSettings()">Import Settings</button>
@@ -218,4 +244,3 @@
     </footer>
 </body>
 </html>
-
