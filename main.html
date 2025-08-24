@@ -79,6 +79,12 @@
         .announcement-success {
             background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
         }
+
+        .app-name {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
     </style>
 </head>
 <body>
@@ -126,7 +132,7 @@
         <div class="browser-bar">
             <div class="left-section">
                 <img src="logo.png" alt="Nebula Logo" class="logo">
-                <h1 class="app-name">Nebula</h1>
+                <a href="main.html" class="app-name"><h1>Nebula</h1></a>
             </div>
             
             <nav class="tab-navigation">
@@ -732,7 +738,6 @@
                 closeGame();
             }
         });
-
 
         window.addEventListener('load', () => {
         });
