@@ -9,77 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .announcement-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .announcement-modal {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: 2px solid #fff;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
-
-        .announcement-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .announcement-message {
-            font-size: 16px;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .announcement-close {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .announcement-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .announcement-info {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .announcement-warning {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-
-        .announcement-error {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-        }
-
-        .announcement-success {
-            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
-        }
-
         .app-name {
             cursor: pointer;
             text-decoration: none;
@@ -88,12 +17,6 @@
     </style>
 </head>
 <body>
-    <div id="announcement-overlay" class="announcement-overlay">
-        <div id="announcement-modal" class="announcement-modal">
-            <h2 id="announcement-title" class="announcement-title"></h2>
-            <p id="announcement-message" class="announcement-message"></p>
-            <button id="announcement-close" class="announcement-close" onclick="closeAnnouncement()">Close</button>
-        </div>
     </div>
 
     <script>
@@ -591,9 +514,6 @@
             };
             
             setTimeout(fadeOut, 3000);
-            
-            checkForAnnouncements();
-            setInterval(checkForAnnouncements, 30000);
         });
 
         const tabButtons = document.querySelectorAll('.tab-btn');
@@ -738,57 +658,10 @@
                 closeGame();
             }
         });
-
-        let lastAnnouncementCheck = 0;
-        let dismissedAnnouncements = JSON.parse(localStorage.getItem('dismissedAnnouncements') || '[]');
-
-        async function checkForAnnouncements() {
-            try {
-                const response = await fetch('https://raw.githubusercontent.com/chescov6/chescov6.github.io/main/announcements.json?t=' + Date.now());
-                const data = await response.json();
-                
-                if (data.active && data.message && data.timestamp > lastAnnouncementCheck) {
-                    if (!dismissedAnnouncements.includes(data.timestamp)) {
-                        showAnnouncement(data);
-                    }
-                    lastAnnouncementCheck = data.timestamp;
-                }
-            } catch (error) {
-                console.log('[v0] Announcement check failed:', error);
-            }
-        }
-
-        function showAnnouncement(data) {
-            const overlay = document.getElementById('announcement-overlay');
-            const modal = document.getElementById('announcement-modal');
-            const title = document.getElementById('announcement-title');
-            const message = document.getElementById('announcement-message');
-            const closeBtn = document.getElementById('announcement-close');
-            
-            title.textContent = data.title || 'System Announcement';
-            message.textContent = data.message;
-            
-            modal.className = 'announcement-modal announcement-' + (data.type || 'info');
-            
-            closeBtn.style.display = data.dismissible !== false ? 'inline-block' : 'none';
-            
-            overlay.style.display = 'flex';
-            
-            window.currentAnnouncementTimestamp = data.timestamp;
-        }
-
-        function closeAnnouncement() {
-            const overlay = document.getElementById('announcement-overlay');
-            overlay.style.display = 'none';
-            
-            if (window.currentAnnouncementTimestamp) {
-                dismissedAnnouncements.push(window.currentAnnouncementTimestamp);
-                localStorage.setItem('dismissedAnnouncements', JSON.stringify(dismissedAnnouncements));
-            }
-        }
     </script>
     <footer class="watermark">
         <p>made by chesco</p>
     </footer>
 </body>
 </html>
+
