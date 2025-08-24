@@ -553,8 +553,6 @@
                 </div>
             </div>
         </div>
-
-        
     </main>
 
     <div id="game-modal" class="game-modal">
@@ -563,10 +561,15 @@
                 <h3 id="game-title" class="game-modal-title">Game Title</h3>
                 <div class="game-modal-controls">
                     <button id="game-fullscreen-btn" class="game-control-btn" title="Fullscreen Game">
-                        Fullscreen
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
                     </button>
                     <button id="close-game-btn" class="game-control-btn" title="Close Game">
-                        Close
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -587,7 +590,6 @@
                 }, 800);
             };
             
-            // Auto-fade after 3 seconds
             setTimeout(fadeOut, 3000);
             
             checkForAnnouncements();
@@ -613,8 +615,6 @@
                 document.getElementById(`${targetTab}-tab`).classList.add('active');
             });
         });
-
-    
 
         const searchInput = document.getElementById("search");
         const gameCounter = document.getElementById("game-counter");
@@ -739,12 +739,6 @@
             }
         });
 
-        window.addEventListener('load', () => {
-        });
-
-        document.addEventListener('keydown', (e) => {
-        });
-
         let lastAnnouncementCheck = 0;
         let dismissedAnnouncements = JSON.parse(localStorage.getItem('dismissedAnnouncements') || '[]');
 
@@ -793,8 +787,8 @@
             }
         }
     </script>
-<footer class="watermark">
-    <p>made by chesco</p>
-</footer>
+    <footer class="watermark">
+        <p>made by chesco</p>
+    </footer>
 </body>
 </html>
