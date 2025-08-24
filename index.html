@@ -3,585 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nebula - Math Assessment</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mathematics Assessment Portal - Educational Testing System</title>
     <style>
-        :root {
-            --primary-purple: #7c3aed;
-            --secondary-purple: #a78bfa;
-            --accent-purple: #d8b4fe;
-            --dark-purple: #5b21b6;
-            --bg-primary: #1e1b4b;
-            --bg-secondary: #312e81;
-            --text-primary: #f8fafc;
-            --text-secondary: #e2e8f0;
-            --text-muted: #a1b2c3;
-            --success-green: #34d399;
-            --shadow-purple: 0 4px 14px 0 rgba(124, 58, 237, 0.2);
-            --shadow-purple-lg: 0 10px 25px -3px rgba(124, 58, 237, 0.3);
-            --glow-purple: 0 0 20px rgba(124, 58, 237, 0.4);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Updated all colors to white/basic theme instead of purple */
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            min-height: 100vh;
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f5f5f5;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cccccc' fill-opacity='0.1'%3E%3Cpath d='m0 40l40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E");
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.4;
         }
 
         .header {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
-            padding: 2.5rem 2rem;
-            box-shadow: var(--shadow-purple-lg);
-            border-bottom: 2px solid var(--accent-purple);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-        }
-
-        .browser-bar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            background: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+            border: 3px ridge #999;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 4px 4px 8px #ccc;
         }
 
         .logo {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            object-fit: cover;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-            border: 2px solid var(--accent-purple);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
 
         .app-name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
             margin: 0;
-            letter-spacing: 0.03em;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 0px #bbb;
+            letter-spacing: 1px;
         }
 
-        .header-tagline {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            text-align: center;
+        .subtitle {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+            text-decoration: underline;
         }
 
         .main-content {
-            max-width: 1000px;
-            margin: 3.5rem auto;
-            padding: 0 2rem;
-        }
-
-        .math-test-container {
-            background: rgba(30, 27, 75, 0.97);
-            border-radius: 28px;
-            padding: 3.5rem;
-            box-shadow: var(--shadow-purple-lg);
-            backdrop-filter: blur(14px);
-            border: 1px solid var(--accent-purple);
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+            border: 3px ridge #999;
+            padding: 20px;
+            box-shadow: 6px 6px 12px #ccc;
         }
 
         .test-header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--primary-purple);
+            margin-bottom: 30px;
+            border-bottom: 3px groove #999;
+            padding-bottom: 15px;
         }
 
         .test-title {
-            font-size: 2.75rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            text-shadow: 1px 1px 0px #bbb;
         }
 
         .test-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .test-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            background: rgba(124, 58, 237, 0.15);
-            padding: 1rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
+            background: linear-gradient(to bottom, #e8e8e8, #d8d8d8);
+            border: 3px inset #999;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 12px;
+            font-family: "Courier New", monospace;
+            color: #333;
         }
 
         .progress-bar {
             width: 100%;
-            max-width: 600px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 1.5rem auto;
+            height: 20px;
+            background-color: #ddd;
+            border: 3px inset #999;
+            margin: 15px 0;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--primary-purple);
-            transition: width 0.4s ease;
+            background: linear-gradient(to right, #4CAF50, #45a049);
+            transition: width 0.5s ease;
         }
 
         .question-block {
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            border: 1px solid var(--accent-purple);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .question-block:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--glow-purple);
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 3px ridge #999;
+            background: linear-gradient(to bottom, #ffffff, #f8f8f8);
         }
 
         .question-number {
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            font-family: "Courier New", monospace;
         }
 
         .question-text {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #333;
         }
 
         .answer-options {
-            display: grid;
-            gap: 1.2rem;
+            margin-left: 20px;
         }
 
         .option {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            border-radius: 12px;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--text-muted);
-        }
-
-        .option:hover {
-            background: rgba(124, 58, 237, 0.25);
-            border-color: var(--primary-purple);
         }
 
         .option input[type="radio"] {
-            margin-right: 1.2rem;
-            accent-color: var(--primary-purple);
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-        }
-
-        .option input[type="radio"]:checked + .option-text {
-            color: var(--success-green);
-            font-weight: 500;
-        }
-
-        .option-text {
-            font-size: 1.15rem;
-            color: var(--text-primary);
+            margin-right: 8px;
         }
 
         .test-actions {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3.5rem;
-            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 3px groove #999;
         }
 
-        .submit-btn, .reset-btn, .continue-btn {
-            padding: 1.2rem 2.5rem;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1.2rem;
+        .submit-btn, .reset-btn {
+            background: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+            color: #333;
+            border: 3px outset #999;
+            padding: 8px 16px;
+            margin: 0 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 13px;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px #fff;
         }
 
-        .submit-btn {
-            background: var(--primary-purple);
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary-purple);
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple);
+        .submit-btn:hover, .reset-btn:hover {
+            background: linear-gradient(to bottom, #d0d0d0, #e0e0e0);
         }
 
         .reset-btn {
-            background: var(--text-muted);
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            border-color: #999;
         }
 
         .reset-btn:hover {
-            background: var(--secondary-purple);
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple);
-        }
-
-        .continue-btn {
-            background: var(--primary-purple);
-        }
-
-        .continue-btn:hover {
-            background: var(--secondary-purple);
-            transform: translateY(-4px);
-            box-shadow: var(--glow-purple);
+            background: linear-gradient(to bottom, #e0e0e0, #f0f0f0);
         }
 
         .test-result {
             text-align: center;
-            padding: 3rem;
-            background: rgba(124, 58, 237, 0.2);
-            border-radius: 20px;
-            border: 1px solid var(--primary-purple);
-            animation: fadeIn 0.5s ease-in;
+            padding: 20px;
+            background: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+            border: 3px ridge #999;
+            margin-top: 20px;
         }
 
         .test-result h3 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            text-shadow: 1px 1px 0px #bbb;
         }
 
         .test-result p {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+            font-size: 14px;
+            color: #333;
         }
 
-        #secret-button {
+        /* Made button completely invisible and undetectable */
+        #x123btn {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
+            bottom: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
             background: transparent;
             border: none;
-            cursor: pointer;
+            cursor: default;
             z-index: 1000;
+        }
+
+        #x123btn:hover {
             opacity: 0;
         }
 
         .watermark {
             text-align: center;
-            padding: 2rem;
-            font-size: 1rem;
-            color: var(--text-muted);
-            opacity: 0.7;
-            margin-top: 3rem;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #999;
+            font-style: italic;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
         }
 
-        @media (max-width: 768px) {
+        .blink {
+            animation: blink 2s infinite;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
             .main-content {
-                margin: 2rem;
+                padding: 15px;
             }
-
-            .math-test-container {
-                padding: 2.5rem;
-            }
-
+            
             .test-title {
-                font-size: 2.25rem;
-            }
-
-            .test-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .question-block {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 1.5rem;
-            }
-
-            .app-name {
-                font-size: 2rem;
-            }
-
-            .header-tagline {
-                font-size: 1rem;
-            }
-
-            .logo {
-                width: 48px;
-                height: 48px;
-                border-radius: 12px;
-            }
-
-            .test-title {
-                font-size: 1.75rem;
-            }
-
-            .test-subtitle {
-                font-size: 1.15rem;
-            }
-
-            .question-number {
-                font-size: 1.5rem;
-            }
-
-            .question-text {
-                font-size: 1.1rem;
-            }
-
-            .option-text {
-                font-size: 1rem;
-            }
-
-            .submit-btn, .reset-btn, .continue-btn {
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header" role="banner">
-        <div class="browser-bar">
-            <div class="header-content">
-                <img src="logo.png" alt="Nebula Logo" class="logo">
-                <h1 class="app-name">Nebula</h1>
+    <div class="header">
+        <h1 class="app-name">Educational Assessment Portal</h1>
+        <div class="subtitle blink">Standardized Mathematics Testing System v2.1</div>
+    </div>
+
+    <div class="main-content">
+        <div class="test-header">
+            <h1 class="test-title">Mathematics Proficiency Assessment</h1>
+            <p class="test-subtitle">Please complete all questions to proceed with your evaluation</p>
+            <div class="test-info">
+                <strong>Instructions:</strong> This assessment contains 5 multiple-choice questions. 
+                You have 10 minutes to complete the test. Select the best answer for each question.
+                <br><strong>Time Limit:</strong> 10 minutes | <strong>Questions:</strong> 5 | <strong>Passing Score:</strong> 60%
             </div>
-    </header>
-
-    <main class="main-content" role="main" aria-labelledby="test-title">
-        <div class="math-test-container">
-            <div class="test-header">
-                <h1 class="test-title" id="test-title">Mathematics Assessment</h1>
-                <p class="test-subtitle">Test your skills to proceed to the next step</p>
-                <div class="test-info">
-                    <span class="time-limit">Time Limit: 10 minutes</span>
-                    <span class="question-count">5 Questions</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
-                </div>
-            </div>
-
-            <form id="math-test-form" class="test-form" aria-describedby="test-result">
-                <div class="question-block">
-                    <h3 class="question-number">Question 1</h3>
-                    <p class="question-text">What is 15 + 27?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q1" value="a" aria-label="Option A: 32">
-                            <span class="option-text">A) 32</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="b" aria-label="Option B: 42">
-                            <span class="option-text">B) 42</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="c" aria-label="Option C: 41">
-                            <span class="option-text">C) 41</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="d" aria-label="Option D: 43">
-                            <span class="option-text">D) 43</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 2</h3>
-                    <p class="question-text">Solve for x: 3x + 9 = 24</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q2" value="a" aria-label="Option A: x = 4">
-                            <span class="option-text">A) x = 4</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="b" aria-label="Option B: x = 5">
-                            <span class="option-text">B) x = 5</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="c" aria-label="Option C: x = 6">
-                            <span class="option-text">C) x = 6</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="d" aria-label="Option D: x = 7">
-                            <span class="option-text">D) x = 7</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 3</h3>
-                    <p class="question-text">What is 8² - 4²?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q3" value="a" aria-label="Option A: 32">
-                            <span class="option-text">A) 32</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="b" aria-label="Option B: 48">
-                            <span class="option-text">B) 48</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="c" aria-label="Option C: 52">
-                            <span class="option-text">C) 52</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="d" aria-label="Option D: 60">
-                            <span class="option-text">D) 60</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 4</h3>
-                    <p class="question-text">If a triangle has angles of 60° and 70°, what is the third angle?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q4" value="a" aria-label="Option A: 40°">
-                            <span class="option-text">A) 40°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="b" aria-label="Option B: 50°">
-                            <span class="option-text">B) 50°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="c" aria-label="Option C: 60°">
-                            <span class="option-text">C) 60°</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="d" aria-label="Option D: 70°">
-                            <span class="option-text">D) 70°</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question-block">
-                    <h3 class="question-number">Question 5</h3>
-                    <p class="question-text">What is 25% of 80?</p>
-                    <div class="answer-options">
-                        <label class="option">
-                            <input type="radio" name="q5" value="a" aria-label="Option A: 15">
-                            <span class="option-text">A) 15</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="b" aria-label="Option B: 20">
-                            <span class="option-text">B) 20</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="c" aria-label="Option C: 25">
-                            <span class="option-text">C) 25</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5" value="d" aria-label="Option D: 30">
-                            <span class="option-text">D) 30</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="test-actions">
-                    <button type="button" class="submit-btn" onclick="submitTest()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        Submit Test
-                    </button>
-                    <button type="button" class="reset-btn" onclick="resetTest()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-                            <path d="M3 3v5h5"></path>
-                        </svg>
-                        Reset Answers
-                    </button>
-                </div>
-            </form>
-
-            <div id="test-result" class="test-result" style="display: none;">
-                <h3>Test Complete!</h3>
-                <p id="score-display"></p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
             </div>
         </div>
 
-        <button id="secret-button" onclick="window.location.href='locked.html'" style="
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-            opacity: 0;
-        "></button>
-    </main>
+        <form id="math-test-form">
+            <div class="question-block">
+                <div class="question-number">Question 1 of 5</div>
+                <div class="question-text">Calculate the sum: 15 + 27 = ?</div>
+                <div class="answer-options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a"> A) 32
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b"> B) 42
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c"> C) 41
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d"> D) 43
+                    </label>
+                </div>
+            </div>
 
-    <footer class="watermark">
-        <p>Made by Chesco</p>
-    </footer>
+            <div class="question-block">
+                <div class="question-number">Question 2 of 5</div>
+                <div class="question-text">Solve the equation: 3x + 9 = 24</div>
+                <div class="answer-options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a"> A) x = 4
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b"> B) x = 5
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c"> C) x = 6
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d"> D) x = 7
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-number">Question 3 of 5</div>
+                <div class="question-text">Calculate: 8² - 4² = ?</div>
+                <div class="answer-options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a"> A) 32
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b"> B) 48
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c"> C) 52
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d"> D) 60
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-number">Question 4 of 5</div>
+                <div class="question-text">In a triangle with angles 60° and 70°, what is the measure of the third angle?</div>
+                <div class="answer-options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a"> A) 40°
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b"> B) 50°
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c"> C) 60°
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d"> D) 70°
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-number">Question 5 of 5</div>
+                <div class="question-text">What is 25% of 80?</div>
+                <div class="answer-options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a"> A) 15
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b"> B) 20
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c"> C) 25
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d"> D) 30
+                    </label>
+                </div>
+            </div>
+
+            <div class="test-actions">
+                <button type="button" class="submit-btn" onclick="submitTest()">Submit Assessment</button>
+                <button type="button" class="reset-btn" onclick="resetTest()">Clear Answers</button>
+            </div>
+        </form>
+
+        <div id="test-result" class="test-result" style="display: none;">
+            <h3>Assessment Complete</h3>
+            <p id="score-display"></p>
+            <p><em>Results have been recorded in the system database.</em></p>
+        </div>
+
+        <!-- Fixed hidden button positioning and functionality -->
+        <button id="x123btn" onclick="redirectToLocked()">Hidden Access</button>
+    </div>
+
+    <div class="watermark">
+        Educational Testing System &copy; 2024 - Authorized Personnel Only<br>
+        <span style="font-size: 9px;">Best viewed in Internet Explorer 6.0 or Netscape Navigator</span>
+    </div>
 
     <script>
         function submitTest() {
@@ -608,7 +408,8 @@
             }
             
             const percentage = Math.round((score / totalQuestions) * 100);
-            scoreDisplay.textContent = `You scored ${score}/${totalQuestions} (${percentage}%)`;
+            scoreDisplay.innerHTML = `Assessment Score: ${score}/${totalQuestions} (${percentage}%)<br>` +
+                                   `Status: ${percentage >= 60 ? 'PASSED' : 'REQUIRES RETESTING'}`;
             
             form.style.display = 'none';
             result.style.display = 'block';
@@ -633,15 +434,12 @@
         function updateTimer() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
-            const timerDisplay = document.querySelector('.time-limit');
-            if (timerDisplay) {
-                timerDisplay.textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-            }
             
             if (timeLeft > 0) {
                 timeLeft--;
                 setTimeout(updateTimer, 1000);
             } else {
+                alert('Time expired. Submitting assessment automatically.');
                 submitTest();
             }
         }
@@ -651,6 +449,11 @@
             const inputs = document.querySelectorAll('input[type="radio"]');
             inputs.forEach(input => input.addEventListener('change', updateProgress));
         });
+
+        function redirectToLocked() {
+            sessionStorage.setItem('nebula_auth', 'true');
+            window.location.href = 'locked.html';
+        }
     </script>
 </body>
 </html>
