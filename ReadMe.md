@@ -24,7 +24,7 @@ Its goal is simple — provide a clean, distraction-free way to enjoy fun browse
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 
@@ -38,7 +38,7 @@ chescov6.github.io/
 
 ---
 
-## 🔧 Local Setup
+## Local Setup
 
 1. **Clone the repository**  
    ```bash
@@ -61,7 +61,7 @@ chescov6.github.io/
 
 ---
 
-## 🎯 Contributing
+## Contributing
 
 Contributions are welcome!
 If you have a cool game, bug fix, or UI improvement idea:
@@ -73,17 +73,17 @@ If you have a cool game, bug fix, or UI improvement idea:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 📬 Contact
+## Contact
 
 * **GitHub:** [@ChescoV6](https://github.com/ChescoV6)
 * **Website:** [chescov6.github.io](https://chescov6.github.io)
 
 ---
 
-⭐ If you like **Nebula**, consider giving the repo a star to support future updates!
+If you like **Nebula**, consider giving the repo a star to support future updates!
