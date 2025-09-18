@@ -45,6 +45,8 @@ chescov6.github.io/
    git clone https://github.com/ChescoV6/chescov6.github.io.git
    cd chescov6.github.io
 ````
+````
+
 
 2. **Open locally**
    Simply open `index.html` in your browser.
@@ -53,6 +55,8 @@ chescov6.github.io/
    ```bash
    python3 -m http.server 8000
    ```
+````
+````
 
 3. **Add a new game**
 
@@ -60,6 +64,8 @@ chescov6.github.io/
    * Update links in `index.html` so it appears in the menu
 
 ---
+````
+````
 
 ## Contributing
 
@@ -70,6 +76,8 @@ If you have a cool game, bug fix, or UI improvement idea:
 2. Create a branch (`git checkout -b feature/my-feature`)
 3. Commit your changes
 4. Open a Pull Request
+````
+````
 
 ---
 
@@ -78,12 +86,17 @@ If you have a cool game, bug fix, or UI improvement idea:
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
+````
+````
 
 ## Contact
 
 * **GitHub:** [@ChescoV6](https://github.com/ChescoV6)
 * **Website:** [chescov6.github.io](https://chescov6.github.io)
+````
+````
 
 ---
 
 If you like **Nebula**, consider giving the repo a star to support future updates!
+````
