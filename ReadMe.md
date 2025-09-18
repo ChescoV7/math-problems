@@ -56,7 +56,7 @@ chescov6.github.io/
    python3 -m http.server 8000
    ```
 ````
-````
+
 
 3. **Add a new game**
 
@@ -65,7 +65,7 @@ chescov6.github.io/
 
 ---
 ````
-````
+
 
 ## Contributing
 
@@ -77,8 +77,6 @@ If you have a cool game, bug fix, or UI improvement idea:
 3. Commit your changes
 4. Open a Pull Request
 ````
-````
-
 ---
 
 ## License
@@ -87,13 +85,11 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ---
 ````
-````
 
 ## Contact
 
 * **GitHub:** [@ChescoV6](https://github.com/ChescoV6)
 * **Website:** [chescov6.github.io](https://chescov6.github.io)
-````
 ````
 
 ---
